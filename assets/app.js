@@ -11,7 +11,7 @@
   });
   menu.addEventListener('click', event => { if (event.target.closest('a')) closeMenu(); });
   document.addEventListener('keydown', event => { if (event.key === 'Escape' && menu.classList.contains('is-open')) { closeMenu(); toggle.focus(); } });
-  matchMedia('(min-width: 961px)').addEventListener('change', closeMenu);
+  matchMedia('(min-width: 1201px)').addEventListener('change', closeMenu);
 
   function externalUrl(value) {
     try { const url = new URL(value); return url.protocol === 'https:' ? url.href : ''; } catch { return ''; }
