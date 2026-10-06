@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   const config = window.PAVEL_CONFIG;
-  // Posição fixa inicial na área branca abaixo da capa, à direita da faixa.
+  // Posição fixa inicial dentro da faixa de especialidades, na extremidade direita.
   const floatingWhatsapp = document.querySelector('.whatsapp-floating');
   const heroCover = document.querySelector('.hero-cover img');
   function positionFloatingWhatsapp() {
@@ -9,6 +9,8 @@
       floatingWhatsapp.style.removeProperty('--whatsapp-side-size');
       floatingWhatsapp.style.removeProperty('--whatsapp-side-right');
       floatingWhatsapp.style.removeProperty('--whatsapp-region-top');
+      floatingWhatsapp.style.removeProperty('--whatsapp-band-right');
+      floatingWhatsapp.style.removeProperty('--whatsapp-band-center');
       return;
     }
     const gap = Math.max(0, document.documentElement.clientWidth - heroCover.getBoundingClientRect().right);
@@ -16,10 +18,9 @@
     const size = Math.min(64, Math.max(16, gap - 8));
     floatingWhatsapp.style.setProperty('--whatsapp-side-size', `${size}px`);
     const band = document.querySelector('.hero-disciplines').getBoundingClientRect();
-    const cover = heroCover.getBoundingClientRect();
-    floatingWhatsapp.style.setProperty('--whatsapp-side-right', `${document.documentElement.clientWidth - band.right + 16}px`);
-    const center = Math.max(cover.bottom + window.scrollY + size / 2 + 8, band.bottom + window.scrollY - size / 2 - 8);
-    floatingWhatsapp.style.setProperty('--whatsapp-region-top', `${center}px`);
+    floatingWhatsapp.style.setProperty('--whatsapp-band-right', `${document.documentElement.clientWidth - band.right + 16}px`);
+    const center = (band.top + band.bottom) / 2 + window.scrollY;
+    floatingWhatsapp.style.setProperty('--whatsapp-band-center', `${center}px`);
   }
   new ResizeObserver(positionFloatingWhatsapp).observe(document.querySelector('.hero-cover'));
   window.addEventListener('resize', positionFloatingWhatsapp, { passive: true });
