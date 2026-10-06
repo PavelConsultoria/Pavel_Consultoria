@@ -203,4 +203,15 @@
   .hero-actions .button { width: auto; max-width: 100%; }
   .hero-actions .text-link { width: auto; }
 }
+/* Ajustes pontuais: fundo do cabeçalho e presença do ícone flutuante. */
+.site-header { background: #f7f8f6; }
+.whatsapp-floating { width: 68px; height: 68px; }
+@media (min-width: 701px) and (max-width: 1350px) {
+  .whatsapp-floating { width: 68px; height: 68px; }
+  .whatsapp-floating img { width: 64px; }
+}
+@media (max-width: 700px) {
+  .whatsapp-floating { width: 54px; height: 54px; }
+  .whatsapp-floating img { width: 46px; }
+}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
