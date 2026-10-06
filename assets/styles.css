@@ -101,4 +101,35 @@
   nav.is-open { display: flex; flex-wrap: wrap; gap: 12px 24px; }
   nav > a { min-height: 44px; }
 }
+/* Acabamento pontual do cabeçalho, hero e blocos de atuação/treinamentos. */
+.site-header .brand { width: 240px; }
+.brand-image { display: block; width: 100%; height: auto; }
+.header-inner { padding-block: 12px; }
+.site-header .button-small { min-height: 48px; padding: 11px 20px; font-size: 17px; }
+.hero > * { min-width: 0; }
+.hero-cover { width: 100%; }
+.hero-cover img { display: block; width: 100%; height: auto; border-radius: 4px; }
+.training-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.training { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; }
+.training-top { flex-shrink: 0; }
+.training-interface { width: 100%; min-width: 0; margin-top: auto; }
+.training > .text-link { margin-bottom: 22px; }
+.training-interface img { max-width: 100%; }
+@media (min-width: 961px) {
+  .expertise .section-heading, .expertise .service { grid-template-columns: 32px minmax(0, 1fr) 46px; column-gap: 20px; }
+  .expertise .section-heading > div { max-width: 100%; }
+}
+@media (min-width: 1201px) and (max-width: 1350px) {
+  .header-inner { padding-inline: 24px; gap: 18px; }
+  .site-header .brand { width: 200px; }
+  .site-header nav { gap: 12px; }
+}
+@media (max-width: 960px) {
+  .site-header .brand { width: 200px; }
+}
+@media (max-width: 700px) {
+  .site-header .brand { width: 174px; }
+  .training-grid { grid-template-columns: minmax(0, 1fr); }
+  .training > .text-link { margin-bottom: 18px; }
+}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
