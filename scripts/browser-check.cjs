@@ -1,0 +1,89 @@
+// Verificação opcional com Chrome instalado; usa somente o protocolo nativo CDP.
+const { spawn } = require('node:child_process');
+const fs = require('node:fs');
+const path = require('node:path');
+const assert = require('node:assert/strict');
+const root = path.resolve(__dirname, '..');
+const preview = path.join(root, '.preview');
+fs.mkdirSync(preview, { recursive: true });
+const chrome = process.env.CHROME_PATH || 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
+const child = spawn(chrome, ['--headless=new', '--disable-gpu', '--no-first-run', '--no-default-browser-check', '--remote-debugging-port=9223', `--user-data-dir=${path.join(preview, 'chrome-profile')}`, 'about:blank'], { stdio: 'ignore', windowsHide: true });
+const pause = ms => new Promise(resolve => setTimeout(resolve, ms));
+let socket;
+async function main() {
+  let target;
+  for (let i = 0; i < 50; i++) {
+    try { target = (await (await fetch('http://127.0.0.1:9223/json')).json()).find(item => item.type === 'page'); if (target) break; } catch {}
+    await pause(100);
+  }
+  assert(target, 'Chrome headless não iniciou');
+  socket = new WebSocket(target.webSocketDebuggerUrl);
+  await new Promise((resolve, reject) => { socket.onopen = resolve; socket.onerror = reject; });
+  let nextId = 0;
+  const pending = new Map(), errors = [];
+  let fixture = false;
+  function send(method, params = {}) {
+    return new Promise((resolve, reject) => {
+      const id = ++nextId; pending.set(id, { resolve, reject }); socket.send(JSON.stringify({ id, method, params }));
+    });
+  }
+  socket.onmessage = event => {
+    const data = JSON.parse(event.data);
+    if (data.id) {
+      const promise = pending.get(data.id); pending.delete(data.id);
+      if (data.error) promise.reject(new Error(data.error.message)); else promise.resolve(data.result);
+    }
+    if (data.method === 'Runtime.exceptionThrown') errors.push(data.params.exceptionDetails.text);
+    if (data.method === 'Fetch.requestPaused') {
+      const source = fs.readFileSync(path.join(root, 'assets/config.js'), 'utf8');
+      // Dados sintéticos exclusivos do teste, nunca gravados na configuração publicada.
+      const extra = fixture ? `\nPAVEL_CONFIG.classes = [{ date: new Intl.DateTimeFormat('sv-SE', {timeZone:'America/Sao_Paulo'}).format(new Date()), course:'msp', time:'HORÁRIO DE TESTE', modality:'MODALIDADE DE TESTE', status:'TESTE' },{date:new Intl.DateTimeFormat('sv-SE',{timeZone:'America/Sao_Paulo'}).format(new Date()),course:'p6',time:'TESTE',modality:'TESTE',status:'TESTE'}]; PAVEL_CONFIG.whatsappNumber='5511999999999'; PAVEL_CONFIG.forms.msp='https://example.com/form';` : '';
+      send('Fetch.fulfillRequest', { requestId: data.params.requestId, responseCode: 200, responseHeaders: [{ name: 'Content-Type', value: 'text/javascript; charset=utf-8' }], body: Buffer.from(source + extra).toString('base64') }).catch(console.error);
+    }
+  };
+  async function evaluate(expression) {
+    const result = await send('Runtime.evaluate', { expression, returnByValue: true, awaitPromise: true });
+    if (result.exceptionDetails) throw new Error(result.exceptionDetails.text);
+    return result.result.value;
+  }
+  await send('Page.enable'); await send('Runtime.enable');
+  await send('Fetch.enable', { patterns: [{ urlPattern: '*/assets/config.js' }] });
+  await send('Page.navigate', { url: 'http://localhost:4173' });
+  for (let i = 0; i < 50; i++) { if (await evaluate("!!document.querySelector('.calendar table')")) break; await pause(100); }
+  assert(await evaluate("!!document.querySelector('.calendar table')"), 'Calendário não renderizou');
+  assert.equal(await evaluate("document.querySelectorAll('.class-day').length"), 0, 'Turmas fictícias na Home');
+  for (const width of [1440, 1024, 768, 390, 320]) {
+    await send('Emulation.setDeviceMetricsOverride', { width, height: 1000, deviceScaleFactor: 1, mobile: width < 700 });
+    await pause(100);
+    assert(await evaluate('document.documentElement.scrollWidth <= innerWidth'), `Overflow horizontal em ${width}px`);
+    if ([1440, 390].includes(width)) {
+      const screenshot = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true });
+      fs.writeFileSync(path.join(preview, `home-${width}.png`), Buffer.from(screenshot.data, 'base64'));
+    }
+  }
+  await evaluate("document.querySelector('.menu-toggle').click()");
+  assert.equal(await evaluate("document.querySelector('.menu-toggle').getAttribute('aria-expanded')"), 'true');
+  await evaluate("document.querySelector('#menu a').click()");
+  assert.equal(await evaluate("document.querySelector('.menu-toggle').getAttribute('aria-expanded')"), 'false');
+  const month = await evaluate("document.querySelector('#calendar-month').textContent");
+  await evaluate("document.querySelector('#next-month').click()");
+  assert.notEqual(await evaluate("document.querySelector('#calendar-month').textContent"), month);
+  await evaluate("document.querySelector('#previous-month').click()");
+  assert.equal(await evaluate("document.querySelector('#calendar-month').textContent"), month);
+  fixture = true;
+  await send('Page.reload', { ignoreCache: true });
+  for (let i = 0; i < 50; i++) { if (await evaluate("document.querySelectorAll('.class-day').length===2")) break; await pause(100); }
+  assert.equal(await evaluate("document.querySelectorAll('.class-day').length"), 2);
+  assert.equal(await evaluate("document.querySelectorAll('.class-list-item').length"), 2);
+  assert.equal(await evaluate("document.querySelector('.class-day').parentElement.querySelectorAll('span').length"), 0, 'Acrônimo deve substituir o número');
+  await evaluate("document.querySelector('.class-day').click()");
+  assert(await evaluate("document.querySelector('#class-dialog').open"));
+  assert(await evaluate("document.querySelector('#dialog-details').textContent.includes('HORÁRIO DE TESTE')"));
+  assert.equal(await evaluate("document.querySelector('#dialog-actions .button').href"), 'https://example.com/form');
+  assert(await evaluate("document.querySelector('#dialog-actions .text-link').href.includes('wa.me/5511999999999?text=')"));
+  await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 });
+  assert.equal(await evaluate("document.querySelector('#class-dialog').open"), false);
+  assert.equal(errors.length, 0, errors.join('\n'));
+  console.log('OK: Chrome real, 5 larguras (320–1440px), menu, agenda vazia, navegação mensal, turmas simultâneas, lista, diálogo, Escape, Forms e WhatsApp. Screenshots em .preview/.');
+}
+main().catch(error => { console.error(error); process.exitCode = 1; }).finally(() => { socket?.close(); child.kill(); });

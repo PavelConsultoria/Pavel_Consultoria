@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# Adicionar a URL absoluta do sitemap depois de confirmar o endereço de publicação.

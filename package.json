@@ -1,0 +1,11 @@
+{
+  "name": "pavel-consultoria",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Home institucional estática da Pavel Consultoria",
+  "scripts": {
+    "start": "node scripts/serve.cjs",
+    "check:browser": "node scripts/browser-check.cjs",
+    "check": "node --check assets/config.js && node --check assets/app.js && node --check scripts/serve.cjs && node scripts/check.cjs"
+  }
+}
