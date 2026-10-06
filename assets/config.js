@@ -1,7 +1,7 @@
 /* Fonte única dos dados variáveis. Campos vazios são placeholders. */
 window.PAVEL_CONFIG = {
   // Verde provisório em assets/styles.css: substituir pelo tom oficial quando fornecido.
-  whatsappNumber: '', // Formato internacional, apenas dígitos: código do país + DDD + número.
+  whatsappNumber: '5521995716270', // Formato internacional, apenas dígitos: código do país + DDD + número.
   messages: {
     geral: 'Olá, Karolina! Gostaria de informações sobre a Pavel Consultoria.',
     consultoria: 'Olá, Karolina! Gostaria de informações sobre os serviços de Consultoria em Planejamento e Gestão de Cronogramas.',

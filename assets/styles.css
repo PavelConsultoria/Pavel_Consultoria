@@ -132,4 +132,47 @@
   .training-grid { grid-template-columns: minmax(0, 1fr); }
   .training > .text-link { margin-bottom: 18px; }
 }
+/* Refinamento de identidade e interações, mantendo a escala tipográfica. */
+.brand-contact { display: flex; flex-direction: column; align-items: flex-start; flex-shrink: 0; }
+.site-header .brand { width: 252px; }
+.brand-phone { margin: -6px 0 0 8px; color: var(--muted); font-size: 13px; line-height: 1.4; padding: 3px 0; }
+.brand-phone:hover { color: var(--green); }
+.button { border-radius: 9px; box-shadow: 0 2px 4px #222b2608; transition: background .2s, box-shadow .2s, transform .2s; }
+.button:hover { transform: translateY(-1px); box-shadow: 0 4px 10px #222b2612; }
+.button:active { transform: translateY(0); }
+.menu-toggle, .dialog-top button { border-radius: 7px; }
+.round-link { transition: background .2s, color .2s, border-color .2s; }
+.round-link:hover { border-color: var(--green); }
+.training-interface { border-radius: 8px; }
+.whatsapp-floating { position: fixed; right: max(24px, env(safe-area-inset-right)); bottom: max(24px, env(safe-area-inset-bottom)); z-index: 25; display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; padding: 12px 17px; background: var(--green); color: #fff; border: 1px solid var(--green); border-radius: 26px; font-size: 14px; font-weight: 600; box-shadow: 0 3px 12px #222b2620; transition: background .2s, transform .2s; }
+.whatsapp-floating:hover { background: var(--green-dark); transform: translateY(-2px); }
+.footer { padding-bottom: 86px; }
+@media (min-width: 961px) {
+  .expertise .section-heading { grid-template-columns: 1fr 2fr; column-gap: 32px; row-gap: 0; }
+  .expertise .section-heading > .eyebrow { grid-column: auto; padding-top: 8px; }
+  .expertise .section-heading > div { grid-column: auto; max-width: 100%; }
+  .expertise .service { grid-template-columns: 1fr 1.8fr .2fr; column-gap: 32px; }
+  .expertise .service-number { font-size: 48px; line-height: 1; font-weight: 400; letter-spacing: -.06em; padding-top: 2px; }
+}
+@media (min-width: 701px) and (max-width: 960px) {
+  .expertise .section-heading { grid-template-columns: .65fr 2fr; column-gap: 40px; }
+  .expertise .section-heading > .eyebrow, .expertise .section-heading > div { grid-column: auto; }
+  .expertise .section-heading > .eyebrow { padding-top: 8px; }
+  .expertise .service { grid-template-columns: 72px minmax(0, 1fr) 44px; }
+  .expertise .service-number { font-size: 38px; line-height: 1; letter-spacing: -.05em; }
+}
+@media (min-width: 1201px) and (max-width: 1350px) {
+  .site-header .brand { width: 210px; }
+}
+@media (max-width: 960px) {
+  .site-header .brand { width: 210px; }
+}
+@media (max-width: 700px) {
+  .site-header .brand { width: 184px; }
+  .brand-phone { font-size: 12px; margin-top: -4px; }
+  .expertise .service { grid-template-columns: 36px minmax(0, 1fr) 44px; }
+  .expertise .service-number { font-size: 26px; line-height: 1.2; letter-spacing: -.04em; }
+  .whatsapp-floating { width: 50px; height: 50px; padding: 0; right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); }
+  .whatsapp-floating span { display: none; }
+}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
