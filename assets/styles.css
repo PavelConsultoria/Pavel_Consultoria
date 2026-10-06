@@ -215,7 +215,7 @@
   .whatsapp-floating img { width: 46px; }
 }
 /* WhatsApp acompanha a borda do container, com margem segura em telas menores. */
-.whatsapp-floating { width: 80px; height: 80px; right: max(46px, calc((100% - 1280px) / 2 + 10px), env(safe-area-inset-right)); }
+.whatsapp-floating { width: var(--whatsapp-side-size, 64px); height: var(--whatsapp-side-size, 64px); right: var(--whatsapp-side-right, 8px); }
 .whatsapp-floating img { width: 100%; margin: 0; }
 @media (max-width: 960px) {
   .whatsapp-floating { width: 64px; height: 64px; right: max(20px, env(safe-area-inset-right)); }

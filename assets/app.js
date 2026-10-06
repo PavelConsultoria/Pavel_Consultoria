@@ -1,6 +1,25 @@
 (() => {
   'use strict';
   const config = window.PAVEL_CONFIG;
+  // Centraliza o WhatsApp na faixa branca à direita da borda real da capa.
+  const floatingWhatsapp = document.querySelector('.whatsapp-floating');
+  const heroCover = document.querySelector('.hero-cover img');
+  function positionFloatingWhatsapp() {
+    if (!matchMedia('(min-width: 961px)').matches) {
+      floatingWhatsapp.style.removeProperty('--whatsapp-side-size');
+      floatingWhatsapp.style.removeProperty('--whatsapp-side-right');
+      return;
+    }
+    const gap = Math.max(0, document.documentElement.clientWidth - heroCover.getBoundingClientRect().right);
+    // Mantém 64px quando há espaço e margens de segurança no desktop estreito.
+    const size = Math.min(64, Math.max(16, gap - 8));
+    floatingWhatsapp.style.setProperty('--whatsapp-side-size', `${size}px`);
+    floatingWhatsapp.style.setProperty('--whatsapp-side-right', `${(gap - size) / 2}px`);
+  }
+  new ResizeObserver(positionFloatingWhatsapp).observe(document.querySelector('.hero-cover'));
+  window.addEventListener('resize', positionFloatingWhatsapp, { passive: true });
+  heroCover.addEventListener('load', positionFloatingWhatsapp);
+  positionFloatingWhatsapp();
   const menu = document.querySelector('#menu');
   const toggle = document.querySelector('.menu-toggle');
   function closeMenu() { menu.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false'); }
