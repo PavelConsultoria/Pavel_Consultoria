@@ -158,3 +158,10 @@ html:has(body.home){--header-height:96px;scroll-padding-top:var(--header-height)
 .home .footer-whatsapp svg{width:20px;height:20px;flex-shrink:0}
 .home .footer-whatsapp span{user-select:text}
 @media(max-width:700px){.home .contact{padding-block:14px}.home .footer{padding-block:10px}}
+
+/* Cores dos icones, restritas ao rodape. */
+.home .footer .footer-whatsapp svg{color:#25D366}
+.home .footer .footer-whatsapp span{color:#fff}
+.home .footer .footer-socials a[href="https://www.instagram.com/pavelconsultoria/"] svg{color:#E4405F}
+.home .footer .footer-socials a[href="https://br.linkedin.com/in/pavel-consultoria-karolina-poznyakov-msc-pmp-retired-ipma-d-46933913"] svg{color:#0A66C2}
+.home .footer .footer-socials a[href="https://www.facebook.com/share/1DtL7kJcTF/"] svg{color:#1877F2}
