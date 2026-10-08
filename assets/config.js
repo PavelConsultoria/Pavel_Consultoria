@@ -17,6 +17,10 @@ window.PAVEL_CONFIG = {
   samples: { msp: '', p6: '' },
   // Fonte pública, somente leitura. Não usar o endereço de edição da planilha.
   agendaCsvUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSdq2OSQfJlUYm4p1IhGubApJDU2qmh_RoSA0EVt6gHmpR7w9ntbQAvZOvYT4pdO8mkZ6zaJgQiekZe/pub?gid=613259854&single=true&output=csv',
+  // CSV da aba Controle inteira, com a data/hora em B1. Publicar separadamente
+  // em Arquivo > Compartilhar > Publicar na Web e colar aqui o URL gerado.
+  // Nao reutilizar o URL de Turmas. Vazio mantem a indicacao oculta.
+  agendaControlCsvUrl: '',
   courses: {
     msp: { acronym: 'MSP', name: 'MS Project — do Básico ao Avançado' },
     p6: { acronym: 'P6', name: 'Primavera P6 Básico' }

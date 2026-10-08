@@ -5,7 +5,7 @@
   else root.PAVEL_AGENDA_DATA = api;
 })(globalThis, function () {
   'use strict';
-  function csv(text) {
+  function csv(text, preserveEmptyRows = false) {
     const rows = []; let row = [], field = '', quoted = false, closed = false;
     text = text.replace(/^\uFEFF/, '');
     for (let i = 0; i < text.length; i++) {
@@ -26,7 +26,19 @@
     }
     if (quoted) throw new Error('CSV inválido: campo sem fechamento.');
     if (field || row.length || closed) { row.push(field); rows.push(row); }
-    return rows.filter(row => row.some(value => value.trim()));
+    return preserveEmptyRows ? rows : rows.filter(row => row.some(value => value.trim()));
+  }
+  function updatedDate(text) {
+    // B1 e uma posicao, nao o primeiro campo nao vazio da publicacao.
+    const value = (csv(text, true)[0]?.[1] || '').trim();
+    const match = value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?)?$/);
+    if (!match) return '';
+    const [, day, month, year, hour = '0', minute = '0', second = '0'] = match;
+    const date = new Date(0);
+    date.setUTCFullYear(+year, +month - 1, +day);
+    if (+year < 1000 || date.getUTCFullYear() !== +year || date.getUTCMonth() !== +month - 1 || date.getUTCDate() !== +day || +hour > 23 || +minute > 59 || +second > 59) return '';
+    // Usa os componentes registrados, sem converter para o fuso do navegador.
+    return day.padStart(2, '0') + '/' + month.padStart(2, '0') + '/' + year;
   }
   const normalize = text => text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
   function https(value) {
@@ -60,5 +72,5 @@
   function upcoming(classes, calendar, now = new Date()) {
     return calendar.upcoming(classes.filter(item => item.dates.length && ['inscricoes abertas','esgotada'].includes(item.statusKey)), now);
   }
-  return { csv, parse, https, upcoming };
+  return { csv, parse, https, upcoming, updatedDate };
 });

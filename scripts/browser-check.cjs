@@ -22,6 +22,7 @@ async function main() {
   let nextId = 0;
   const pending = new Map(), errors = [];
   let fixture = false, csvFailure = false, updatedCsv = false;
+  let controlMode = '', controlValue = '08/10/2026 17:36:20';
   function send(method, params = {}) {
     return new Promise((resolve, reject) => {
       const id = ++nextId; pending.set(id, { resolve, reject }); socket.send(JSON.stringify({ id, method, params }));
@@ -36,6 +37,11 @@ async function main() {
     if (data.method === 'Runtime.exceptionThrown') errors.push(data.params.exceptionDetails.text);
     if (data.method === 'Fetch.requestPaused') {
       const source = fs.readFileSync(path.join(root, 'assets/config.js'), 'utf8');
+      if (data.params.request.url.includes('/agenda-control-test.csv')) {
+        // Fonte sintetica somente no navegador de teste, nunca na configuracao real.
+        const body = controlMode === 'invalid' ? 'Atualizacao,31/02/2026' : 'Atualizacao,' + controlValue;
+        send('Fetch.fulfillRequest', {requestId:data.params.requestId,responseCode:controlMode==='failure'?503:200,responseHeaders:[{name:'Content-Type',value:'text/csv'},{name:'Access-Control-Allow-Origin',value:'*'}],body:Buffer.from(body).toString('base64')});return;
+      }
       // Dados sintéticos exclusivos do teste, nunca gravados na configuração publicada.
       if (data.params.request.url.includes('output=csv')) {
         if (csvFailure) { send('Fetch.failRequest',{requestId:data.params.requestId,errorReason:'Failed'});return; }
@@ -44,7 +50,7 @@ async function main() {
         const csv=header+'\n'+'test-msp,MS Project,Turma de teste,2026-05-01,HORÁRIO DE TESTE,8h,MODALIDADE DE TESTE,Inscrições abertas,https://example.com/form,\n'+'test-p6,Primavera P6,Turma de teste,2026-05-01,TESTE,8h,TESTE,Inscrições abertas,,';
         send('Fetch.fulfillRequest',{requestId:data.params.requestId,responseCode:200,responseHeaders:[{name:'Content-Type',value:'text/csv'},{name:'Access-Control-Allow-Origin',value:'*'}],body:Buffer.from(updatedCsv ? csv.replaceAll('2026-05-01','2026-05-02') : csv).toString('base64')});return;
       }
-      const extra = fixture ? `window.TEST_NOW='2026-04-30T15:00:00Z';PAVEL_CONFIG.whatsappNumber='5511999999999';` : '';
+      const extra = (fixture ? `window.TEST_NOW='2026-04-30T15:00:00Z';PAVEL_CONFIG.whatsappNumber='5511999999999';` : '') + (controlMode ? "PAVEL_CONFIG.agendaControlCsvUrl='https://example.com/agenda-control-test.csv';" : '');
       send('Fetch.fulfillRequest', { requestId: data.params.requestId, responseCode: 200, responseHeaders: [{ name: 'Content-Type', value: 'text/javascript; charset=utf-8' }], body: Buffer.from(source + extra).toString('base64') }).catch(console.error);
     }
   };
@@ -58,7 +64,7 @@ async function main() {
     const NativeDate=Date; window.TEST_NOW='2026-10-08T15:00:00Z';
     window.Date=class extends NativeDate {constructor(...args){super(...(args.length?args:[window.TEST_NOW]));} static now(){return new NativeDate(window.TEST_NOW).getTime();}};
   }`});
-  await send('Fetch.enable', { patterns: [{ urlPattern: '*/assets/config.js' },{urlPattern:'*output=csv*'}] });
+  await send('Fetch.enable', { patterns: [{ urlPattern: '*/assets/config.js' },{urlPattern:'*output=csv*'},{urlPattern:'*/agenda-control-test.csv'}] });
   await send('Page.navigate', { url: 'http://localhost:4173' });
   for (let i = 0; i < 50; i++) { if (await evaluate("!!document.querySelector('.calendar table')")) break; await pause(100); }
   assert(await evaluate("!!document.querySelector('.calendar table')"), 'Calendário não renderizou');
@@ -66,6 +72,7 @@ async function main() {
   const liveResult=await evaluate(`(async()=>{try{const r=await fetch(PAVEL_CONFIG.agendaCsvUrl,{cache:'no-store',credentials:'omit'});const text=await r.text();return {status:r.status,type:r.type,rows:PAVEL_AGENDA_DATA.parse(text,PAVEL_CALENDAR).length};}catch(e){return {error:e.message};}})()`);
   console.log('CSV real no Chrome / CORS:',JSON.stringify(liveResult));
   assert.equal(liveResult.status,200,'CSV público indisponível no navegador');assert.equal(liveResult.type,'cors');assert.equal(liveResult.rows,5);
+  assert(await evaluate("document.querySelector('#agenda-updated').hidden"), 'Sem URL Controle: data oculta');
   assert.equal(await evaluate("document.querySelectorAll('.class-day').length"), 11, 'Datas históricas e nova turma vindas da planilha');
   assert.equal(await evaluate("document.querySelectorAll('.calendar table').length"), 2);
   assert.equal(await evaluate("document.querySelectorAll('.moon-marker').length"), 8);
@@ -230,6 +237,31 @@ async function main() {
   await evaluate("document.querySelector('#menu a[href=\"index.html#treinamentos\"]').click()");
   for (let i = 0; i < 50; i++) { if (await evaluate("!!document.querySelector('.calendar table')")) break; await pause(100); }
   assert(await evaluate("location.pathname.endsWith('/index.html') && location.hash === '#treinamentos'"));
+  // A fonte Controle e independente; recarregar nao troca a data pelo dia do navegador.
+  async function reloadControl(mode, expected) {
+    controlMode = mode;
+    await send('Page.reload', {ignoreCache:true});
+    for(let i=0;i<170;i++){
+      if(await evaluate("document.querySelectorAll('.class-day').length===11 && " + (expected ? "document.querySelector('#agenda-updated').textContent==="+JSON.stringify(expected) : "document.querySelector('#agenda-updated').hidden")))break;
+      await pause(100);
+    }
+    assert.equal(await evaluate("document.querySelectorAll('.class-day').length"),11,'Controle nao interfere nas turmas');
+    if(expected)assert.equal(await evaluate("document.querySelector('#agenda-updated').textContent"),expected);
+    else assert(await evaluate("document.querySelector('#agenda-updated').hidden"));
+  }
+  await reloadControl('valid','Agenda atualizada em: 08/10/2026');
+  await reloadControl('valid','Agenda atualizada em: 08/10/2026');
+  controlValue='09/10/2026 00:01:00';
+  await reloadControl('valid','Agenda atualizada em: 09/10/2026');
+  for(const width of [1440,390,320]){
+    await send('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:width<700});
+    assert(await evaluate('document.documentElement.scrollWidth<=innerWidth'));
+    assert(await evaluate("getComputedStyle(document.querySelector('#agenda-updated')).fontSize==='12px'"));
+  }
+  await reloadControl('invalid','');
+  await reloadControl('failure','');
+  controlMode='';
+  console.log('OK: Controle B1 opcional, data persistente, alteracao da fonte, formato, mobile e falha isolada.');
   fixture = true;
   await send('Page.reload', { ignoreCache: true });
   for (let i = 0; i < 50; i++) { if (await evaluate("document.querySelectorAll('.class-day').length===2")) break; await pause(100); }

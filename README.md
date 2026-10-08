@@ -69,3 +69,18 @@ O `sitemap.xml` contém o domínio previsto no briefing. Antes de publicar no en
 O menu aponta para seções reais da Home. Na próxima etapa, pode passar a apontar para páginas próprias, mantendo a Home como apresentação institucional.
 
 Para verificar o incidente de outubro de 2026 diretamente no GitHub Pages, execute `node scripts/agenda-live-check.cjs`. O teste abre o site publicado no Chrome, sem interceptar requisições, e compara os indicadores com o CSV real. Usa 08/10/2026 como data de referência somente no navegador de teste.
+
+
+## Data de atualizacao da Agenda (Controle!B1)
+
+A indicacao usa somente a data/hora registrada pelo Apps Script em B1 da aba Controle. O site apenas le o CSV; nao escreve na planilha nem usa a data do navegador. A carga e independente do CSV de Turmas. Sem URL, com B1 vazio/invalido ou com erro de rede, a indicacao fica oculta.
+
+Para ativar:
+
+1. Na planilha, abrir **Arquivo > Compartilhar > Publicar na Web**.
+2. Selecionar especificamente a aba **Controle** e o formato **Valores separados por virgula (.csv)**. Publicar essa aba, preservando a publicacao existente de Turmas.
+3. Manter habilitada a republicacao automatica quando houver alteracoes. Na aba Controle, formatar B1 como data/hora brasileira, por exemplo **08/10/2026 17:36:20**.
+4. Copiar o URL CSV gerado pelo Google e verificar, em janela anonima, que ele devolve a aba Controle com B1 na segunda coluna da primeira linha. Publicar a aba inteira, sem restringir o intervalo a B1. Nao copiar o URL de Turmas nem o endereco de edicao.
+5. Preencher **agendaControlCsvUrl** em **assets/config.js** com esse URL e publicar a configuracao. O campo esta vazio ate que o URL correto seja fornecido.
+
+Depois da ativacao, alteracoes registradas em B1 aparecem na proxima carga da pagina, sem novos commits; o site pede o CSV sem cache local. A publicacao do Google pode levar algum tempo para refletir as alteracoes. Nao publicar informacoes privadas na aba Controle.

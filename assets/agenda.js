@@ -149,5 +149,21 @@
     }
     loading = false; listSignature = ''; renderCalendar(); renderList();
   }
-  renderCalendar(); tick(); loadClasses();
+  async function loadUpdatedDate() {
+    const label = document.querySelector('#agenda-updated');
+    const url = data.https(config.agendaControlCsvUrl || '');
+    if (!label || !url) return;
+    try {
+      const response = await fetch(url, { cache: 'no-store', credentials: 'omit', signal: AbortSignal.timeout(15000) });
+      if (!response.ok) throw new Error('Falha no CSV Controle');
+      const date = data.updatedDate(await response.text());
+      if (!date) return;
+      label.textContent = 'Agenda atualizada em: ' + date;
+      label.hidden = false;
+    } catch (error) {
+      // A fonte opcional nunca interfere na carga das turmas e calendarios.
+      console.warn('Data de atualizacao da agenda indisponivel:', error);
+    }
+  }
+  renderCalendar(); tick(); loadClasses(); loadUpdatedDate();
 })();

@@ -4,6 +4,7 @@
 #turmas .agenda-heading{margin-bottom:24px}
 #turmas .agenda-heading h2{font-size:clamp(28px,3vw,40px);line-height:1.15;margin:8px 0 10px;color:#263C31}
 #turmas .agenda-heading p:not(.eyebrow){font-size:16px;line-height:1.5;margin:0;color:#52645A}
+#turmas .agenda-heading .agenda-updated:not([hidden]){font-size:12px;line-height:1.5;margin-top:6px;color:#52645A}
 #turmas .eyebrow{color:#287D50}
 #turmas .agenda-content{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:0;align-items:start}
 #turmas .agenda-intro{padding-right:30px;min-width:0}

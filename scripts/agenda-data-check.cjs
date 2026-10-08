@@ -36,3 +36,11 @@ const repeated = data.parse(header+'\n'+rows[0]+'\n'+rows[0],calendar);
 assert.equal(new Set(repeated.map(c=>c.id)).size,2);
 assert.deepEqual(data.csv('a,b,c\n"a,b","a\r\nb",\n'),[['a','b','c'],['a,b','a\r\nb','']]);
 console.log('OK: CSV com aspas/vírgulas/quebras/vazios, datas, cursos, URLs, situações e turmas independentes.');
+
+// Controle!B1: posicao exata, data registrada e sem dependencia do fuso local.
+assert.equal(data.updatedDate('Atualizacao,08/10/2026 17:36:20'), '08/10/2026');
+assert.equal(data.updatedDate(',"8/10/2026 00:01:00",extra'), '08/10/2026');
+assert.equal(data.updatedDate('Data,29/02/2024'), '29/02/2024');
+for (const csv of ['', 'Data,', 'Data,31/02/2026', 'Data,29/02/2026', 'Data,08/10/2026 24:00:00', 'Data,08/10/2026 12:60:00', 'Data,08/10/2026 12:00:60', 'Data,nao e data', ',\nData,08/10/2026', '08/10/2026', '<html>erro</html>']) assert.equal(data.updatedDate(csv),'');
+assert.throws(()=>data.updatedDate('Data,"incompleto'));
+console.log('OK: Controle B1, datas validas, invalidas, vazias e linhas em branco.');
