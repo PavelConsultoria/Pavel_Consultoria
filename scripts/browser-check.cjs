@@ -121,6 +121,25 @@ async function main() {
       return number.height<=18 && markers.top-number.bottom<=2 && markers.top>=number.bottom-1;
     })`), `Indicadores próximos ao dia em ${width}px`);
     assert.equal(await evaluate("document.querySelector('.footer-name').textContent"),'Karolina Poznyakov, MSc, PMP (retired), IPMA-D');
+    const about = await evaluate(`(()=>{
+      const section=document.querySelector('section#sobre'), box=section.getBoundingClientRect();
+      const images=[...section.querySelectorAll('img')];
+      return {background:getComputedStyle(section).backgroundColor,
+        contained:[...section.querySelectorAll('h2,h3,h4,p,img,a')].every(el=>{const r=el.getBoundingClientRect();return r.left>=box.left-1 && r.right<=box.right+1;}),
+        images:images.every(img=>img.naturalWidth>0 && Math.abs(img.getBoundingClientRect().width/img.getBoundingClientRect().height-img.naturalWidth/img.naturalHeight)<.01),
+        whatsapp:section.querySelector('[data-whatsapp]').href.includes('wa.me/5521995716270?text='),
+        footer:document.querySelectorAll('footer').length,
+        portrait:[section.querySelector('.about-portrait').getBoundingClientRect().top,section.querySelector('.about-leader-copy').getBoundingClientRect().top]};
+    })()`);
+    assert.equal(about.background,'rgb(32, 49, 45)');assert(about.contained && about.images && about.whatsapp);assert.equal(about.footer,1);
+    if(width<700)assert(about.portrait[1]>about.portrait[0], 'Foto e texto empilhados');
+    await evaluate("document.documentElement.style.scrollBehavior='auto';document.querySelector('#menu a[href=\"#sobre\"]').click()");await pause(100);
+    assert.equal(await evaluate("document.querySelector('#menu a[aria-current]').getAttribute('href')"),'#sobre');
+    assert(await evaluate("Math.abs(document.querySelector('#sobre').getBoundingClientRect().top-document.querySelector('.site-header').getBoundingClientRect().bottom)<2"));
+    if([1440,390].includes(width)){
+      const bounds=await evaluate("(()=>{const r=document.querySelector('#sobre').getBoundingClientRect();return {x:0,y:Math.round(r.top+scrollY),width:innerWidth,height:Math.ceil(r.height),scale:1};})()");
+      const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:true,clip:bounds});fs.writeFileSync(path.join(preview,`about-${width}.png`),Buffer.from(shot.data,'base64'));
+    }
     const footerHeight = await evaluate("document.querySelector('.contact-section').getBoundingClientRect().height + document.querySelector('.footer').getBoundingClientRect().height");
     console.log(`Contato + rodapé em ${width}px: ${Math.round(footerHeight)}px`);
     assert(footerHeight < (width < 700 ? 470 : 340), `Encerramento compacto em ${width}px`);
