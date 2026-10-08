@@ -3,9 +3,12 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 const calendar = require('../assets/calendar.js');
 const astronomy = require('../assets/vendor/astronomy.browser.min.js');
-const context = { window: {} };
-vm.runInNewContext(fs.readFileSync('assets/config.js', 'utf8'), context);
-const config = context.window.PAVEL_CONFIG;
+// Turmas sintéticas exclusivas dos testes de início; não são fonte da Home.
+const config = {classes: [
+ {id:'msp-noturna-2026-10',course:'msp',dates:['2026-10-06','2026-10-08','2026-10-13','2026-10-15'],startTime:'19:30',time:'19h30 às 21h30',duration:'8 horas',modality:'Online ao vivo'},
+ {id:'msp-sabado',course:'msp',dates:['2026-10-17'],startTime:'09:00',time:'9h às 17h',duration:'8 horas',modality:'Online ao vivo'},
+ {id:'p6-noturna',course:'p6',dates:['2026-10-20','2026-10-22','2026-10-27','2026-10-29'],startTime:'19:30',time:'19h30 às 21h30',duration:'8 horas',modality:'Online ao vivo'},
+ {id:'p6-sabado',course:'p6',dates:['2026-10-31'],startTime:'09:00',time:'9h às 17h',duration:'8 horas',modality:'Online ao vivo'}]};
 // USNO, API v4.0.1, consulta 2026-10-08; instantes UTC, não dados da aplicação.
 // https://aa.usno.navy.mil/api/moon/phases/date?date=2026-10-01&nump=10
 const reference = [

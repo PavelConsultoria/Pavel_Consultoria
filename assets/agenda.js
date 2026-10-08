@@ -3,8 +3,9 @@
   const grid = document.querySelector('#calendar-grid');
   if (!grid) return;
   const config = window.PAVEL_CONFIG, dates = window.PAVEL_CALENDAR;
-  const classes = config.classes.filter(item => config.courses[item.course] &&
-    Array.isArray(item.dates) && item.dates.length && item.dates.every(key => dates.parseDate(key)));
+  const data = window.PAVEL_AGENDA_DATA;
+  let classes = [], loading = true, loadError = false;
+  const futureClasses = (items, now) => data.upcoming(items, dates, now);
   const monthFormat = new Intl.DateTimeFormat('pt-BR', { timeZone: 'UTC', month: 'long', year: 'numeric' });
   const dateFormat = new Intl.DateTimeFormat('pt-BR', { timeZone: 'UTC', dateStyle: 'long' });
   const shortFormat = new Intl.DateTimeFormat('pt-BR', { timeZone: 'UTC', day: '2-digit', month: '2-digit', year: 'numeric' });
@@ -21,11 +22,11 @@
   function contactLink(item, label) {
     const link = element('a', label, 'text-link');
     let form = '';
-    try { const url = new URL(config.forms[item.course]); if (url.protocol === 'https:') form = url.href; } catch {}
+    form = item.registrationUrl || '';
     // Não anunciar inscrição em uma turma iniciada. O histórico permite consulta.
-    const future = dates.upcoming([item]).length > 0;
+    const future = futureClasses([item]).length > 0;
     const message = `${config.messages[item.course] || config.messages.geral} Gostaria de consultar a ${item.variant.toLowerCase()}, com início em ${shortFormat.format(dates.parseDate(item.dates[0]))}.`;
-    link.href = future && form ? form : `https://wa.me/${config.whatsappNumber}?text=${encodeURIComponent(message)}`;
+    link.href = future && item.statusKey === 'inscricoes abertas' && form ? form : `https://wa.me/${config.whatsappNumber}?text=${encodeURIComponent(message)}`;
     link.target = '_blank'; link.rel = 'noopener noreferrer';
     return link;
   }
@@ -33,12 +34,13 @@
     document.querySelector('#dialog-title').textContent = config.courses[item.course].name;
     const details = document.querySelector('#dialog-details');
     details.replaceChildren(...[
-      item.variant, `Datas: ${dateSummary(item)}`, `Horário: ${item.time}`,
+      item.variant, `Situação: ${item.status}`, `Datas: ${dateSummary(item)}`, `Horário: ${item.time}`,
       `${item.duration} · ${item.modality}`,
       ...(selectedDate ? [`Aula selecionada: ${dateFormat.format(dates.parseDate(selectedDate))}`] : []),
-      ...(!dates.upcoming([item]).length ? ['Esta turma já começou. Consulte outras opções de participação.'] : [])
+      ...(item.notes ? [item.notes] : []),
+      ...(!futureClasses([item]).length ? ['Registro para consulta. Esta turma não está disponível como próxima inscrição.'] : [])
     ].map(text => element('p', text)));
-    const primary = contactLink(item, dates.upcoming([item]).length && config.forms[item.course] ? 'Fazer minha inscrição' : 'Consultar esta turma ↗');
+    const primary = contactLink(item, futureClasses([item]).length && item.statusKey === 'inscricoes abertas' && item.registrationUrl ? 'Fazer minha inscrição' : 'Consultar esta turma ↗');
     primary.className = 'button';
     const whatsapp = contactLink(item, 'Tenho uma dúvida ↗');
     whatsapp.href = `https://wa.me/${config.whatsappNumber}?text=${encodeURIComponent(`${config.messages[item.course]} Gostaria de informações sobre a ${item.variant.toLowerCase()} de ${dateSummary(item)}.`)}`;
@@ -52,11 +54,12 @@
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
   });
   function renderList(now = new Date()) {
-    const upcoming = dates.upcoming(classes, now);
-    const signature = upcoming.map(item => item.id).join('|');
+    const upcoming = futureClasses(classes, now);
+    const signature = `${loading}|${loadError}|` + upcoming.map(item => item.id).join('|');
     if (signature === listSignature && document.querySelector('#class-list').children.length) return;
     listSignature = signature;
     const list = document.querySelector('#class-list'); list.replaceChildren();
+    if (loading || loadError) { list.append(element('p', loading ? 'Carregando a programação…' : 'Não foi possível carregar a programação. Tente atualizar a página ou consulte pelo WhatsApp.', 'agenda-empty')); return; }
     if (!upcoming.length) { list.append(element('p', 'Novas datas em definição.', 'agenda-empty')); return; }
     Object.keys(config.courses).forEach(course => {
       const cohorts = upcoming.filter(item => item.course === course);
@@ -66,11 +69,13 @@
       cohorts.forEach(item => {
         const group = element('div', '', 'agenda-cohort'); group.dataset.cohort = item.id;
         group.append(element('p', `${item.variant}: ${dateSummary(item)}.`), element('p', `Horário: ${item.time}.`),
-          contactLink(item, 'Inscrição ou consulta ↗'));
+          contactLink(item, item.statusKey === 'esgotada' ? 'Consultar outras opções ↗' : 'Inscrição ou consulta ↗'));
+        if (item.statusKey === 'esgotada') group.append(element('p', 'Esgotada.'));
         article.append(group);
       });
-      if (cohorts.length > 1) article.append(element('p', 'Turmas alternativas de participação.', 'agenda-alternatives'));
-      article.append(element('p', `${cohorts[0].duration}, ${cohorts[0].modality.toLowerCase()}.`, 'agenda-modality'));
+
+      const summaries = [...new Set(cohorts.map(item => `${item.duration.replace(/^(\d+)\s*h$/i, '$1 horas')}, ${item.modality.toLowerCase()}.`))];
+      summaries.forEach(summary => article.append(element('p', summary, 'agenda-modality')));
       list.append(article);
     });
   }
@@ -103,7 +108,7 @@
         const number = element('span', String(day), 'day-number'); cell.append(number);
         if (key === today) { cell.classList.add('today'); cell.setAttribute('aria-current', 'date'); }
         const markers = element('div', '', 'day-markers');
-        classes.filter(item => item.dates.includes(key)).forEach(item => {
+        classes.filter(item => item.statusKey !== 'cancelada' && item.dates.includes(key)).forEach(item => {
           const button = element('button', config.courses[item.course].acronym, `class-day course-${item.course}`);
           button.type = 'button'; button.setAttribute('aria-label', `${config.courses[item.course].name}, ${dateFormat.format(dates.parseDate(key))}. Ver detalhes.`);
           button.addEventListener('click', () => openClass(item, key)); markers.append(button);
@@ -133,5 +138,13 @@
   function tick() { refresh(); window.setTimeout(tick, 1000 - Date.now() % 1000 + 20); }
   document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); });
   window.addEventListener('pageshow', refresh);
-  renderCalendar(); tick();
+  async function loadClasses() {
+    try {
+      const response = await fetch(config.agendaCsvUrl, { cache: 'no-store', credentials: 'omit', signal: AbortSignal.timeout(15000) });
+      if (!response.ok) throw new Error('Falha no CSV');
+      classes = data.parse(await response.text(), dates);
+    } catch { classes = []; loadError = true; }
+    loading = false; listSignature = ''; renderCalendar(); renderList();
+  }
+  renderCalendar(); tick(); loadClasses();
 })();

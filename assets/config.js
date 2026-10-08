@@ -15,22 +15,8 @@ window.PAVEL_CONFIG = {
   simulatorUrl: '',
   forms: { msp: '', p6: '' },
   samples: { msp: '', p6: '' },
-  // Cada registro é uma turma independente; dates contém todas as suas aulas.
-  // Calendários e próximas turmas usam esta mesma fonte. Preserve registros históricos.
-  // Para cadastrar: id único, course, variant, dates (AAAA-MM-DD em ordem),
-  // startTime (HH:mm em São Paulo), time, duration e modality. Não inventar datas.
-  classes: [
-    { id: 'msp-noturna-2026-10', course: 'msp', variant: 'Turma noturna',
-      dates: ['2026-10-06', '2026-10-08', '2026-10-13', '2026-10-15'],
-      startTime: '19:30', time: '19h30 às 21h30', duration: '8 horas', modality: 'Online ao vivo' },
-    { id: 'msp-sabado-2026-10', course: 'msp', variant: 'Turma de sábado',
-      dates: ['2026-10-17'], startTime: '09:00', time: '9h às 17h', duration: '8 horas', modality: 'Online ao vivo' },
-    { id: 'p6-noturna-2026-10', course: 'p6', variant: 'Turma noturna',
-      dates: ['2026-10-20', '2026-10-22', '2026-10-27', '2026-10-29'],
-      startTime: '19:30', time: '19h30 às 21h30', duration: '8 horas', modality: 'Online ao vivo' },
-    { id: 'p6-sabado-2026-10', course: 'p6', variant: 'Turma de sábado',
-      dates: ['2026-10-31'], startTime: '09:00', time: '9h às 17h', duration: '8 horas', modality: 'Online ao vivo' }
-  ],
+  // Fonte pública, somente leitura. Não usar o endereço de edição da planilha.
+  agendaCsvUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSdq2OSQfJlUYm4p1IhGubApJDU2qmh_RoSA0EVt6gHmpR7w9ntbQAvZOvYT4pdO8mkZ6zaJgQiekZe/pub?gid=613259854&single=true&output=csv',
   courses: {
     msp: { acronym: 'MSP', name: 'MS Project — do Básico ao Avançado' },
     p6: { acronym: 'P6', name: 'Primavera P6 Básico' }

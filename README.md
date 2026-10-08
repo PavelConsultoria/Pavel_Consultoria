@@ -29,11 +29,30 @@ No Windows/PowerShell, `npm.cmd` evita o bloqueio do atalho `npm.ps1` pela polí
 
 Com o servidor em execução, `npm.cmd run check:browser` verifica larguras de 320, 390, 768, 1024 e 1440 px, menu móvel, navegação mensal, agenda vazia e detalhes/links com dados temporários exclusivos do teste. Requer Chrome instalado no caminho padrão do Windows (ou `CHROME_PATH` definido) e porta 9223 livre. Salva capturas e perfil descartável em `.preview/`, ignorado pelo Git. Esses dados de teste não são inseridos no site. A versão foi verificada nesse navegador; outros navegadores ainda precisam de revisão antes da publicação.
 
-Para cadastrar uma turma real em `assets/config.js`, adicione a `classes` um objeto com `id` único, `course` (`msp` ou `p6`), `variant`, `dates` (datas AAAA-MM-DD em ordem), `startTime` (HH:mm em São Paulo), `time`, `duration` e `modality`. Turmas noturnas e de sábado são registros independentes. Calendários, lista e diálogo usam esses mesmos dados. Preserve os registros históricos: a lista exclui a turma assim que começa sua primeira aula, mas todas as datas permanecem no calendário.
+A Agenda é administrada pela aba **Turmas** da planilha pública Google Sheets. O endpoint CSV de leitura fica em `assets/config.js` (`agendaCsvUrl`); o endereço de edição não é utilizado. Cada carregamento da Home faz uma nova consulta com `cache: no-store`, sem credenciais. Alterações publicadas aparecem após atualizar a página, sujeitas ao cache da publicação do Google.
 
-Os dois calendários mostram inicialmente o mês atual e o seguinte em `America/Sao_Paulo`, com navegação por setas e atualização automática na virada do dia, mês e ano. MSP/P6 aparece abaixo do número. Treinamentos, feriados nacionais e fases lunares podem coexistir. Sem futuras turmas, a lista mostra “Novas datas em definição.” e mantém o atendimento sob demanda. Sem formulário de inscrição, os CTAs usam o WhatsApp configurado e uma mensagem da turma.
+Para cadastrar uma turma, acrescente uma linha com as dez colunas, mantendo os cabeçalhos:
 
-O cálculo lunar funciona localmente com Astronomy Engine; origem, licença e fonte independente de validação (USNO) estão em `assets/vendor/README.md`. `scripts/calendar-check.cjs` verifica os instantes de outubro e novembro de 2026, conversão de fuso, meses futuros, feriados e início das turmas. Não há consultas a APIs no site publicado. Os feriados marcados são os nove declarados nacionais por lei federal; pontos facultativos e feriados instituídos por legislação estadual/municipal são excluídos.
+| Coluna | Preenchimento |
+| --- | --- |
+| ID | Identificador único da turma |
+| Treinamento | MS Project ou Primavera P6 |
+| Formato | Noturno ou Sábado (cada alternativa é uma linha independente) |
+| Datas (AAAA-MM-DD; separadas por ;) | Todas as datas da mesma turma, separadas por ponto e vírgula; vazio se não confirmadas |
+| Horário | Ex.: 19h30–21h30 ou 9h–17h, em America/Sao_Paulo |
+| Carga horária | Ex.: 8h |
+| Modalidade | Ex.: Online ao vivo |
+| Situação | Inscrições abertas, Esgotada, Cancelada, Encerrada ou Em definição |
+| Link de inscrição | URL HTTPS real; vazio usa consulta contextual no WhatsApp |
+| Observações | Informação adicional, exibida nos detalhes |
+
+A lista mostra turmas futuras com inscrições abertas ou esgotadas (identificadas como esgotadas, com consulta, sem CTA de inscrição). Ao começar a primeira aula, a turma inteira sai de Próximas Turmas, inclusive se possui encontros futuros. Encerradas ficam apenas como histórico nos calendários; canceladas não recebem indicadores. Em definição e registros sem datas não são anunciados como inscrições futuras. Os detalhes de turmas históricas, encerradas ou esgotadas oferecem consulta, sem formulário de inscrição. Carga horária e modalidade iguais aparecem uma vez por curso; se diferirem entre turmas, cada combinação é preservada.
+
+Os calendários e a lista consomem o mesmo CSV validado, inclusive campos citados, vírgulas, aspas e quebras de linha. Sem futuras turmas, aparece “Novas datas em definição.”. Na falha de conexão, cabeçalhos incompatíveis ou dados inválidos, aparece uma mensagem amigável, sem fallback de datas históricas. O atendimento sob demanda continua disponível. A página mostra carregamento enquanto consulta o Google.
+
+Mantenha a aba publicada em **Arquivo → Compartilhar → Publicar na Web**, formato CSV. Publicação permite leitura pública; não conceda permissão de edição a visitantes. Evite dados pessoais, credenciais ou informações privadas na aba publicada. A página não usa login, tokens nem chaves.
+
+Os dois calendários preservam navegação mensal, feriados nacionais, fases lunares e atualização do dia em São Paulo. O cálculo lunar continua local com Astronomy Engine; origem/licença em `assets/vendor/README.md`. Os testes `scripts/calendar-check.cjs` e `scripts/agenda-data-check.cjs` verificam astronomia, fuso, datas, parser, situações e turmas independentes. As turmas sintéticas existem somente nos testes.
 
 O número de WhatsApp deve conter apenas dígitos, com país e DDD. Ao preenchê-lo, todos os CTAs usam mensagens contextuais automaticamente. Os Google Forms abrem em nova aba quando seus links forem preenchidos. Campos ausentes exibem pendências, sem enviar dados ou abrir destinos fictícios.
 

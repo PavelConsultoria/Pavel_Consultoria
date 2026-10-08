@@ -33,17 +33,8 @@ JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>
 const context = { window: {} };
 vm.runInNewContext(fs.readFileSync(path.join(root, 'assets/config.js'), 'utf8'), context);
 const config = context.window.PAVEL_CONFIG;
-assert(Array.isArray(config.classes));
-for (const item of config.classes) {
-  assert(config.courses[item.course], 'Curso desconhecido');
-  assert(item.id && item.variant && item.dates.length && item.startTime, 'Turma incompleta');
-  for (const date of item.dates) {
-    assert(/^\d{4}-\d{2}-\d{2}$/.test(date), 'Formato de data inválido');
-    const parsed = new Date(date + 'T12:00:00Z');
-    assert(!isNaN(parsed) && parsed.toISOString().slice(0, 10) === date, 'Data inexistente');
-  }
-  assert(item.time && item.modality && item.duration, 'Informações da turma incompletas');
-}
+assert.equal(new URL(config.agendaCsvUrl).hostname,'docs.google.com');
+assert(!config.classes, 'Não manter fallback histórico na configuração');
 assert(!config.whatsappNumber || /^\d{10,15}$/.test(config.whatsappNumber), 'Número de WhatsApp inválido');
 for (const url of [config.simulatorUrl, ...Object.values(config.forms), ...Object.values(config.samples)]) {
   if (url) assert.equal(new URL(url).protocol, 'https:', 'Links externos devem usar HTTPS');
