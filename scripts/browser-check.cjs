@@ -21,7 +21,7 @@ async function main() {
   await new Promise((resolve, reject) => { socket.onopen = resolve; socket.onerror = reject; });
   let nextId = 0;
   const pending = new Map(), errors = [];
-  let fixture = false, csvFailure = false, updatedCsv = false;
+  let fixture = false, csvFailure = false, updatedCsv = false, delayCsv = false;
   let controlMode = '', controlValue = '08/10/2026 17:36:20';
   function send(method, params = {}) {
     return new Promise((resolve, reject) => {
@@ -50,7 +50,7 @@ async function main() {
         if (!fixture) { send('Fetch.continueRequest',{requestId:data.params.requestId});return; }
         const header='ID,Treinamento,Formato,Datas (AAAA-MM-DD; separadas por ;),Horário,Carga horária,Modalidade,Situação,Link de inscrição,Observações';
         const csv=header+'\n'+'test-msp,MS Project,Turma de teste,2026-05-01,HORÁRIO DE TESTE,8h,MODALIDADE DE TESTE,Inscrições abertas,https://example.com/form,\n'+'test-p6,Primavera P6,Turma de teste,2026-05-01,TESTE,8h,TESTE,Inscrições abertas,,';
-        send('Fetch.fulfillRequest',{requestId:data.params.requestId,responseCode:200,responseHeaders:[{name:'Content-Type',value:'text/csv'},{name:'Access-Control-Allow-Origin',value:'*'}],body:Buffer.from(updatedCsv ? csv.replaceAll('2026-05-01','2026-05-02') : csv).toString('base64')});return;
+        const fulfill=()=>send('Fetch.fulfillRequest',{requestId:data.params.requestId,responseCode:200,responseHeaders:[{name:'Content-Type',value:'text/csv'},{name:'Access-Control-Allow-Origin',value:'*'}],body:Buffer.from(updatedCsv ? csv.replaceAll('2026-05-01','2026-05-02') : csv).toString('base64')});if(delayCsv)pause(1200).then(fulfill);else fulfill();return;
       }
       const extra = (fixture ? `window.TEST_NOW='2026-04-30T15:00:00Z';PAVEL_CONFIG.whatsappNumber='5511999999999';` : '') + (controlMode ? "PAVEL_CONFIG.agendaControlCsvUrl='https://example.com/agenda-control-test.csv';" : '');
       send('Fetch.fulfillRequest', { requestId: data.params.requestId, responseCode: 200, responseHeaders: [{ name: 'Content-Type', value: 'text/javascript; charset=utf-8' }], body: Buffer.from(source + extra).toString('base64') }).catch(console.error);
@@ -58,7 +58,7 @@ async function main() {
   };
   async function evaluate(expression) {
     const result = await send('Runtime.evaluate', { expression, returnByValue: true, awaitPromise: true });
-    if (result.exceptionDetails) throw new Error(result.exceptionDetails.text);
+    if (result.exceptionDetails) throw new Error(result.exceptionDetails.exception?.description || result.exceptionDetails.text);
     return result.result.value;
   }
   await send('Page.enable'); await send('Runtime.enable');
@@ -116,6 +116,8 @@ async function main() {
   for (const width of [1440, 1024, 768, 390, 320]) {
     await send('Emulation.setDeviceMetricsOverride', { width, height: 1000, deviceScaleFactor: 1, mobile: width < 700 });
     await pause(100);
+    assert(await evaluate("(()=>{const control=document.querySelector('.agenda-share'), heading=document.querySelector('.agenda-heading');const nodes=[...heading.children].filter(el=>el!==control).concat([...document.querySelectorAll('.agenda-content,.calendar,.calendar-legend')]);const rects=()=>nodes.map(el=>{const r=el.getBoundingClientRect();return [r.x,r.y,r.width,r.height]});const before=rects();control.remove();const after=rects();heading.append(control);return JSON.stringify(before)===JSON.stringify(after)})()"),'Sharing does not change existing geometry');
+    assert(await evaluate("(()=>{const button=document.querySelector('.agenda-share-toggle').getBoundingClientRect();return [...document.querySelectorAll('.agenda-heading > p,.agenda-heading > h2')].filter(el=>!el.hidden).every(el=>{const range=document.createRange();range.selectNodeContents(el);return [...range.getClientRects()].every(r=>r.right<=button.left||r.left>=button.right||r.bottom<=button.top||r.top>=button.bottom);});})()"), 'Share button does not overlap heading text');
     assert(await evaluate('document.documentElement.scrollWidth <= innerWidth'), `Overflow horizontal em ${width}px`);
     assert(await evaluate(`['.service--consultoria','.training--msp','.training--p6','.simulator'].every(selector=>{
       const panel=document.querySelector(selector), box=panel.getBoundingClientRect();
@@ -128,6 +130,10 @@ async function main() {
     await evaluate("document.documentElement.style.scrollBehavior='auto';document.querySelector('#turmas').scrollIntoView()");
     await pause(80);
     assert.equal(await evaluate("document.querySelector('#menu a[aria-current]').getAttribute('href')"), '#turmas');
+    await evaluate("document.querySelector('.agenda-share-toggle').click()");
+    assert(await evaluate("(()=>{const r=document.querySelector('#agenda-share-menu').getBoundingClientRect();return r.left>=0 && r.right<=innerWidth})()"),'Share menu fits viewport');
+    if([1440,390].includes(width)){const shot=await send('Page.captureScreenshot',{format:'png'});fs.writeFileSync(path.join(preview,'share-menu-'+width+'.png'),Buffer.from(shot.data,'base64'));}
+    await evaluate("document.querySelector('.agenda-share-toggle').click()");
     if ([1440,390].includes(width)) {
       const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});
       fs.writeFileSync(path.join(preview,`agenda-${width}.png`),Buffer.from(shot.data,'base64'));
@@ -246,6 +252,47 @@ async function main() {
   await evaluate("document.querySelector('#menu a[href=\"index.html#treinamentos\"]').click()");
   for (let i = 0; i < 50; i++) { if (await evaluate("!!document.querySelector('.calendar table')")) break; await pause(100); }
   assert(await evaluate("location.pathname.endsWith('/index.html') && location.hash === '#treinamentos'"));
+  for(let i=0;i<170;i++){if(await evaluate("document.querySelector('#calendar-grid')?.dataset.agendaState==='ready'"))break;await pause(100);}
+  assert(await evaluate("document.querySelector('#calendar-grid').dataset.agendaState==='ready' && !document.querySelector('[data-agenda-share=png]').disabled"));
+  for(let i=0;i<160;i++){if(await evaluate("document.querySelector('#agenda-updated') && !document.querySelector('#agenda-updated').hidden"))break;await pause(100);}
+  // Real PNG downloads and API fallbacks; browser-only mocks never reach production.
+  const downloadDir=path.join(preview,'agenda-export-'+Date.now());fs.mkdirSync(downloadDir,{recursive:true});
+  await send('Browser.setDownloadBehavior',{behavior:'allow',downloadPath:downloadDir});
+  await evaluate("window.pngText=[];window.originalFillText=CanvasRenderingContext2D.prototype.fillText;CanvasRenderingContext2D.prototype.fillText=function(text,...args){pngText.push(String(text));return originalFillText.call(this,text,...args)}");
+  async function downloadAgenda(name){
+    await evaluate("document.querySelector('.agenda-share-toggle').click();document.querySelector('[data-agenda-share=png]').click()");
+    const file=path.join(downloadDir,name);for(let i=0;i<100;i++){if(fs.existsSync(file))break;await pause(100);}
+    assert(fs.existsSync(file),'PNG download: '+name+' '+await evaluate("document.querySelector('.agenda-share-feedback').textContent"));const png=fs.readFileSync(file);
+    assert.equal(png.subarray(1,4).toString(),'PNG');assert(png.readUInt32BE(16)>=3200);assert(png.readUInt32BE(20)<png.readUInt32BE(16));
+    console.log('PNG:',file,png.readUInt32BE(16)+'x'+png.readUInt32BE(20));
+  }
+  await downloadAgenda('Pavel-Agenda-Outubro-Novembro-2026.png');
+  assert(await evaluate("pngText.includes('Outubro de 2026') && pngText.includes('Novembro de 2026') && pngText.includes('MSP') && pngText.includes('P6') && pngText.some(text=>text.startsWith('Agenda atualizada em:'))"));
+  await evaluate("document.querySelector('#next-month').click();window.pngText=[]");
+  await downloadAgenda('Pavel-Agenda-Novembro-Dezembro-2026.png');
+  assert(await evaluate("pngText.includes('Novembro de 2026') && pngText.includes('Dezembro de 2026') && !pngText.includes('Outubro de 2026')"));
+  await evaluate("document.querySelector('#next-month').click();window.pngText=[]");
+  await downloadAgenda('Pavel-Agenda-Dezembro-2026-Janeiro-2027.png');
+  await evaluate("document.querySelector('#previous-month').click();document.querySelector('#previous-month').click();CanvasRenderingContext2D.prototype.fillText=originalFillText");
+  await evaluate("document.querySelector('.agenda-share-toggle').focus()");
+  await send('Input.dispatchKeyEvent',{type:'keyDown',key:'ArrowDown',code:'ArrowDown',windowsVirtualKeyCode:40});
+  assert.equal(await evaluate("document.activeElement.dataset.agendaShare"),'link');
+  await send('Input.dispatchKeyEvent',{type:'keyDown',key:'ArrowDown',code:'ArrowDown',windowsVirtualKeyCode:40});
+  assert.equal(await evaluate("document.activeElement.dataset.agendaShare"),'png');
+  await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',code:'Escape',windowsVirtualKeyCode:27});
+  assert(await evaluate("document.querySelector('#agenda-share-menu').hidden && document.activeElement.classList.contains('agenda-share-toggle')"));
+  await evaluate("window.nativeShare=Object.getOwnPropertyDescriptor(navigator,'share');window.nativeClipboard=Object.getOwnPropertyDescriptor(navigator,'clipboard');window.nativeExec=document.execCommand;Object.defineProperty(navigator,'share',{configurable:true,value:async value=>{window.shared=value}});document.querySelector('[data-agenda-share=link]').click()");
+  await pause(50);assert.equal(await evaluate('window.shared.url'),'https://pavelconsultoria.github.io/Pavel_Consultoria/#turmas');
+  await evaluate("Object.defineProperty(navigator,'share',{configurable:true,value:undefined});Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async value=>{window.copied=value}}});document.querySelector('[data-agenda-share=link]').click()");
+  await pause(50);assert.equal(await evaluate('window.copied'),'https://pavelconsultoria.github.io/Pavel_Consultoria/#turmas');
+  assert.equal(await evaluate("document.querySelector('.agenda-share-feedback [role=status]').textContent"),'Link copiado!');
+  await evaluate("Object.defineProperty(navigator,'clipboard',{configurable:true,value:undefined});document.execCommand=command=>{window.legacyCopied=document.querySelector('textarea').value;return command==='copy'};document.querySelector('[data-agenda-share=link]').click()");
+  await pause(50);assert.equal(await evaluate('window.legacyCopied'),'https://pavelconsultoria.github.io/Pavel_Consultoria/#turmas');
+  await evaluate("document.execCommand=()=>false;document.querySelector('[data-agenda-share=link]').click()");await pause(50);
+  assert(await evaluate("document.querySelector('.agenda-share-feedback input').value==='https://pavelconsultoria.github.io/Pavel_Consultoria/#turmas' && !document.querySelector('.agenda-share-feedback [role=status]').textContent.includes('Link copiado!')"));
+  await evaluate("if(nativeShare)Object.defineProperty(navigator,'share',nativeShare);else delete navigator.share;if(nativeClipboard)Object.defineProperty(navigator,'clipboard',nativeClipboard);else delete navigator.clipboard;document.execCommand=nativeExec;document.querySelector('.agenda-share-toggle').click();document.querySelector('#agenda-title').click()");
+  assert(await evaluate("document.querySelector('#agenda-share-menu').hidden"));
+  console.log('OK: Sharing exact anchor, native share, clipboard/legacy/manual fallback, keyboard, PNG and month/year changes.');
   // A fonte Controle e independente; recarregar nao troca a data pelo dia do navegador.
   async function reloadControl(mode, expected) {
     controlMode = mode;
@@ -271,11 +318,20 @@ async function main() {
   await reloadControl('failure','');
   controlMode='';
   console.log('OK: Controle B1 opcional, data persistente, alteracao da fonte, formato, mobile e falha isolada.');
-  fixture = true;
+  controlMode='failure';fixture = true;delayCsv=true;
   await send('Page.reload', { ignoreCache: true });
+  for(let i=0;i<60;i++){if(await evaluate("document.querySelector('#calendar-grid')?.dataset.agendaState==='loading' && !!document.querySelector('[data-agenda-share=png]')"))break;await pause(10);}
+  assert(await evaluate("document.querySelector('#calendar-grid').dataset.agendaState==='loading' && document.querySelector('[data-agenda-share=png]').disabled && !document.querySelector('[data-agenda-share=link]').disabled"),'PNG disabled during loading; link available');
   for (let i = 0; i < 50; i++) { if (await evaluate("document.querySelectorAll('.class-day').length===2")) break; await pause(100); }
+  delayCsv=false;
   assert.equal(await evaluate("document.querySelectorAll('.class-day').length"), 2);
   assert.equal(await evaluate("document.querySelectorAll('.class-list-item').length"), 2);
+  await evaluate("window.pngText=[];window.originalFillText=CanvasRenderingContext2D.prototype.fillText;CanvasRenderingContext2D.prototype.fillText=function(text,...args){pngText.push(String(text));return originalFillText.call(this,text,...args)}");
+  await downloadAgenda('Pavel-Agenda-Abril-Maio-2026.png');
+  assert(await evaluate("pngText.filter(text=>text==='MSP').length===2 && pngText.filter(text=>text==='P6').length===2 && !pngText.some(text=>text.startsWith('Agenda atualizada em:'))"),'Only displayed dates; no invented update date');
+  await evaluate("CanvasRenderingContext2D.prototype.fillText=originalFillText;window.nativeContext=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=()=>null;document.querySelector('.agenda-share-toggle').click();document.querySelector('[data-agenda-share=png]').click()");
+  await pause(50);assert(await evaluate("!document.querySelector('[data-agenda-share=png]').disabled && document.querySelector('.agenda-share-feedback').textContent.includes('Atualize a Agenda')"),'Canvas failure is recoverable');
+  await evaluate("HTMLCanvasElement.prototype.getContext=nativeContext");
   assert(await evaluate("document.querySelector('.class-day').closest('td').querySelector('.day-number').textContent==='1' && document.querySelector('.class-day').closest('td').querySelector('.holiday-marker') && document.querySelector('.class-day').closest('td').querySelector('.moon-marker')"), 'Dia, duas turmas, Lua cheia e feriado coexistem');
   for (const width of [1440,390,320]) {
     await send('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:width<700});await pause(80);
@@ -301,6 +357,7 @@ async function main() {
   for(let i=0;i<80;i++){if(await evaluate("document.querySelector('#class-list')?.textContent.includes('Não foi possível')"))break;await pause(100);}
   assert(await evaluate("document.querySelector('#class-list').textContent.includes('Não foi possível')"));
   assert.equal(await evaluate("document.querySelectorAll('.class-day').length"),0,'Sem fallback histórico na falha');
+  assert(await evaluate("document.querySelector('[data-agenda-share=png]').disabled && document.querySelector('#calendar-grid').dataset.agendaState==='error'"),'Export disabled on CSV failure');
   assert.equal(await evaluate("document.querySelectorAll('.calendar table').length"),2);
   assert(await evaluate("document.querySelectorAll('.moon-marker').length>0 && document.querySelectorAll('.holiday-marker').length>0"));
   assert.equal(errors.length, 0, errors.join('\n'));

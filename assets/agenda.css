@@ -54,3 +54,18 @@
 .home .footer-socials svg{width:18px;height:18px}
 .home .footer .footer-socials a:hover{color:#79c694;background:#ffffff0a}
 .home .footer .footer-socials a:focus-visible{outline:2px solid #79c694;outline-offset:2px}
+
+/* Independent sharing control: does not participate in calendar layout. */
+#turmas .agenda-heading{position:relative}
+#turmas .agenda-share{position:absolute;top:0;right:0;z-index:3}
+#turmas .agenda-share-toggle{display:inline-flex;align-items:center;gap:7px;min-height:32px;padding:5px 10px;border:1px solid #B9C9BF;border-radius:4px;background:transparent;color:#287D50;font-size:12px;line-height:20px}
+#turmas .agenda-share-toggle svg{width:17px;height:17px;flex-shrink:0}
+#turmas .agenda-share-toggle:hover{background:#E5ECE6}
+#turmas .agenda-share-menu,#turmas .agenda-share-feedback{position:absolute;top:calc(100% + 6px);right:0;width:264px;max-width:calc(100vw - 40px);padding:6px;background:#FFFFFF;border:1px solid #B9C9BF;border-radius:6px;box-shadow:0 4px 16px #263C3114;color:#263C31}
+#turmas .agenda-share-menu[hidden],#turmas .agenda-share-feedback[hidden]{display:none}
+#turmas .agenda-share-menu button{display:block;width:100%;border:0;border-radius:3px;padding:9px 10px;min-height:44px;text-align:left;background:transparent;color:#263C31;font-size:13px;line-height:1.4}
+#turmas .agenda-share-menu button:hover:not(:disabled){background:#F0F3F0}
+#turmas .agenda-share-menu button:disabled{color:#6B756F;cursor:wait}
+#turmas .agenda-share-feedback{padding:10px;font-size:12px;line-height:1.5}
+#turmas .agenda-share-feedback input{display:block;width:100%;margin-top:6px;padding:6px;border:1px solid #B9C9BF;border-radius:3px;font:inherit;color:#263C31;background:#FFFFFF}
+@media(max-width:700px){#turmas .agenda-share-toggle{position:relative;width:32px;min-height:28px;height:28px;padding:5px;justify-content:center}#turmas .agenda-share-toggle::before{content:"";position:absolute;inset:-8px -6px}#turmas .agenda-share-toggle span{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}}

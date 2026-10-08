@@ -2,6 +2,7 @@
   'use strict';
   const grid = document.querySelector('#calendar-grid');
   if (!grid) return;
+  grid.dataset.agendaState = 'loading';
   const config = window.PAVEL_CONFIG, dates = window.PAVEL_CALENDAR;
   const data = window.PAVEL_AGENDA_DATA;
   let classes = [], loading = true, loadError = false;
@@ -148,6 +149,7 @@
       console.error('Não foi possível processar a agenda pública:', error);
     }
     loading = false; listSignature = ''; renderCalendar(); renderList();
+    grid.dataset.agendaState = loadError ? 'error' : 'ready';
   }
   async function loadUpdatedDate() {
     const label = document.querySelector('#agenda-updated');

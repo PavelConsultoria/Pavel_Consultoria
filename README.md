@@ -84,3 +84,14 @@ Para ativar:
 5. Preencher **agendaControlCsvUrl** em **assets/config.js** com esse URL e publicar a configuracao. A fonte publicada da aba Controle (gid 608855431) ja esta configurada.
 
 Depois da ativacao, alteracoes registradas em B1 aparecem na proxima carga da pagina, sem novos commits; o site pede o CSV sem cache local. A publicacao do Google pode levar algum tempo para refletir as alteracoes. Nao publicar informacoes privadas na aba Controle.
+
+## Compartilhar Agenda
+
+Na Home, usar **Compartilhar Agenda**, no canto superior direito da seção Agenda (ícone no celular):
+
+- **Compartilhar link**: abre o compartilhamento nativo quando disponível. Caso contrário, copia exatamente https://pavelconsultoria.github.io/Pavel_Consultoria/#turmas. Se a cópia automática falhar, mostra o endereço selecionável para copiar manualmente, sem anunciar sucesso.
+- **Salvar imagem da Agenda (PNG)**: baixa uma imagem horizontal em alta resolução com os dois meses atualmente visíveis, os indicadores, as legendas, a marca e a data registrada quando disponível. Navegar para outros meses antes de exportar muda o conteúdo e o nome do arquivo. O modo de salvar no celular depende do navegador.
+
+O PNG é gerado com Canvas, formas vetoriais e fontes do sistema, sem imagens externas, backend ou dependências novas. A exportação fica desabilitada durante o carregamento ou a falha do CSV de Turmas. Os feriados e as fases da Lua são desenhados a partir dos indicadores já renderizados.
+
+Validação: npm run check e npm run check:browser. O teste de navegador verifica os fallbacks, o teclado, o carregamento, as falhas e downloads reais em .preview/agenda-export-*/. O projeto estático não tem etapa de build.
