@@ -116,6 +116,11 @@ async function main() {
       const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});
       fs.writeFileSync(path.join(preview,`agenda-${width}.png`),Buffer.from(shot.data,'base64'));
     }
+    assert(await evaluate(`[...document.querySelectorAll('.calendar td[data-date]')].every(cell=>{
+      const number=cell.querySelector('.day-number').getBoundingClientRect(), markers=cell.querySelector('.day-markers').getBoundingClientRect();
+      return number.height<=18 && markers.top-number.bottom<=2 && markers.top>=number.bottom-1;
+    })`), `Indicadores próximos ao dia em ${width}px`);
+    assert.equal(await evaluate("document.querySelector('.footer-name').textContent"),'Karolina Poznyakov, MSc, PMP (retired), IPMA-D');
     const footerHeight = await evaluate("document.querySelector('.contact-section').getBoundingClientRect().height + document.querySelector('.footer').getBoundingClientRect().height");
     console.log(`Contato + rodapé em ${width}px: ${Math.round(footerHeight)}px`);
     assert(footerHeight < (width < 700 ? 470 : 340), `Encerramento compacto em ${width}px`);
@@ -209,6 +214,11 @@ async function main() {
   assert.equal(await evaluate("document.querySelectorAll('.class-day').length"), 2);
   assert.equal(await evaluate("document.querySelectorAll('.class-list-item').length"), 2);
   assert(await evaluate("document.querySelector('.class-day').closest('td').querySelector('.day-number').textContent==='1' && document.querySelector('.class-day').closest('td').querySelector('.holiday-marker') && document.querySelector('.class-day').closest('td').querySelector('.moon-marker')"), 'Dia, duas turmas, Lua cheia e feriado coexistem');
+  for (const width of [1440,390,320]) {
+    await send('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:width<700});await pause(80);
+    assert(await evaluate(`(()=>{const cell=document.querySelector('.class-day').closest('td'), box=cell.getBoundingClientRect(), number=cell.querySelector('.day-number').getBoundingClientRect(), markers=[...cell.querySelector('.day-markers').children].map(el=>el.getBoundingClientRect());return markers.every(r=>r.top>=number.bottom-1 && r.bottom<=box.bottom+1 && r.left>=box.left-1 && r.right<=box.right+1) && markers.every((r,i)=>markers.slice(i+1).every(s=>r.right<=s.left+.5 || s.right<=r.left+.5 || r.bottom<=s.top+.5 || s.bottom<=r.top+.5));})()`), `Indicadores simultâneos sem sobreposição em ${width}px`);
+    if(width===390){await evaluate("document.documentElement.style.scrollBehavior='auto';document.querySelector('.calendar').scrollIntoView()");await pause(100);const shot=await send('Page.captureScreenshot',{format:'png'});fs.writeFileSync(path.join(preview,'calendar-compact-mobile.png'),Buffer.from(shot.data,'base64'));}
+  }
   await evaluate("document.querySelector('.class-day').click()");
   assert(await evaluate("document.querySelector('#class-dialog').open"));
   assert(await evaluate("document.querySelector('#dialog-details').textContent.includes('HORÁRIO DE TESTE')"));

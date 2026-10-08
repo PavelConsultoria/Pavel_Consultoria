@@ -27,10 +27,10 @@
 #turmas .calendar h3{font-size:17px;text-align:center;text-transform:capitalize;margin:0;padding:15px 4px;color:#263C31;line-height:1.2}
 #turmas .calendar table{width:100%;table-layout:fixed;border-collapse:collapse;border-spacing:0;font-size:12px}
 #turmas .calendar th{height:30px;font-size:10px;font-weight:500;border:0;color:#52645A;background:#FFFFFF;padding:4px 0}
-#turmas .calendar td{height:54px;vertical-align:top;text-align:center;padding:5px 1px 3px;border:0;background:#FFFFFF;color:#263C31;position:relative}
+#turmas .calendar td{height:44px;vertical-align:top;text-align:center;padding:5px 1px 3px;border:0;background:#FFFFFF;color:#263C31;position:relative}
 #turmas .calendar th.weekend{background:#D5D9DC}
 #turmas .calendar td.weekend{background:#E2E5E8}
-#turmas .day-number{font-size:12px;display:block;line-height:17px}
+#turmas .day-number{font-size:12px;display:block;width:auto;height:auto;line-height:17px}
 #turmas .day-markers{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1px 3px;min-height:19px}
 #turmas .class-day{display:inline-flex;align-items:center;justify-content:center;width:auto;height:auto;min-height:19px;min-width:0;margin:0;padding:1px 0;border:0;border-radius:0;background:transparent;font-size:9px;line-height:14px;font-weight:700}
 #turmas .course-msp{color:#16804A}
@@ -41,9 +41,9 @@
 #turmas .moon-marker{font-size:12px;line-height:16px}
 #turmas .calendar-legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin:14px 0 0;padding:0;border:0;font-size:11px;line-height:1.5;color:#52645A}
 #turmas .calendar-legend span{display:inline-flex;gap:4px;align-items:center}
-@media(max-width:1100px){#turmas .agenda-intro{padding-right:20px}#turmas .agenda-calendars{padding-left:20px}#turmas #calendar-grid{gap:10px}#turmas .calendar h3{font-size:15px}#turmas .calendar td{height:54px}}
-@media(max-width:960px){.home #turmas{padding-block:36px}#turmas .agenda-content{grid-template-columns:1fr;gap:28px}#turmas .agenda-intro{padding:0}#turmas .agenda-calendars{padding:24px 0 0;border-left:0;border-top:1px solid #CBD7CF}#turmas .calendar td{height:60px}#turmas .class-list-item p,#turmas .agenda-demand p{font-size:14px}#turmas .text-link{min-height:44px}}
-@media(max-width:600px){#turmas #calendar-grid{grid-template-columns:1fr;gap:20px}#turmas .calendar h3{font-size:18px}#turmas .calendar td{height:57px}#turmas .calendar th{font-size:11px}#turmas .class-day{font-size:11px;min-height:25px}#turmas .day-number{font-size:13px}#turmas .moon-marker{font-size:14px}#turmas .calendar-legend{gap:8px 14px}#turmas .calendar-controls button{width:44px;height:44px}#turmas .agenda-heading{margin-bottom:26px}}
+@media(max-width:1100px){#turmas .agenda-intro{padding-right:20px}#turmas .agenda-calendars{padding-left:20px}#turmas #calendar-grid{gap:10px}#turmas .calendar h3{font-size:15px}#turmas .calendar td{height:44px}}
+@media(max-width:960px){.home #turmas{padding-block:36px}#turmas .agenda-content{grid-template-columns:1fr;gap:28px}#turmas .agenda-intro{padding:0}#turmas .agenda-calendars{padding:24px 0 0;border-left:0;border-top:1px solid #CBD7CF}#turmas .calendar td{height:46px}#turmas .class-list-item p,#turmas .agenda-demand p{font-size:14px}#turmas .text-link{min-height:44px}}
+@media(max-width:600px){#turmas #calendar-grid{grid-template-columns:1fr;gap:20px}#turmas .calendar h3{font-size:18px}#turmas .calendar td{height:50px}#turmas .calendar th{font-size:11px}#turmas .class-day{font-size:11px;min-height:25px}#turmas .day-number{font-size:13px}#turmas .moon-marker{font-size:14px}#turmas .calendar-legend{gap:8px 14px}#turmas .calendar-controls button{width:44px;height:44px}#turmas .agenda-heading{margin-bottom:26px}}
 
 /* Ícones discretos no contato existente do rodapé. */
 .home .footer-socials{display:flex;gap:4px;margin-top:2px}
