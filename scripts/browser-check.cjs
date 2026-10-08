@@ -127,11 +127,13 @@ async function main() {
       return {background:getComputedStyle(section).backgroundColor,
         contained:[...section.querySelectorAll('h2,h3,h4,p,img,a')].every(el=>{const r=el.getBoundingClientRect();return r.left>=box.left-1 && r.right<=box.right+1;}),
         images:images.every(img=>img.naturalWidth>0 && Math.abs(img.getBoundingClientRect().width/img.getBoundingClientRect().height-img.naturalWidth/img.naturalHeight)<.01),
-        whatsapp:section.querySelector('[data-whatsapp]').href.includes('wa.me/5521995716270?text='),
+        noExtraContact:section.querySelectorAll('a, .about-signature').length===0,
         footer:document.querySelectorAll('footer').length,
+        height:box.height,coverWidth:section.querySelector('.about-publication img').getBoundingClientRect().width,
         portrait:[section.querySelector('.about-portrait').getBoundingClientRect().top,section.querySelector('.about-leader-copy').getBoundingClientRect().top]};
     })()`);
-    assert.equal(about.background,'rgb(32, 49, 45)');assert(about.contained && about.images && about.whatsapp);assert.equal(about.footer,1);
+    assert.equal(about.background,'rgb(32, 49, 45)');assert(about.contained && about.images && about.noExtraContact);assert.equal(about.footer,1);
+    if(width===1440){assert(about.height<820, 'Sobre compacta no desktop');assert(about.coverWidth>=75 && about.coverWidth<=100);console.log('Altura Sobre a Pavel:',Math.round(about.height)+'px');}
     if(width<700)assert(about.portrait[1]>about.portrait[0], 'Foto e texto empilhados');
     await evaluate("document.documentElement.style.scrollBehavior='auto';document.querySelector('#menu a[href=\"#sobre\"]').click()");await pause(100);
     assert.equal(await evaluate("document.querySelector('#menu a[aria-current]').getAttribute('href')"),'#sobre');
@@ -150,15 +152,16 @@ async function main() {
       fs.writeFileSync(path.join(preview, `header-${width}.png`), Buffer.from(header.data, 'base64'));
     }
   }
-  for (const [width,height] of [[1440,768],[1440,900],[1024,768]]) {
+  for (const [width,height] of [[1650,900],[1440,768],[1440,900],[1024,768]]) {
     await send('Emulation.setDeviceMetricsOverride', {width,height,deviceScaleFactor:1,mobile:false});
     await pause(150);
     const sizing = await evaluate(`(() => {
       const header=document.querySelector('.site-header').getBoundingClientRect().height;
       return {usable:innerHeight-header,expertise:document.querySelector('.expertise').getBoundingClientRect().height,training:document.querySelector('.training-section').getBoundingClientRect().height,
-        hero:document.querySelector('.hero-stage').getBoundingClientRect().height,simulator:document.querySelector('.simulator').getBoundingClientRect().height,
+        about:document.querySelector('#sobre').getBoundingClientRect().height,hero:document.querySelector('.hero-stage').getBoundingClientRect().height,simulator:document.querySelector('.simulator').getBoundingClientRect().height,
         rows:[...document.querySelectorAll('.training')].map(el=>el.getBoundingClientRect().height)};
     })()`);
+    if(width>=1440)assert(sizing.about<=sizing.usable, `Sobre em uma tela útil em ${width}x${height}`);
     assert(Math.abs(sizing.training-sizing.usable)<=2, `Dois painéis na mesma tela em ${width}x${height}: ${JSON.stringify(sizing)}`);
     assert(Math.abs(sizing.expertise-sizing.usable)<=2, `Áreas de atuação na altura útil em ${width}x${height}: ${JSON.stringify(sizing)}`);
     assert(Math.abs(sizing.hero-sizing.usable)<=2 && Math.abs(sizing.simulator-sizing.usable)<=2, 'Altura útil do hero e Simulator');
