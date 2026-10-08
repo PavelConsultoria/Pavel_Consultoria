@@ -10,7 +10,7 @@
 
 /* Ajustes definitivos: imagens aprovadas e agenda independente. */
 .home .brand{background:transparent;padding:0;border-radius:0}
-.home .brand-image{filter:drop-shadow(0 0 1px #d5dddd)}
+.home .brand-image{filter:none}
 .home .hero{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:34px;min-height:590px}
 .home .hero-cover{width:100%;margin:0;padding-bottom:24px}
 .home .hero-cover img{filter:none;mask-image:none;mask-composite:add;border-radius:2px}
@@ -46,3 +46,44 @@
 @media(max-width:1200px){.home .hero{gap:28px}.home .consultoria-editorial{gap:24px}.home .agenda{gap:40px}}
 @media(max-width:960px){.home .hero{min-height:540px;gap:24px}.home .expertise .section-heading{grid-template-columns:64px minmax(0,1fr);gap:24px}.home .expertise .service{grid-template-columns:64px minmax(0,1fr) 48px;gap:24px}.home .consultoria-editorial{grid-template-columns:1fr}.home .consultoria-editorial figure{max-width:640px}.home .simulator{gap:30px;padding-inline:28px}.home .footer{gap:24px;flex-wrap:wrap}.home .footer .text-link{margin-left:0}}
 @media(max-width:700px){.home .hero{grid-template-columns:1fr;min-height:0;gap:28px}.home .hero-cover{width:100%;margin:0;padding:0}.home .hero-cover figcaption{margin-bottom:22px;font-size:8px}.home .expertise .section-heading{grid-template-columns:1fr;gap:18px}.home .expertise .section-heading>div{grid-column:1}.home .expertise .service{grid-template-columns:30px minmax(0,1fr) 44px;gap:12px}.home .consultoria-editorial{gap:20px}.home .training-grid{gap:44px}.home .training h3{min-height:0}.home .training-visual{margin-bottom:20px}.home .simulator{grid-template-columns:1fr;padding-inline:20px;gap:28px}.home .agenda{gap:30px}.home .footer{flex-direction:column;align-items:flex-start;gap:20px}.home .footer>div{width:100%}.home .footer .text-link{margin-left:0}.home .footer-identity strong{font-size:19px}}
+/* Correções aprovadas: painéis com imagens de fundo e contato compacto. */
+.home .service p{font-weight:400}
+.home .training-links{display:flex;flex-wrap:wrap;gap:0;list-style:none;padding:0;margin:18px 0 0;font-size:14px;color:var(--green)}
+.home .training-links li+li::before{content:'|';margin:0 14px;color:var(--muted)}
+.home .training-links a{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:5px}
+.home .service--consultoria{position:relative;isolation:isolate;background-image:linear-gradient(90deg,rgba(27,37,42,.98) 0%,rgba(27,37,42,.92) 44%,rgba(27,37,42,.25) 75%,rgba(27,37,42,.12)),url('consultoria-fundo.png');background-size:cover;background-position:center,center 58%;min-height:350px;color:#fff;align-items:center;border:0}
+.home .service--consultoria .service-content{max-width:510px;padding-block:16px}
+.home .service--consultoria .service-number{color:#fff;padding-left:16px}
+.home .service--consultoria p{color:var(--light-secondary)}
+.home .service--consultoria .round-link{color:#fff;border-color:#ffffff70;margin-right:16px;align-self:center}
+.home .training{position:relative;isolation:isolate;min-height:590px;padding:38px 32px;background-size:cover;background-position:center;color:#fff;overflow:hidden;justify-content:flex-start}
+.home .training--msp{background-image:linear-gradient(90deg,rgba(10,24,29,.94),rgba(10,24,29,.7) 48%,rgba(10,24,29,.1)),url('msproject-fundo.png');background-position:center,64% center}
+.home .training--p6{background-image:linear-gradient(90deg,rgba(18,25,30,.94),rgba(18,25,30,.7) 48%,rgba(18,25,30,.12)),url('primavera-fundo.png');background-position:center,56% center}
+.home .training-top{margin-bottom:100px;width:100%;gap:12px}
+.home .training-top .eyebrow{color:#fff}
+.home .training-logo{width:42px;height:42px}
+.home .training-logo--p6{width:42px;height:42px}
+.home .training h3{font-size:30px;min-height:0;max-width:390px;text-wrap:balance}
+.home .training>p{color:#fff;font-size:16px;line-height:1.7;max-width:390px;flex:0;margin:18px 0 24px}
+.home .training>.text-link{background:var(--green);border:1px solid var(--green);border-radius:3px;color:#fff;padding:12px 18px;min-height:50px;margin-top:auto}
+.home .training>.text-link:hover{background:var(--green-dark)}
+.home .simulator{display:block;position:relative;isolation:isolate;min-height:580px;background-image:linear-gradient(90deg,rgba(27,37,42,.98) 0%,rgba(27,37,42,.9) 33%,rgba(27,37,42,.12) 68%,rgba(27,37,42,.03)),url('pmp-fundo.png');background-size:cover;background-position:center,center;display:flex;align-items:center}
+.home .simulator>div{max-width:470px}
+.home .simulator h2{font-size:clamp(43px,4.8vw,66px)}
+.home .simulator p:not(.eyebrow){text-shadow:0 1px 2px #0005}
+.home .contact{padding-block:25px;gap:30px;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)}
+.home .contact .eyebrow{font-size:10px}
+.home .contact h2{font-size:22px;line-height:1.3;margin:8px 0;letter-spacing:-.025em}
+.home .contact p:not(.eyebrow):not(.placeholder){font-size:13px;line-height:1.6;max-width:620px}
+.home .contact-action{justify-self:end}
+.home .contact-action .button{font-size:13px;min-height:46px;padding:10px 16px}
+.home .footer{padding-block:20px;gap:20px}
+.home .footer-identity strong{font-size:15px;letter-spacing:.04em}
+.home .footer p{font-size:12px;line-height:1.5;margin-top:3px}
+.home .footer .footer-name{font-size:14px;line-height:1.5;margin:0}
+.home .footer-contact a{font-size:13px;min-height:44px}
+.home .footer .text-link{font-size:12px;gap:10px}
+@media(min-width:701px) and (max-width:1100px){.home .training-grid{grid-template-columns:1fr}.home .training{min-height:490px;padding:36px}.home .training-top{margin-bottom:55px}.home .training h3,.home .training>p{max-width:440px}.home .training--msp,.home .training--p6{background-position:center,right center}.home .service--consultoria .service-content{max-width:440px}.home .simulator{min-height:530px;background-position:center,62% center}}
+@media(max-width:700px){.home .service--consultoria{background-image:linear-gradient(180deg,rgba(27,37,42,.96) 0%,rgba(27,37,42,.92) 42%,rgba(27,37,42,.12) 82%),url('consultoria-fundo.png');background-position:center,58% center;min-height:520px;align-items:start;padding-top:28px}.home .service--consultoria .service-content{padding-top:0;padding-bottom:180px}.home .service--consultoria .service-number{padding-left:5px}.home .service--consultoria .round-link{margin-right:5px;align-self:start}.home .training{min-height:610px;padding:28px 22px;background-image:linear-gradient(180deg,rgba(10,24,29,.95),rgba(10,24,29,.86) 52%,rgba(10,24,29,.08) 87%),url('msproject-fundo.png');background-position:center,70% center}.home .training--p6{background-image:linear-gradient(180deg,rgba(18,25,30,.95),rgba(18,25,30,.85) 52%,rgba(18,25,30,.08) 87%),url('primavera-fundo.png');background-position:center,62% center}.home .training-top{margin-bottom:28px}.home .training h3{font-size:28px}.home .training>p{font-size:15px}.home .training>.text-link{margin-top:0}.home .simulator{min-height:660px;align-items:flex-start;padding:44px 20px;background-image:linear-gradient(180deg,rgba(27,37,42,.97),rgba(27,37,42,.9) 43%,rgba(27,37,42,.04) 76%),url('pmp-fundo.png');background-position:center,70% center}.home .simulator>div{max-width:100%}.home .contact{padding-block:22px;grid-template-columns:1fr;gap:14px}.home .contact h2{font-size:20px}.home .contact-action{justify-self:start;width:auto}.home .contact-action .button{width:auto;font-size:12px}.home .footer{padding-block:18px;gap:10px}.home .footer>div{width:auto}.home .footer-contact a{min-height:44px}.home .footer-identity strong{font-size:15px}}
+@media(max-width:700px){.home .contact{padding-block:16px;gap:10px}.home .contact h2{font-size:18px;line-height:1.25;margin:5px 0}.home .contact p:not(.eyebrow):not(.placeholder){font-size:12px;line-height:1.5}.home .footer{padding-block:14px;gap:4px}.home .footer p{margin-top:2px}}
+@media(max-width:700px){.home .footer{padding-block:12px}}

@@ -14,7 +14,14 @@ assert.deepEqual(sections, ['01', '02', '03', '04'], 'Numeração das seções')
 assert(!html.includes('EXPERIÊNCIA E ATUAÇÃO'), 'Seção de experiência removida');
 assert.equal((html.match(/id="calendar-grid"/g) || []).length, 1, 'Calendário único');
 assert(html.indexOf('id="simulator"') < html.indexOf('id="turmas"'), 'Agenda após Simulator');
-for (const name of ['msproject', 'primavera', 'pmp', 'consultoria']) assert(html.includes(`src="assets/${name}-fundo.png"`), `Imagem aprovada ausente: ${name}`);
+const homeCss = fs.readFileSync(path.join(root, 'assets/home.css'), 'utf8');
+for (const name of ['msproject', 'primavera', 'pmp', 'consultoria']) {
+  assert(homeCss.includes(`url('${name}-fundo.png')`), `Fundo aprovado ausente: ${name}`);
+  assert(fs.existsSync(path.join(root, 'assets', `${name}-fundo.png`)));
+  assert(!html.includes(`src="assets/${name}-fundo.png"`), 'Imagens aprovadas devem ser fundos CSS');
+}
+assert(!html.includes('class="tags"'), 'Palavras-chave decorativas removidas');
+assert(html.includes('class="training-links"'), 'Links dos treinamentos preservados');
 assert(!html.includes('class="brand-phone"'), 'Telefone removido do cabeçalho');
 assert(html.includes('Karolina Poznyakov, MSc'), 'Nome profissional no rodapé');
 for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {

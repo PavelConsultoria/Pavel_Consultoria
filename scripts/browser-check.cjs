@@ -57,13 +57,39 @@ async function main() {
   assert(await evaluate("document.querySelector('.header-whatsapp').rel.includes('noopener') && document.querySelector('.header-whatsapp').target === '_blank'"));
   await evaluate("Promise.all(Array.from(document.images, img => { img.loading = 'eager'; return img.decode(); }))");
   assert(await evaluate("Array.from(document.images).every(img => img.naturalWidth > 0)"));
+  assert(await evaluate("document.querySelector('.brand-image').src.endsWith('/assets/logo-pavel-dark.png') && getComputedStyle(document.querySelector('.brand-image')).filter === 'none'"), 'Logo para fundo escuro sem filtro global');
+  assert(await evaluate("document.querySelector('.training-links a').getAttribute('href') === 'ms-project.html' && document.querySelector('.training-links li:last-child a').href.startsWith('https://wa.me/5521995716270')"), 'Destinos dos links de treinamento');
+  assert(await evaluate(`Promise.all(['.service--consultoria','.training--msp','.training--p6','.simulator'].map(selector => {
+    const el=document.querySelector(selector), style=getComputedStyle(el);
+    const match=style.backgroundImage.match(/url\\("?([^"\\)]+)"?\\)/);
+    if(!match || !style.backgroundSize.split(',').every(value=>value.trim()==='cover')) return false;
+    return new Promise(resolve => { const img=new Image(); img.onload=()=>resolve(img.naturalWidth>0); img.onerror=()=>resolve(false); img.src=match[1]; });
+  })).then(results=>results.every(Boolean))`), 'Fundos aprovados carregados');
+  assert.equal(await evaluate("document.querySelectorAll('img[src$=\"-fundo.png\"]').length"), 0);
+  assert(await evaluate(`(() => {
+    const paragraphs = [...document.querySelectorAll('.service:first-child p'),document.querySelector('#analise-forense p')];
+    const properties=['fontFamily','fontSize','fontWeight','color','lineHeight'];
+    return properties.every(key=>paragraphs.every(p=>getComputedStyle(p)[key]===getComputedStyle(paragraphs[0])[key]));
+  })()`), 'Tipografia dos parágrafos uniforme');
   for (const width of [1440, 1024, 768, 390, 320]) {
     await send('Emulation.setDeviceMetricsOverride', { width, height: 1000, deviceScaleFactor: 1, mobile: width < 700 });
     await pause(100);
     assert(await evaluate('document.documentElement.scrollWidth <= innerWidth'), `Overflow horizontal em ${width}px`);
+    assert(await evaluate(`['.service--consultoria','.training--msp','.training--p6','.simulator'].every(selector=>{
+      const panel=document.querySelector(selector), box=panel.getBoundingClientRect();
+      return [...panel.querySelectorAll('h2,h3,p,a')].filter(el=>!el.hidden).every(el=>{
+        const rect=el.getBoundingClientRect();
+        return rect.left>=box.left-1 && rect.right<=box.right+1 && rect.top>=box.top-1 && rect.bottom<=box.bottom+1;
+      });
+    })`), `Conteúdo contido nos painéis em ${width}px`);
+    const footerHeight = await evaluate("document.querySelector('.contact-section').getBoundingClientRect().height + document.querySelector('.footer').getBoundingClientRect().height");
+    console.log(`Contato + rodapé em ${width}px: ${Math.round(footerHeight)}px`);
+    assert(footerHeight < (width < 700 ? 410 : 300), `Encerramento compacto em ${width}px`);
     if ([1440, 390].includes(width)) {
       const screenshot = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true });
       fs.writeFileSync(path.join(preview, `home-${width}.png`), Buffer.from(screenshot.data, 'base64'));
+      const header = await send('Page.captureScreenshot', { format: 'png', clip: {x:0,y:0,width,height:95,scale:1} });
+      fs.writeFileSync(path.join(preview, `header-${width}.png`), Buffer.from(header.data, 'base64'));
     }
   }
   await evaluate("document.querySelector('.menu-toggle').click()");
