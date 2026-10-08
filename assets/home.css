@@ -112,3 +112,39 @@
 .home .expertise .training-links{margin-top:10px}
 @media(max-width:1100px){.home .hero-copy{max-width:570px}.home .expertise{padding-inline:28px;background-image:linear-gradient(90deg,rgba(243,245,242,.99),rgba(243,245,242,.96) 65%,rgba(243,245,242,.45)),url('consultoria-fundo.png')}.home .expertise .service-list{max-width:760px}}
 @media(max-width:700px){.home .hero-stage{background-image:linear-gradient(180deg,rgba(27,37,42,.98),rgba(27,37,42,.91) 54%,rgba(27,37,42,.28) 78%,rgba(27,37,42,.55)),url('primavera-fundo.png');background-position:center,62% center}.home .hero{min-height:760px;padding-top:44px}.home .hero-copy{padding-bottom:165px;max-width:100%}.home .hero h1{font-size:clamp(40px,10vw,64px)}.home .hero-actions{flex-direction:column;align-items:stretch}.home .hero-disciplines{font-size:11px;padding-block:18px}.home .expertise{padding:54px 20px 220px;background-image:linear-gradient(180deg,rgba(243,245,242,.98),rgba(243,245,242,.98) 77%,rgba(243,245,242,.25)),url('consultoria-fundo.png');background-position:center,62% bottom}.home .expertise .section-heading{grid-template-columns:30px minmax(0,1fr);gap:12px}.home .expertise .section-heading>div{grid-column:1/-1}.home .expertise .service{grid-template-columns:30px minmax(0,1fr) 44px;gap:12px;padding-block:24px}.home .expertise .service-number{font-size:23px}.home .expertise .service h3{font-size:23px}.home .expertise .service p{font-size:15px}.home .expertise .training-links{font-size:12px}.home .expertise .training-links li+li::before{margin-inline:8px}}
+/* Altura útil automática; conteúdo longo pode crescer sem recortes. */
+html:has(body.home){--header-height:96px;scroll-padding-top:var(--header-height)}
+.home{--section-height:calc(100svh - var(--header-height,96px))}
+@supports(height:100dvh){.home{--section-height:calc(100dvh - var(--header-height,96px))}}
+.home .hero-stage{min-height:var(--section-height);background-image:linear-gradient(90deg,rgba(27,37,42,.97),rgba(27,37,42,.86) 40%,rgba(27,37,42,.12) 77%),url('msproject-fundo.png');background-position:center,right center}
+.home .hero{min-height:var(--section-height);padding-top:clamp(28px,6vh,64px)}
+.home .hero-copy{padding-bottom:32px}
+.home .expertise{min-height:var(--section-height);display:flex;flex-direction:column;padding-block:28px}
+.home .expertise .section-heading{margin-bottom:20px}
+.home .expertise h2{font-size:clamp(30px,3vw,42px)}
+.home .expertise .section-heading p:not(.eyebrow){margin-top:10px;font-size:15px}
+.home .expertise .service-list{display:grid;grid-template-rows:repeat(4,minmax(min-content,1fr));flex:1;width:100%}
+.home .expertise .service{padding-block:14px}
+.home .expertise .service h3{font-size:25px}
+.home .expertise .service p{font-size:15px;line-height:1.55;margin-top:8px}
+.home .expertise .training-links{margin-top:0}
+.home .training-section{min-height:var(--section-height);background:var(--graphite)}
+.home .training-section>.container{width:100%;min-height:var(--section-height);padding:24px 0 0;display:flex;flex-direction:column}
+.home .training-section .section-heading{width:min(1280px,calc(100% - 96px));margin:0 auto 20px;gap:24px;color:#fff}
+.home .training-section .section-heading p{color:var(--light-secondary)}
+.home .training-section h2{font-size:clamp(30px,3vw,40px)}
+.home .training-section .section-heading p:not(.eyebrow){font-size:15px;margin-top:8px}
+.home .training-grid{display:grid;grid-template-columns:1fr;grid-template-rows:repeat(2,minmax(220px,1fr));gap:0;flex:1}
+.home .training{min-height:220px;display:grid;grid-template-columns:88px minmax(0,650px) auto;grid-template-rows:auto auto;column-gap:24px;row-gap:12px;align-content:center;align-items:center;padding:24px max(48px,calc((100% - 1280px)/2));background-position:center,right center}
+.home .training-top{grid-column:1;grid-row:1/3;flex-direction:column;align-items:flex-start;gap:10px;margin:0;min-height:0}
+.home .training-top .eyebrow{font-size:10px;letter-spacing:.08em}
+.home .training h3{grid-column:2;grid-row:1;font-size:27px;max-width:650px;text-wrap:initial}
+.home .training>p{grid-column:2;grid-row:2;font-size:15px;line-height:1.6;max-width:650px;margin:0}
+.home .training>.text-link{grid-column:3;grid-row:1/3;justify-self:end;align-self:center;margin:0;font-size:14px}
+.home .training--msp{background-image:linear-gradient(90deg,rgba(10,24,29,.96),rgba(10,24,29,.9) 56%,rgba(10,24,29,.14)),url('msproject-fundo.png')}
+.home .training--p6{background-image:linear-gradient(90deg,rgba(18,25,30,.96),rgba(18,25,30,.9) 56%,rgba(18,25,30,.14)),url('primavera-fundo.png')}
+.home .simulator{min-height:var(--section-height);width:100%}
+.home .agenda-section{min-height:var(--section-height);display:flex;align-items:center;padding-block:36px}
+@media(max-width:1100px){.home .training{grid-template-columns:64px minmax(0,1fr) auto;column-gap:20px;padding-inline:28px}.home .training h3{font-size:25px}.home .training>.text-link{font-size:13px}.home .training-section .section-heading{width:calc(100% - 56px)}}
+@media(max-width:700px){.home .hero-stage{background-image:linear-gradient(180deg,rgba(27,37,42,.97),rgba(27,37,42,.88) 50%,rgba(27,37,42,.12) 78%,rgba(27,37,42,.55)),url('msproject-fundo.png');background-position:center,68% center}.home .hero{min-height:max(var(--section-height),680px);padding-top:36px}.home .hero-copy{padding-bottom:100px}.home .expertise{padding:36px 20px 140px}.home .expertise .section-heading{margin-bottom:24px}.home .expertise .service{padding-block:20px}.home .expertise .service h3{font-size:23px}.home .training-section .section-heading{width:calc(100% - 40px);grid-template-columns:1fr;gap:12px;margin-bottom:24px}.home .training{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;min-height:420px;padding:28px 20px;gap:0}.home .training-top{flex-direction:row;align-items:center;margin-bottom:22px;gap:12px}.home .training h3{font-size:27px;max-width:100%;margin:0}.home .training>p{font-size:15px;margin:16px 0 22px;max-width:100%}.home .training>.text-link{align-self:flex-start;margin:0}.home .training--msp{background-image:linear-gradient(180deg,rgba(10,24,29,.96),rgba(10,24,29,.87) 58%,rgba(10,24,29,.18)),url('msproject-fundo.png')}.home .training--p6{background-image:linear-gradient(180deg,rgba(18,25,30,.96),rgba(18,25,30,.87) 58%,rgba(18,25,30,.18)),url('primavera-fundo.png')}.home .simulator{min-height:max(var(--section-height),600px)}.home .agenda-section{padding-block:44px}}
+@media(min-width:701px){.home .expertise{padding-block:20px}.home .expertise .section-heading{display:block;margin-bottom:14px}.home .expertise .section-heading>.eyebrow{margin-bottom:8px}.home .expertise .section-heading>div{margin-left:84px}.home .expertise h2{font-size:34px;line-height:1.12}.home .expertise .section-heading p:not(.eyebrow){font-size:14px;line-height:1.5;margin-top:8px}.home .expertise .service-list{grid-template-rows:repeat(4,auto);align-content:space-between}.home .expertise .service{padding-block:8px}.home .expertise .service h3{font-size:24px}.home .expertise .service p{font-size:14px;line-height:1.5;margin-top:6px}}

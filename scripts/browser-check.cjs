@@ -59,6 +59,7 @@ async function main() {
   assert(await evaluate("Array.from(document.images).every(img => img.naturalWidth > 0)"));
   assert(await evaluate("document.querySelector('.brand-image').src.endsWith('/assets/logo-pavel-dark.png') && getComputedStyle(document.querySelector('.brand-image')).filter === 'none'"), 'Logo para fundo escuro sem filtro global');
   assert(await evaluate("document.querySelector('.training-links a').getAttribute('href') === 'ms-project.html' && document.querySelector('.training-links li:last-child a').href.startsWith('https://wa.me/5521995716270')"), 'Destinos dos links de treinamento');
+  assert.deepEqual(await evaluate("Array.from(document.querySelectorAll('#menu a'),a=>a.textContent)"), ['Início','Áreas de Atuação','Conhecimento Aplicado','Tecnologia Pavel','Agenda','Sobre a Pavel']);
   assert(await evaluate(`Promise.all(['.hero-stage','.expertise','.training--msp','.training--p6','.simulator'].map(selector => {
     const el=document.querySelector(selector), style=getComputedStyle(el);
     const match=style.backgroundImage.match(/url\\("?([^"\\)]+)"?\\)/);
@@ -92,6 +93,23 @@ async function main() {
       fs.writeFileSync(path.join(preview, `header-${width}.png`), Buffer.from(header.data, 'base64'));
     }
   }
+  for (const [width,height] of [[1440,768],[1440,900],[1024,768]]) {
+    await send('Emulation.setDeviceMetricsOverride', {width,height,deviceScaleFactor:1,mobile:false});
+    await pause(150);
+    const sizing = await evaluate(`(() => {
+      const header=document.querySelector('.site-header').getBoundingClientRect().height;
+      return {usable:innerHeight-header,expertise:document.querySelector('.expertise').getBoundingClientRect().height,training:document.querySelector('.training-section').getBoundingClientRect().height,
+        hero:document.querySelector('.hero-stage').getBoundingClientRect().height,simulator:document.querySelector('.simulator').getBoundingClientRect().height,
+        rows:[...document.querySelectorAll('.training')].map(el=>el.getBoundingClientRect().height)};
+    })()`);
+    assert(Math.abs(sizing.training-sizing.usable)<=2, `Dois painéis na mesma tela em ${width}x${height}: ${JSON.stringify(sizing)}`);
+    assert(Math.abs(sizing.expertise-sizing.usable)<=2, `Áreas de atuação na altura útil em ${width}x${height}: ${JSON.stringify(sizing)}`);
+    assert(Math.abs(sizing.hero-sizing.usable)<=2 && Math.abs(sizing.simulator-sizing.usable)<=2, 'Altura útil do hero e Simulator');
+    await evaluate("document.documentElement.style.scrollBehavior='auto'; document.querySelector('#treinamentos').scrollIntoView()");
+    assert(await evaluate("Math.abs(document.querySelector('#treinamentos').getBoundingClientRect().top-document.querySelector('.site-header').getBoundingClientRect().bottom)<2"), 'Destino abaixo do cabeçalho');
+    if(width===1440 && height===768){const shot=await send('Page.captureScreenshot',{format:'png'});fs.writeFileSync(path.join(preview,'training-desktop.png'),Buffer.from(shot.data,'base64'));}
+  }
+  await send('Emulation.setDeviceMetricsOverride',{width:320,height:1000,deviceScaleFactor:1,mobile:true});
   await evaluate("document.querySelector('.menu-toggle').click()");
   assert.equal(await evaluate("document.querySelector('.menu-toggle').getAttribute('aria-expanded')"), 'true');
   await evaluate("document.querySelector('#menu a').click()");

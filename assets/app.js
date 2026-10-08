@@ -30,6 +30,13 @@
   }
   const menu = document.querySelector('#menu');
   const toggle = document.querySelector('.menu-toggle');
+  // A altura útil acompanha a marca, o menu e o zoom reais do navegador.
+  if (document.body.classList.contains('home')) {
+    const header = document.querySelector('.site-header');
+    const updateHeaderHeight = () => document.documentElement.style.setProperty('--header-height', `${Math.ceil(header.getBoundingClientRect().height)}px`);
+    new ResizeObserver(updateHeaderHeight).observe(header);
+    updateHeaderHeight();
+  }
   function closeMenu() { menu.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false'); }
   toggle.addEventListener('click', () => {
     const open = toggle.getAttribute('aria-expanded') !== 'true';

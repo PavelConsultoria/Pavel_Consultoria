@@ -46,3 +46,13 @@
   transform: none;
 }
 .whatsapp-floating:hover { transform: none; }
+/* Continuidade com o painel panorâmico aprovado da Home. */
+.course-hero{background-image:linear-gradient(90deg,rgba(27,37,42,.97),rgba(27,37,42,.87) 42%,rgba(27,37,42,.1)),url('msproject-fundo.png');background-size:cover;background-position:center,right center;color:#fff;border:0}
+.course-hero-inner{display:block;min-height:calc(100svh - 110px);padding-block:64px}
+.course-hero-copy{max-width:650px}
+.course-hero h1>span:last-child,.course-hero .course-title-dash{color:#fff!important}
+.course-hero .eyebrow,.course-hero .course-subtitle,.course-hero .course-description,.course-hero .course-highlights{color:#fff}
+.course-hero .text-link{color:#fff}
+.course-hero .text-link:hover{color:#b2d8bf}
+.course-hero-visual{display:none}
+@media(max-width:700px){.course-hero{background-image:linear-gradient(180deg,rgba(27,37,42,.97),rgba(27,37,42,.89) 65%,rgba(27,37,42,.25)),url('msproject-fundo.png');background-position:center,68% center}.course-hero-inner{padding-block:36px 80px}.course-description{padding-right:0}.course-hero .hero-actions{padding-right:0}}
