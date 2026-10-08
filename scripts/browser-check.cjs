@@ -137,7 +137,7 @@ async function main() {
     if(width<700)assert(about.portrait[1]>about.portrait[0], 'Foto e texto empilhados');
     await evaluate("document.documentElement.style.scrollBehavior='auto';document.querySelector('#menu a[href=\"#sobre\"]').click()");await pause(100);
     assert.equal(await evaluate("document.querySelector('#menu a[aria-current]').getAttribute('href')"),'#sobre');
-    assert(await evaluate("Math.abs(document.querySelector('#sobre').getBoundingClientRect().top-document.querySelector('.site-header').getBoundingClientRect().bottom)<2"));
+    assert(await evaluate("(()=>{const target=document.querySelector('#sobre').getBoundingClientRect().top+scrollY-document.querySelector('.site-header').getBoundingClientRect().height;return Math.abs(scrollY-Math.min(target,document.documentElement.scrollHeight-innerHeight))<2;})()"));
     if([1440,390].includes(width)){
       const bounds=await evaluate("(()=>{const r=document.querySelector('#sobre').getBoundingClientRect();return {x:0,y:Math.round(r.top+scrollY),width:innerWidth,height:Math.ceil(r.height),scale:1};})()");
       const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:true,clip:bounds});fs.writeFileSync(path.join(preview,`about-${width}.png`),Buffer.from(shot.data,'base64'));
