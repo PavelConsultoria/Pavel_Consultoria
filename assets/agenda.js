@@ -67,7 +67,7 @@
       const article = element('article', '', 'class-list-item'); article.dataset.course = course;
       article.append(element('h3', config.courses[course].name));
       cohorts.forEach(item => {
-        const group = element('div', '', 'agenda-cohort'); group.dataset.cohort = item.id;
+        const group = element('div', '', 'agenda-cohort'); group.dataset.cohort = item.sourceId;
         group.append(element('p', `${item.variant}: ${dateSummary(item)}.`), element('p', `Horário: ${item.time}.`),
           contactLink(item, item.statusKey === 'esgotada' ? 'Consultar outras opções ↗' : 'Inscrição ou consulta ↗'));
         if (item.statusKey === 'esgotada') group.append(element('p', 'Esgotada.'));
@@ -143,7 +143,10 @@
       const response = await fetch(config.agendaCsvUrl, { cache: 'no-store', credentials: 'omit', signal: AbortSignal.timeout(15000) });
       if (!response.ok) throw new Error('Falha no CSV');
       classes = data.parse(await response.text(), dates);
-    } catch { classes = []; loadError = true; }
+    } catch (error) {
+      classes = []; loadError = true;
+      console.error('Não foi possível processar a agenda pública:', error);
+    }
     loading = false; listSignature = ''; renderCalendar(); renderList();
   }
   renderCalendar(); tick(); loadClasses();

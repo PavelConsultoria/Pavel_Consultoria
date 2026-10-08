@@ -35,7 +35,7 @@ Para cadastrar uma turma, acrescente uma linha com as dez colunas, mantendo os c
 
 | Coluna | Preenchimento |
 | --- | --- |
-| ID | Identificador único da turma |
+| ID | Identificador administrativo da turma (preferencialmente único) |
 | Treinamento | MS Project ou Primavera P6 |
 | Formato | Noturno ou Sábado (cada alternativa é uma linha independente) |
 | Datas (AAAA-MM-DD; separadas por ;) | Todas as datas da mesma turma, separadas por ponto e vírgula; vazio se não confirmadas |
@@ -48,7 +48,7 @@ Para cadastrar uma turma, acrescente uma linha com as dez colunas, mantendo os c
 
 A lista mostra turmas futuras com inscrições abertas ou esgotadas (identificadas como esgotadas, com consulta, sem CTA de inscrição). Ao começar a primeira aula, a turma inteira sai de Próximas Turmas, inclusive se possui encontros futuros. Encerradas ficam apenas como histórico nos calendários; canceladas não recebem indicadores. Em definição e registros sem datas não são anunciados como inscrições futuras. Os detalhes de turmas históricas, encerradas ou esgotadas oferecem consulta, sem formulário de inscrição. Carga horária e modalidade iguais aparecem uma vez por curso; se diferirem entre turmas, cada combinação é preservada.
 
-Os calendários e a lista consomem o mesmo CSV validado, inclusive campos citados, vírgulas, aspas e quebras de linha. Sem futuras turmas, aparece “Novas datas em definição.”. Na falha de conexão, cabeçalhos incompatíveis ou dados inválidos, aparece uma mensagem amigável, sem fallback de datas históricas. O atendimento sob demanda continua disponível. A página mostra carregamento enquanto consulta o Google.
+Os calendários e a lista consomem o mesmo CSV validado, inclusive campos citados, vírgulas, aspas e quebras de linha. Sem futuras turmas, aparece “Novas datas em definição.”. Na falha de conexão, cabeçalhos incompatíveis ou dados inválidos, aparece uma mensagem amigável, sem fallback de datas históricas. IDs administrativos repetidos não interrompem o carregamento: cada linha recebe uma chave interna independente, preservando datas e situação. Mesmo linhas idênticas permanecem registros separados; prefira IDs únicos para facilitar a manutenção. Erros de processamento são registrados no console do navegador para diagnóstico. O atendimento sob demanda continua disponível. A página mostra carregamento enquanto consulta o Google.
 
 Mantenha a aba publicada em **Arquivo → Compartilhar → Publicar na Web**, formato CSV. Publicação permite leitura pública; não conceda permissão de edição a visitantes. Evite dados pessoais, credenciais ou informações privadas na aba publicada. A página não usa login, tokens nem chaves.
 
@@ -67,3 +67,5 @@ O site funciona no domínio e também em um subdiretório de GitHub Pages: os ca
 O `sitemap.xml` contém o domínio previsto no briefing. Antes de publicar no endereço temporário, altere sua URL para o endereço efetivo, acrescente `Sitemap: URL-ABSOLUTA/sitemap.xml` ao `robots.txt` e configure canonical e `og:url` no HTML. Após validar o endereço temporário, configure domínio/DNS e atualize esses metadados. Não há `CNAME` antecipado. Cadastrar no Search Console quando a publicação estiver pronta.
 
 O menu aponta para seções reais da Home. Na próxima etapa, pode passar a apontar para páginas próprias, mantendo a Home como apresentação institucional.
+
+Para verificar o incidente de outubro de 2026 diretamente no GitHub Pages, execute `node scripts/agenda-live-check.cjs`. O teste abre o site publicado no Chrome, sem interceptar requisições, e compara os indicadores com o CSV real. Usa 08/10/2026 como data de referência somente no navegador de teste.

@@ -21,7 +21,7 @@ async function main() {
   await new Promise((resolve, reject) => { socket.onopen = resolve; socket.onerror = reject; });
   let nextId = 0;
   const pending = new Map(), errors = [];
-  let fixture = false, csvFailure = false;
+  let fixture = false, csvFailure = false, updatedCsv = false;
   function send(method, params = {}) {
     return new Promise((resolve, reject) => {
       const id = ++nextId; pending.set(id, { resolve, reject }); socket.send(JSON.stringify({ id, method, params }));
@@ -42,7 +42,7 @@ async function main() {
         if (!fixture) { send('Fetch.continueRequest',{requestId:data.params.requestId});return; }
         const header='ID,Treinamento,Formato,Datas (AAAA-MM-DD; separadas por ;),Horário,Carga horária,Modalidade,Situação,Link de inscrição,Observações';
         const csv=header+'\n'+'test-msp,MS Project,Turma de teste,2026-05-01,HORÁRIO DE TESTE,8h,MODALIDADE DE TESTE,Inscrições abertas,https://example.com/form,\n'+'test-p6,Primavera P6,Turma de teste,2026-05-01,TESTE,8h,TESTE,Inscrições abertas,,';
-        send('Fetch.fulfillRequest',{requestId:data.params.requestId,responseCode:200,responseHeaders:[{name:'Content-Type',value:'text/csv'},{name:'Access-Control-Allow-Origin',value:'*'}],body:Buffer.from(csv).toString('base64')});return;
+        send('Fetch.fulfillRequest',{requestId:data.params.requestId,responseCode:200,responseHeaders:[{name:'Content-Type',value:'text/csv'},{name:'Access-Control-Allow-Origin',value:'*'}],body:Buffer.from(updatedCsv ? csv.replaceAll('2026-05-01','2026-05-02') : csv).toString('base64')});return;
       }
       const extra = fixture ? `window.TEST_NOW='2026-04-30T15:00:00Z';PAVEL_CONFIG.whatsappNumber='5511999999999';` : '';
       send('Fetch.fulfillRequest', { requestId: data.params.requestId, responseCode: 200, responseHeaders: [{ name: 'Content-Type', value: 'text/javascript; charset=utf-8' }], body: Buffer.from(source + extra).toString('base64') }).catch(console.error);
@@ -65,13 +65,13 @@ async function main() {
   for(let i=0;i<170;i++){if(await evaluate("!document.querySelector('#class-list').textContent.includes('Carregando')"))break;await pause(100);}
   const liveResult=await evaluate(`(async()=>{try{const r=await fetch(PAVEL_CONFIG.agendaCsvUrl,{cache:'no-store',credentials:'omit'});const text=await r.text();return {status:r.status,type:r.type,rows:PAVEL_AGENDA_DATA.parse(text,PAVEL_CALENDAR).length};}catch(e){return {error:e.message};}})()`);
   console.log('CSV real no Chrome / CORS:',JSON.stringify(liveResult));
-  assert.equal(liveResult.status,200,'CSV público indisponível no navegador');assert.equal(liveResult.type,'cors');assert.equal(liveResult.rows,4);
-  assert.equal(await evaluate("document.querySelectorAll('.class-day').length"), 10, 'Datas históricas aprovadas de outubro');
+  assert.equal(liveResult.status,200,'CSV público indisponível no navegador');assert.equal(liveResult.type,'cors');assert.equal(liveResult.rows,5);
+  assert.equal(await evaluate("document.querySelectorAll('.class-day').length"), 11, 'Datas históricas e nova turma vindas da planilha');
   assert.equal(await evaluate("document.querySelectorAll('.calendar table').length"), 2);
   assert.equal(await evaluate("document.querySelectorAll('.moon-marker').length"), 8);
   assert.equal(await evaluate("document.querySelectorAll('.holiday-marker').length"), 4);
   assert.equal(await evaluate("document.querySelector('[aria-current=date]').dataset.date"), '2026-10-08');
-  assert(await evaluate("!document.querySelector('.class-list-item[data-course=msp]') && document.querySelector('[data-cohort=P6-2026-10-N]') && document.querySelector('[data-cohort=P6-2026-10-S]')"));
+  assert(await evaluate("document.querySelector('.class-list-item[data-course=msp]').textContent.includes('24/10/2026') && !document.querySelector('.class-list-item[data-course=msp]').textContent.includes('17/10/2026') && document.querySelector('[data-cohort=P6-2026-10-N]') && document.querySelector('[data-cohort=P6-2026-10-S]')"));
   assert(await evaluate("getComputedStyle(document.querySelector('#turmas')).backgroundColor==='rgb(240, 243, 240)'"));
   assert(await evaluate(`[...document.querySelectorAll('.calendar table')].every(table=>{
     const rows=[...table.rows];return rows.length===7 && rows.every((row,i)=>[0,6].every(col=>getComputedStyle(row.cells[col]).backgroundColor===(i?'rgb(226, 229, 232)':'rgb(213, 217, 220)')));
@@ -228,6 +228,12 @@ async function main() {
   assert.equal(await evaluate("document.querySelector('#class-dialog').open"), false);
   assert(await evaluate("document.querySelectorAll('.footer-socials a').length===3 && [...document.querySelectorAll('.footer-socials a')].every(a=>a.target==='_blank' && a.rel==='noopener noreferrer' && a.hasAttribute('aria-label') && a.querySelector('svg'))"));
   assert.deepEqual(await evaluate("[...document.querySelectorAll('.footer-socials a')].map(a=>a.href)"),['https://www.instagram.com/pavelconsultoria/','https://br.linkedin.com/in/pavel-consultoria-karolina-poznyakov-msc-pmp-retired-ipma-d-46933913','https://www.facebook.com/share/1DtL7kJcTF/']);
+  // Uma edição da resposta CSV é refletida na próxima carga, sem alteração de código.
+  updatedCsv=true;await send('Page.reload',{ignoreCache:true});
+  for(let i=0;i<80;i++){if(await evaluate("document.querySelector('td[data-date=\"2026-05-02\"] .class-day')"))break;await pause(100);}
+  assert.equal(await evaluate("document.querySelectorAll('td[data-date=\"2026-05-02\"] .class-day').length"),2);
+  assert.equal(await evaluate("document.querySelectorAll('td[data-date=\"2026-05-01\"] .class-day').length"),0);
+  assert(await evaluate("document.querySelector('#class-list').textContent.includes('02/05/2026')"));
   csvFailure=true;await send('Page.reload',{ignoreCache:true});
   for(let i=0;i<80;i++){if(await evaluate("document.querySelector('#class-list')?.textContent.includes('Não foi possível')"))break;await pause(100);}
   assert(await evaluate("document.querySelector('#class-list').textContent.includes('Não foi possível')"));

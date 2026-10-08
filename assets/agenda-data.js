@@ -36,19 +36,25 @@
     const rows = csv(text);
     const headers = ['ID','Treinamento','Formato','Datas (AAAA-MM-DD; separadas por ;)','Horário','Carga horária','Modalidade','Situação','Link de inscrição','Observações'];
     if (!rows.length || headers.some((title, i) => normalize(rows[0][i] || '') !== normalize(title))) throw new Error('Cabeçalhos da planilha incompatíveis.');
-    const seen = new Set();
+    // O ID da planilha é um rótulo administrativo. Repeti-lo não deve apagar
+    // todas as turmas; cada linha continua independente, inclusive suas datas.
+    const totals = new Map(), occurrences = new Map();
+    rows.slice(1).forEach(row => { const id = (row[0] || '').trim(); totals.set(id, (totals.get(id) || 0) + 1); });
     return rows.slice(1).map((row, index) => {
       if (row.length !== headers.length) throw new Error(`Colunas incompletas na linha ${index + 2}.`);
-      const [id, training, variant, rawDates, time, duration, modality, status, link, notes] = row.map(value => value.trim());
+      const [sourceId, training, variant, rawDates, time, duration, modality, status, link, notes] = row.map(value => value.trim());
       const course = /ms\s*project/.test(normalize(training)) ? 'msp' : /primavera\s*p6/.test(normalize(training)) ? 'p6' : '';
       const dates = rawDates ? [...new Set(rawDates.split(';').map(value => value.trim()))].sort() : [];
       const statuses = ['inscricoes abertas','esgotada','cancelada','encerrada','em definicao'];
-      if (!id || seen.has(id) || !course || !variant || !statuses.includes(normalize(status)) || dates.some(key => !calendar.parseDate(key))) throw new Error(`Dados inválidos na linha ${index + 2}.`);
+      if (!sourceId || !course || !variant || !statuses.includes(normalize(status)) || dates.some(key => !calendar.parseDate(key))) throw new Error(`Dados inválidos na linha ${index + 2}.`);
       if (dates.length && (!time || !duration || !modality)) throw new Error(`Informações incompletas na linha ${index + 2}.`);
-      seen.add(id);
+      const identity = JSON.stringify([sourceId, course, variant, dates, time, duration, modality, status, link, notes]);
+      const occurrence = (occurrences.get(identity) || 0) + 1; occurrences.set(identity, occurrence);
+      // Namespace separado garante que nenhum ID fornecido colida com chaves geradas.
+      const id = totals.get(sourceId) > 1 ? JSON.stringify(['row', identity, occurrence]) : JSON.stringify(['id', sourceId]);
       const match = time.match(/^(\d{1,2})(?:h|:)?(\d{2})?/i);
       const startTime = match && +match[1] < 24 && +(match[2] || 0) < 60 ? `${match[1].padStart(2,'0')}:${match[2] || '00'}` : '';
-      return { id, course, training, variant, dates, time, duration, modality, status, statusKey: normalize(status), registrationUrl: https(link), notes, startTime };
+      return { id, sourceId, course, training, variant, dates, time, duration, modality, status, statusKey: normalize(status), registrationUrl: https(link), notes, startTime };
     });
   }
   function upcoming(classes, calendar, now = new Date()) {
