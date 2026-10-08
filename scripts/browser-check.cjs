@@ -37,7 +37,9 @@ async function main() {
     if (data.method === 'Fetch.requestPaused') {
       const source = fs.readFileSync(path.join(root, 'assets/config.js'), 'utf8');
       // Dados sintéticos exclusivos do teste, nunca gravados na configuração publicada.
-      const extra = fixture ? `\nPAVEL_CONFIG.classes = [{ date: new Intl.DateTimeFormat('sv-SE', {timeZone:'America/Sao_Paulo'}).format(new Date()), course:'msp', time:'HORÁRIO DE TESTE', modality:'MODALIDADE DE TESTE', status:'TESTE' },{date:new Intl.DateTimeFormat('sv-SE',{timeZone:'America/Sao_Paulo'}).format(new Date()),course:'p6',time:'TESTE',modality:'TESTE',status:'TESTE'}]; PAVEL_CONFIG.whatsappNumber='5511999999999'; PAVEL_CONFIG.forms.msp='https://example.com/form';` : '';
+      const extra = fixture ? `
+window.TEST_NOW='2026-04-30T15:00:00Z';
+PAVEL_CONFIG.classes = [{id:'test-msp',dates:['2026-05-01'],course:'msp',variant:'Turma de teste',startTime:'23:59',time:'HORÁRIO DE TESTE',duration:'8 horas',modality:'MODALIDADE DE TESTE'},{id:'test-p6',dates:['2026-05-01'],course:'p6',variant:'Turma de teste',startTime:'23:59',time:'TESTE',duration:'8 horas',modality:'TESTE'}]; PAVEL_CONFIG.whatsappNumber='5511999999999'; PAVEL_CONFIG.forms.msp='https://example.com/form';` : '';
       send('Fetch.fulfillRequest', { requestId: data.params.requestId, responseCode: 200, responseHeaders: [{ name: 'Content-Type', value: 'text/javascript; charset=utf-8' }], body: Buffer.from(source + extra).toString('base64') }).catch(console.error);
     }
   };
@@ -47,11 +49,25 @@ async function main() {
     return result.result.value;
   }
   await send('Page.enable'); await send('Runtime.enable');
+  await send('Page.addScriptToEvaluateOnNewDocument', {source: `{
+    const NativeDate=Date; window.TEST_NOW='2026-10-08T15:00:00Z';
+    window.Date=class extends NativeDate {constructor(...args){super(...(args.length?args:[window.TEST_NOW]));} static now(){return new NativeDate(window.TEST_NOW).getTime();}};
+  }`});
   await send('Fetch.enable', { patterns: [{ urlPattern: '*/assets/config.js' }] });
   await send('Page.navigate', { url: 'http://localhost:4173' });
   for (let i = 0; i < 50; i++) { if (await evaluate("!!document.querySelector('.calendar table')")) break; await pause(100); }
   assert(await evaluate("!!document.querySelector('.calendar table')"), 'Calendário não renderizou');
-  assert.equal(await evaluate("document.querySelectorAll('.class-day').length"), 0, 'Turmas fictícias na Home');
+  assert.equal(await evaluate("document.querySelectorAll('.class-day').length"), 10, 'Datas históricas aprovadas de outubro');
+  assert.equal(await evaluate("document.querySelectorAll('.calendar table').length"), 2);
+  assert.equal(await evaluate("document.querySelectorAll('.moon-marker').length"), 8);
+  assert.equal(await evaluate("document.querySelectorAll('.holiday-marker').length"), 4);
+  assert.equal(await evaluate("document.querySelector('[aria-current=date]').dataset.date"), '2026-10-08');
+  assert(await evaluate("!document.querySelector('[data-cohort=msp-noturna-2026-10]') && document.querySelector('[data-cohort=msp-sabado-2026-10]')"));
+  assert(await evaluate("getComputedStyle(document.querySelector('#turmas')).backgroundColor==='rgb(240, 243, 240)'"));
+  assert(await evaluate(`[...document.querySelectorAll('.calendar table')].every(table=>{
+    const rows=[...table.rows];return rows.length===7 && rows.every((row,i)=>[0,6].every(col=>getComputedStyle(row.cells[col]).backgroundColor===(i?'rgb(226, 229, 232)':'rgb(213, 217, 220)')));
+  })`));
+  assert(await evaluate("[...document.querySelectorAll('.class-day')].every(b=>getComputedStyle(b).color===(b.textContent==='MSP'?'rgb(22, 128, 74)':'rgb(189, 48, 56)') && b.closest('td').querySelector('.day-number'))"));
   assert.equal(await evaluate("document.querySelectorAll('.whatsapp-floating').length"), 0, 'WhatsApp flutuante removido somente da Home');
   assert.equal(await evaluate("document.querySelector('.header-whatsapp').href"), 'https://wa.me/5521995716270');
   assert(await evaluate("document.querySelector('.header-whatsapp').rel.includes('noopener') && document.querySelector('.header-whatsapp').target === '_blank'"));
@@ -83,6 +99,14 @@ async function main() {
         return rect.left>=box.left-1 && rect.right<=box.right+1 && rect.top>=box.top-1 && rect.bottom<=box.bottom+1;
       });
     })`), `Conteúdo contido nos painéis em ${width}px`);
+    assert(await evaluate("[...document.querySelectorAll('#calendar-grid table')].every(t=>t.getBoundingClientRect().right<=innerWidth)"), `Calendários contidos em ${width}px`);
+    await evaluate("document.documentElement.style.scrollBehavior='auto';document.querySelector('#turmas').scrollIntoView()");
+    await pause(80);
+    assert.equal(await evaluate("document.querySelector('#menu a[aria-current]').getAttribute('href')"), '#turmas');
+    if ([1440,390].includes(width)) {
+      const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});
+      fs.writeFileSync(path.join(preview,`agenda-${width}.png`),Buffer.from(shot.data,'base64'));
+    }
     const footerHeight = await evaluate("document.querySelector('.contact-section').getBoundingClientRect().height + document.querySelector('.footer').getBoundingClientRect().height");
     console.log(`Contato + rodapé em ${width}px: ${Math.round(footerHeight)}px`);
     assert(footerHeight < (width < 700 ? 410 : 300), `Encerramento compacto em ${width}px`);
@@ -109,6 +133,35 @@ async function main() {
     assert(await evaluate("Math.abs(document.querySelector('#treinamentos').getBoundingClientRect().top-document.querySelector('.site-header').getBoundingClientRect().bottom)<2"), 'Destino abaixo do cabeçalho');
     if(width===1440 && height===768){const shot=await send('Page.captureScreenshot',{format:'png'});fs.writeFileSync(path.join(preview,'training-desktop.png'),Buffer.from(shot.data,'base64'));}
   }
+  // Composição inteira em uma tela desktop e navegação ativa em cada destino.
+  await send('Emulation.setDeviceMetricsOverride',{width:1440,height:900,deviceScaleFactor:1,mobile:false});
+  await pause(150);
+  assert(await evaluate(`(()=>{const a=document.querySelector('.agenda-intro').getBoundingClientRect(), b=document.querySelector('.agenda-calendars').getBoundingClientRect();return Math.abs(a.width/(a.width+b.width)-.4)<.01 && document.querySelector('#turmas').getBoundingClientRect().height<=innerHeight-document.querySelector('.site-header').getBoundingClientRect().height+2;})()`));
+  for (const id of ['inicio','atuacao','treinamentos','simulator','turmas','sobre','inicio']) {
+    await evaluate(`document.querySelector('#menu a[href="#${id}"]').click()`); await pause(100);
+    assert.equal(await evaluate("document.querySelectorAll('#menu a[aria-current]').length"),1);
+    assert.equal(await evaluate("document.querySelector('#menu a[aria-current]').getAttribute('href')"),'#'+id);
+  }
+  await evaluate("document.documentElement.style.scrollBehavior='smooth';document.querySelector('#menu a[href=\"#turmas\"]').click()");
+  for(let i=0;i<12;i++){await pause(70);assert.equal(await evaluate("document.querySelector('#menu a[aria-current]').getAttribute('href')"),'#turmas');}
+  await evaluate("document.documentElement.style.scrollBehavior='auto'");
+  for (const id of ['atuacao','treinamentos','simulator','turmas','inicio']) {
+    await evaluate(`document.querySelector('#${id}').scrollIntoView()`);await pause(80);
+    assert.equal(await evaluate("document.querySelector('#menu a[aria-current]').getAttribute('href')"),'#'+id);
+  }
+  await evaluate("window.TEST_NOW='2026-11-01T03:00:00Z'");
+  await pause(1200);
+  assert.equal(await evaluate("document.querySelector('#calendar-month').textContent"),'novembro de 2026','Virada automática sem evento de visibilidade');
+  // Atualização da página já aberta na virada do mês e do ano.
+  for (const [instant,current,next] of [['2026-11-01T03:00:00Z','novembro de 2026','dezembro de 2026'],['2026-12-31T23:00:00Z','dezembro de 2026','janeiro de 2027'],['2027-01-01T03:00:00Z','janeiro de 2027','fevereiro de 2027']]) {
+    await evaluate(`window.TEST_NOW='${instant}';document.dispatchEvent(new Event('visibilitychange'))`);
+    assert.equal(await evaluate("document.querySelector('#calendar-month').textContent"),current);
+    assert.equal(await evaluate("document.querySelector('#calendar-next-month').textContent"),next);
+    assert.equal(await evaluate("document.querySelector('#class-list').textContent"),'Novas datas em definição.');
+    assert(await evaluate("!!document.querySelector('.agenda-demand a[href^=\"https://wa.me/\"]')"));
+    assert.equal(await evaluate("document.querySelector('[aria-current=date]').dataset.date"),instant==='2026-12-31T23:00:00Z'?'2026-12-31':instant.slice(0,10));
+  }
+  await evaluate("window.TEST_NOW='2026-10-08T15:00:00Z';document.dispatchEvent(new Event('visibilitychange'))");
   await send('Emulation.setDeviceMetricsOverride',{width:320,height:1000,deviceScaleFactor:1,mobile:true});
   await evaluate("document.querySelector('.menu-toggle').click()");
   assert.equal(await evaluate("document.querySelector('.menu-toggle').getAttribute('aria-expanded')"), 'true');
@@ -146,7 +199,7 @@ async function main() {
   for (let i = 0; i < 50; i++) { if (await evaluate("document.querySelectorAll('.class-day').length===2")) break; await pause(100); }
   assert.equal(await evaluate("document.querySelectorAll('.class-day').length"), 2);
   assert.equal(await evaluate("document.querySelectorAll('.class-list-item').length"), 2);
-  assert.equal(await evaluate("document.querySelector('.class-day').parentElement.querySelectorAll('span').length"), 0, 'Acrônimo deve substituir o número');
+  assert(await evaluate("document.querySelector('.class-day').closest('td').querySelector('.day-number').textContent==='1' && document.querySelector('.class-day').closest('td').querySelector('.holiday-marker') && document.querySelector('.class-day').closest('td').querySelector('.moon-marker')"), 'Dia, duas turmas, Lua cheia e feriado coexistem');
   await evaluate("document.querySelector('.class-day').click()");
   assert(await evaluate("document.querySelector('#class-dialog').open"));
   assert(await evaluate("document.querySelector('#dialog-details').textContent.includes('HORÁRIO DE TESTE')"));
@@ -155,6 +208,6 @@ async function main() {
   await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 });
   assert.equal(await evaluate("document.querySelector('#class-dialog').open"), false);
   assert.equal(errors.length, 0, errors.join('\n'));
-  console.log('OK: Chrome real, 5 larguras (320–1440px), menu, agenda vazia, navegação mensal, turmas simultâneas, lista, diálogo, Escape, Forms e WhatsApp. Screenshots em .preview/.');
+  console.log('OK: Chrome real, 5 larguras (320–1440px), menu ativo e navegação suave, dois calendários, faixas de fim de semana, cores, fases e feriados, viradas de dia/mês/ano, turmas históricas/futuras, agenda vazia, diálogo, Escape, Forms e WhatsApp. Screenshots em .preview/.');
 }
 main().catch(error => { console.error(error); process.exitCode = 1; }).finally(() => { socket?.close(); child.kill(); });

@@ -36,10 +36,13 @@ const config = context.window.PAVEL_CONFIG;
 assert(Array.isArray(config.classes));
 for (const item of config.classes) {
   assert(config.courses[item.course], 'Curso desconhecido');
-  assert(/^\d{4}-\d{2}-\d{2}$/.test(item.date), 'Formato de data inválido');
-  const parsed = new Date(item.date + 'T12:00:00Z');
-  assert(!isNaN(parsed) && parsed.toISOString().slice(0, 10) === item.date, 'Data inexistente');
-  assert(item.time && item.modality && item.status, 'Informações da turma incompletas');
+  assert(item.id && item.variant && item.dates.length && item.startTime, 'Turma incompleta');
+  for (const date of item.dates) {
+    assert(/^\d{4}-\d{2}-\d{2}$/.test(date), 'Formato de data inválido');
+    const parsed = new Date(date + 'T12:00:00Z');
+    assert(!isNaN(parsed) && parsed.toISOString().slice(0, 10) === date, 'Data inexistente');
+  }
+  assert(item.time && item.modality && item.duration, 'Informações da turma incompletas');
 }
 assert(!config.whatsappNumber || /^\d{10,15}$/.test(config.whatsappNumber), 'Número de WhatsApp inválido');
 for (const url of [config.simulatorUrl, ...Object.values(config.forms), ...Object.values(config.samples)]) {
