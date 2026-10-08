@@ -59,7 +59,7 @@ async function main() {
   assert(await evaluate("Array.from(document.images).every(img => img.naturalWidth > 0)"));
   assert(await evaluate("document.querySelector('.brand-image').src.endsWith('/assets/logo-pavel-dark.png') && getComputedStyle(document.querySelector('.brand-image')).filter === 'none'"), 'Logo para fundo escuro sem filtro global');
   assert(await evaluate("document.querySelector('.training-links a').getAttribute('href') === 'ms-project.html' && document.querySelector('.training-links li:last-child a').href.startsWith('https://wa.me/5521995716270')"), 'Destinos dos links de treinamento');
-  assert(await evaluate(`Promise.all(['.service--consultoria','.training--msp','.training--p6','.simulator'].map(selector => {
+  assert(await evaluate(`Promise.all(['.hero-stage','.expertise','.training--msp','.training--p6','.simulator'].map(selector => {
     const el=document.querySelector(selector), style=getComputedStyle(el);
     const match=style.backgroundImage.match(/url\\("?([^"\\)]+)"?\\)/);
     if(!match || !style.backgroundSize.split(',').every(value=>value.trim()==='cover')) return false;
