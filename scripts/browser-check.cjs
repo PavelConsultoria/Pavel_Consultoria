@@ -44,6 +44,8 @@ async function main() {
       }
       // Dados sintéticos exclusivos do teste, nunca gravados na configuração publicada.
       if (data.params.request.url.includes('output=csv')) {
+        const controlUrl = source.match(/agendaControlCsvUrl:\s*'([^']*)'/)?.[1];
+        if (controlUrl && data.params.request.url === controlUrl) { send('Fetch.continueRequest',{requestId:data.params.requestId});return; }
         if (csvFailure) { send('Fetch.failRequest',{requestId:data.params.requestId,errorReason:'Failed'});return; }
         if (!fixture) { send('Fetch.continueRequest',{requestId:data.params.requestId});return; }
         const header='ID,Treinamento,Formato,Datas (AAAA-MM-DD; separadas por ;),Horário,Carga horária,Modalidade,Situação,Link de inscrição,Observações';
@@ -72,7 +74,14 @@ async function main() {
   const liveResult=await evaluate(`(async()=>{try{const r=await fetch(PAVEL_CONFIG.agendaCsvUrl,{cache:'no-store',credentials:'omit'});const text=await r.text();return {status:r.status,type:r.type,rows:PAVEL_AGENDA_DATA.parse(text,PAVEL_CALENDAR).length};}catch(e){return {error:e.message};}})()`);
   console.log('CSV real no Chrome / CORS:',JSON.stringify(liveResult));
   assert.equal(liveResult.status,200,'CSV público indisponível no navegador');assert.equal(liveResult.type,'cors');assert.equal(liveResult.rows,5);
-  assert(await evaluate("document.querySelector('#agenda-updated').hidden"), 'Sem URL Controle: data oculta');
+  const configuredControl = await evaluate("PAVEL_CONFIG.agendaControlCsvUrl");
+  if(configuredControl){
+    const controlResult=await evaluate("(async()=>{const r=await fetch(PAVEL_CONFIG.agendaControlCsvUrl,{cache:'no-store',credentials:'omit'});return {status:r.status,type:r.type,date:PAVEL_AGENDA_DATA.updatedDate(await r.text())};})()");
+    console.log('CSV Controle real no Chrome / CORS:',JSON.stringify(controlResult));
+    assert.equal(controlResult.status,200);assert.equal(controlResult.type,'cors');assert(controlResult.date);
+    for(let i=0;i<160;i++){if(await evaluate("!document.querySelector('#agenda-updated').hidden"))break;await pause(100);}
+    assert.equal(await evaluate("document.querySelector('#agenda-updated').textContent"),'Agenda atualizada em: '+controlResult.date);
+  } else assert(await evaluate("document.querySelector('#agenda-updated').hidden"), 'Sem URL Controle: data oculta');
   assert.equal(await evaluate("document.querySelectorAll('.class-day').length"), 11, 'Datas históricas e nova turma vindas da planilha');
   assert.equal(await evaluate("document.querySelectorAll('.calendar table').length"), 2);
   assert.equal(await evaluate("document.querySelectorAll('.moon-marker').length"), 8);

@@ -21,6 +21,10 @@ async function main(){
  await send('Page.addScriptToEvaluateOnNewDocument',{source:`{const NativeDate=Date;window.Date=class extends NativeDate{constructor(...args){super(...(args.length?args:['2026-10-08T15:00:00Z']));}static now(){return new NativeDate('2026-10-08T15:00:00Z').getTime();}};}`});
  await send('Page.navigate',{url:url+'?check='+process.pid});
  for(let i=0;i<220;i++){if(await evaluate("!!document.querySelector('#class-list') && !document.querySelector('#class-list').textContent.includes('Carregando') && document.querySelector('#class-list').children.length>0"))break;await pause(100);}
+ for(let i=0;i<160;i++){if(await evaluate("document.querySelector('#agenda-updated') && !document.querySelector('#agenda-updated').hidden"))break;await pause(100);}
+ const control=await evaluate("(async()=>{const response=await fetch(PAVEL_CONFIG.agendaControlCsvUrl,{cache:'no-store',credentials:'omit'});return {status:response.status,type:response.type,date:PAVEL_AGENDA_DATA.updatedDate(await response.text()),label:document.querySelector('#agenda-updated').textContent,hidden:document.querySelector('#agenda-updated').hidden};})()");
+ console.log('Controle real no site publicado:',JSON.stringify(control));
+ assert.equal(control.status,200);assert.equal(control.type,'cors');assert(control.date);assert.equal(control.hidden,false);assert.equal(control.label,'Agenda atualizada em: '+control.date);
  const result=await evaluate(`(async()=>{
   const response=await fetch(PAVEL_CONFIG.agendaCsvUrl,{cache:'no-store',credentials:'omit'});
   const text=await response.text();let classes,error;

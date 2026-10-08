@@ -81,6 +81,6 @@ Para ativar:
 2. Selecionar especificamente a aba **Controle** e o formato **Valores separados por virgula (.csv)**. Publicar essa aba, preservando a publicacao existente de Turmas.
 3. Manter habilitada a republicacao automatica quando houver alteracoes. Na aba Controle, formatar B1 como data/hora brasileira, por exemplo **08/10/2026 17:36:20**.
 4. Copiar o URL CSV gerado pelo Google e verificar, em janela anonima, que ele devolve a aba Controle com B1 na segunda coluna da primeira linha. Publicar a aba inteira, sem restringir o intervalo a B1. Nao copiar o URL de Turmas nem o endereco de edicao.
-5. Preencher **agendaControlCsvUrl** em **assets/config.js** com esse URL e publicar a configuracao. O campo esta vazio ate que o URL correto seja fornecido.
+5. Preencher **agendaControlCsvUrl** em **assets/config.js** com esse URL e publicar a configuracao. A fonte publicada da aba Controle (gid 608855431) ja esta configurada.
 
 Depois da ativacao, alteracoes registradas em B1 aparecem na proxima carga da pagina, sem novos commits; o site pede o CSV sem cache local. A publicacao do Google pode levar algum tempo para refletir as alteracoes. Nao publicar informacoes privadas na aba Controle.
