@@ -23,7 +23,9 @@
 #turmas .calendar-controls{display:flex;gap:6px}
 #turmas .calendar-controls button{width:32px;height:32px;min-height:32px;border:1px solid #CBD7CF;border-radius:0;background:transparent;color:#263C31;font-size:18px}
 #turmas #calendar-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-#turmas .calendar{padding:0;min-width:0;background:#FFFFFF;border:0;border-radius:0;box-shadow:none}
+#turmas .calendar{position:relative;padding:0;min-width:0;background:#FFFFFF;border:0;border-radius:6px;overflow:hidden;box-shadow:0 2px 7px #263c3108}
+/* Moldura sobreposta: preserva as dimensões e os espaçamentos do calendário. */
+#turmas .calendar::after{content:"";position:absolute;inset:0;box-sizing:border-box;border:1px solid #B9C9BF;border-radius:6px;pointer-events:none}
 #turmas .calendar h3{font-size:17px;text-align:center;text-transform:capitalize;margin:0;padding:15px 4px;color:#263C31;line-height:1.2}
 #turmas .calendar table{width:100%;table-layout:fixed;border-collapse:collapse;border-spacing:0;font-size:12px}
 #turmas .calendar th{height:30px;font-size:10px;font-weight:500;border:0;color:#52645A;background:#FFFFFF;padding:4px 0}
