@@ -22,10 +22,12 @@
     const center = (band.top + band.bottom) / 2 + window.scrollY;
     floatingWhatsapp.style.setProperty('--whatsapp-band-center', `${center}px`);
   }
-  new ResizeObserver(positionFloatingWhatsapp).observe(document.querySelector('.hero-cover'));
-  window.addEventListener('resize', positionFloatingWhatsapp, { passive: true });
-  heroCover.addEventListener('load', positionFloatingWhatsapp);
-  positionFloatingWhatsapp();
+  if (heroCover && floatingWhatsapp) {
+    new ResizeObserver(positionFloatingWhatsapp).observe(document.querySelector('.hero-cover'));
+    window.addEventListener('resize', positionFloatingWhatsapp, { passive: true });
+    heroCover.addEventListener('load', positionFloatingWhatsapp);
+    positionFloatingWhatsapp();
+  }
   const menu = document.querySelector('#menu');
   const toggle = document.querySelector('.menu-toggle');
   function closeMenu() { menu.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false'); }
@@ -60,13 +62,17 @@
     }
   }
   document.querySelectorAll('[data-whatsapp]').forEach(link => prepareWhatsapp(link, link.dataset.whatsapp));
-  if (whatsappUrl('geral')) document.querySelector('#contato-pendente').hidden = true;
+  const pendingContact = document.querySelector('#contato-pendente');
+  if (whatsappUrl('geral') && pendingContact) pendingContact.hidden = true;
   const simulatorUrl = externalUrl(config.simulatorUrl);
-  if (simulatorUrl) {
+  if (simulatorUrl && document.querySelector('[data-simulator]')) {
     const link = document.querySelector('[data-simulator]');
     link.href = simulatorUrl; link.target = '_blank'; link.rel = 'noopener noreferrer';
     document.querySelector('#simulator-pendente').hidden = true;
   }
+
+  // A agenda existe somente nas páginas que incluem o calendário.
+  if (!document.querySelector('#calendar-grid')) return;
 
   // Datas civis em São Paulo: não interpretar AAAA-MM-DD como UTC.
   const dateFormat = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full' });

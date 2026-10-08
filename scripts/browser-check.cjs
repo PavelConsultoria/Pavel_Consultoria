@@ -52,6 +52,11 @@ async function main() {
   for (let i = 0; i < 50; i++) { if (await evaluate("!!document.querySelector('.calendar table')")) break; await pause(100); }
   assert(await evaluate("!!document.querySelector('.calendar table')"), 'Calendário não renderizou');
   assert.equal(await evaluate("document.querySelectorAll('.class-day').length"), 0, 'Turmas fictícias na Home');
+  assert.equal(await evaluate("document.querySelectorAll('.whatsapp-floating').length"), 0, 'WhatsApp flutuante removido somente da Home');
+  assert.equal(await evaluate("document.querySelector('.header-whatsapp').href"), 'https://wa.me/5521995716270');
+  assert(await evaluate("document.querySelector('.header-whatsapp').rel.includes('noopener') && document.querySelector('.header-whatsapp').target === '_blank'"));
+  await evaluate("Promise.all(Array.from(document.images, img => { img.loading = 'eager'; return img.decode(); }))");
+  assert(await evaluate("Array.from(document.images).every(img => img.naturalWidth > 0)"));
   for (const width of [1440, 1024, 768, 390, 320]) {
     await send('Emulation.setDeviceMetricsOverride', { width, height: 1000, deviceScaleFactor: 1, mobile: width < 700 });
     await pause(100);
@@ -70,6 +75,28 @@ async function main() {
   assert.notEqual(await evaluate("document.querySelector('#calendar-month').textContent"), month);
   await evaluate("document.querySelector('#previous-month').click()");
   assert.equal(await evaluate("document.querySelector('#calendar-month').textContent"), month);
+  await evaluate("document.querySelector('a[href=\"ms-project.html\"]').click()");
+  for (let i = 0; i < 50; i++) { if (await evaluate("!!document.querySelector('.course-hero') && document.querySelector('[data-whatsapp=\"msp\"]').href.includes('?text=')")) break; await pause(100); }
+  assert(await evaluate("location.pathname.endsWith('/ms-project.html')"));
+  assert.equal(await evaluate("document.querySelectorAll('main section').length"), 1);
+  assert(await evaluate("document.querySelector('[data-whatsapp=\"msp\"]').href.includes('wa.me/5521995716270?text=')"));
+  assert(await evaluate("document.querySelector('.whatsapp-floating').href.includes('wa.me/5521995716270?text=')"));
+  await evaluate("Promise.all(Array.from(document.images, img => img.decode()))");
+  assert(await evaluate("Array.from(document.images).every(img => img.complete && img.naturalWidth > 0)"));
+  for (const width of [1440, 1024, 768, 390, 320]) {
+    await send('Emulation.setDeviceMetricsOverride', { width, height: 900, deviceScaleFactor: 1, mobile: width < 700 });
+    await pause(100);
+    assert(await evaluate('document.documentElement.scrollWidth <= innerWidth'), `Overflow MS Project em ${width}px`);
+    if ([1440, 390].includes(width)) {
+      const screenshot = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true });
+      fs.writeFileSync(path.join(preview, `ms-project-${width}.png`), Buffer.from(screenshot.data, 'base64'));
+    }
+  }
+  await evaluate("document.querySelector('.menu-toggle').click()");
+  assert.equal(await evaluate("document.querySelector('.menu-toggle').getAttribute('aria-expanded')"), 'true');
+  await evaluate("document.querySelector('#menu a[href=\"index.html#treinamentos\"]').click()");
+  for (let i = 0; i < 50; i++) { if (await evaluate("!!document.querySelector('.calendar table')")) break; await pause(100); }
+  assert(await evaluate("location.pathname.endsWith('/index.html') && location.hash === '#treinamentos'"));
   fixture = true;
   await send('Page.reload', { ignoreCache: true });
   for (let i = 0; i < 50; i++) { if (await evaluate("document.querySelectorAll('.class-day').length===2")) break; await pause(100); }

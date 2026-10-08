@@ -7,6 +7,16 @@ const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
 assert.equal(new Set(ids).size, ids.length, 'IDs duplicados');
 assert.equal((html.match(/<h1\b/g) || []).length, 1, 'A Home deve ter um h1');
+const services = [...html.matchAll(/<article class="service(?: service--consultoria)?"[\s\S]*?<h3>(.*?)<\/h3>/g)].map(match => match[1]);
+assert.deepEqual(services, ['Treinamentos Especializados', 'Consultoria Empresarial', 'Certificação PMP', 'Análise Forense de Atrasos em Cronogramas']);
+const sections = [...html.matchAll(/<p class="eyebrow">(\d{2}) \/ /g)].map(match => match[1]);
+assert.deepEqual(sections, ['01', '02', '03', '04'], 'Numeração das seções');
+assert(!html.includes('EXPERIÊNCIA E ATUAÇÃO'), 'Seção de experiência removida');
+assert.equal((html.match(/id="calendar-grid"/g) || []).length, 1, 'Calendário único');
+assert(html.indexOf('id="simulator"') < html.indexOf('id="turmas"'), 'Agenda após Simulator');
+for (const name of ['msproject', 'primavera', 'pmp', 'consultoria']) assert(html.includes(`src="assets/${name}-fundo.png"`), `Imagem aprovada ausente: ${name}`);
+assert(!html.includes('class="brand-phone"'), 'Telefone removido do cabeçalho');
+assert(html.includes('Karolina Poznyakov, MSc'), 'Nome profissional no rodapé');
 for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
   const value = match[1];
   if (value.startsWith('#')) assert(ids.includes(value.slice(1)), `Âncora sem destino: ${value}`);

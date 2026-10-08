@@ -5,7 +5,7 @@ window.PAVEL_CONFIG = {
   messages: {
     geral: 'Olá, Karolina! Gostaria de informações sobre a Pavel Consultoria.',
     consultoria: 'Olá, Karolina! Gostaria de informações sobre os serviços de Consultoria em Planejamento e Gestão de Cronogramas.',
-    forense: 'Olá, Karolina! Gostaria de conversar sobre uma necessidade de Análise Forense de Atrasos.',
+    forense: 'Olá, Karolina! Gostaria de conversar sobre uma necessidade de Análise Forense de Atrasos em Cronogramas.',
     msp: 'Olá, Karolina! Gostaria de informações sobre o Treinamento de MS Project.',
     p6: 'Olá, Karolina! Gostaria de informações sobre o Treinamento de Primavera P6.',
     turmas: 'Olá, Karolina! Gostaria de consultar a programação das próximas turmas.',
