@@ -6,6 +6,6 @@
   "scripts": {
     "start": "node scripts/serve.cjs",
     "check:browser": "node scripts/browser-check.cjs",
-    "check": "node --check assets/config.js && node --check assets/app.js && node --check scripts/serve.cjs && node scripts/check.cjs && node --check assets/agenda.js && node --check assets/agenda-share.js && node --check assets/calendar.js && node scripts/calendar-check.cjs && node --check assets/agenda-data.js && node scripts/agenda-data-check.cjs"
+    "check": "node --check assets/config.js && node --check assets/app.js && node --check scripts/serve.cjs && node scripts/check.cjs && node --check assets/agenda.js && node --check assets/calendar.js && node scripts/calendar-check.cjs && node --check assets/agenda-data.js && node scripts/agenda-data-check.cjs"
   }
 }
