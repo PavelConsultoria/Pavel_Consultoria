@@ -34,7 +34,7 @@ async function run(){
    }
   }
   if(file==='ms-project.html')assert(await evaluate('document.querySelector("#investimento").textContent.includes("novembro de 2026")'));
-  if(file==='primavera.html')assert(await evaluate('document.querySelector("#apostila").textContent.includes("em preparação")'));
+  if(file==='primavera.html')assert(await evaluate('[...document.querySelectorAll("#apostila a")].some(a=>a.href.endsWith("apostila-p6-reduzida.pdf"))'));
   if(file==='certificacao-pmp.html')assert(await evaluate('document.body.textContent.includes("R$ 199,00") && document.body.textContent.includes("90 dias")'));
   if(file==='agenda.html'){
    for(let i=0;i<200;i++){if(await evaluate('document.querySelector("#calendar-grid").dataset.agendaState !== "loading"'))break;await pause(100);}

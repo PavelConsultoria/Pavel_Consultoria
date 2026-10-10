@@ -16,7 +16,7 @@ O servidor local abre em http://localhost:4173/. `npm.cmd` evita o bloqueio do a
 
 - `index.html`: Home, nova imagem clicável do WhatsApp, apresentação e dois depoimentos reais.
 - `ms-project.html`: seis blocos de conteúdo, tópicos aprovados da ementa, PDF demonstrativo, investimento e três depoimentos.
-- `primavera.html`: mesma distribuição visual; ementa detalhada e PDF demonstrativo pendentes, sem materiais fictícios.
+- `primavera.html`: mesma distribuição visual, tópicos transcritos do sumário da prévia real, PDF demonstrativo e depoimentos.
 - `certificacao-pmp.html`: apresentação do Simulator e assinatura de R$ 199,00 por 90 dias.
 - `agenda.html`: lista e dois calendários, Google Sheets somente leitura, compartilhamento e PNG completo.
 - `sobre.html`: conteúdo institucional e fotografia preservados.
@@ -37,7 +37,7 @@ Condições de pagamento não confirmadas são encaminhadas ao WhatsApp. Não se
 
 `assets/config.js` mantém telefone, mensagens, link do Simulator e os CSVs públicos das abas Turmas e Controle. O navegador não altera a planilha nem o Apps Script. Cada turma usa seu link de inscrição quando fornecido pelo CSV; campos vazios usam WhatsApp contextual. A data de atualização vem exclusivamente da aba Controle. Erros temporários exibem mensagem e bloqueiam a exportação, sem turmas fictícias de fallback.
 
-`assets/agenda-share.js` exporta título, atualização, relação de turmas, datas, horários, contato, calendários, legenda e domínio oficial. O Canvas é utilizado somente nessa exportação. A prévia real do MS Project fica em `assets/apostila-msproject-previa.pdf`; o material completo não é publicado. O PDF demonstrativo do Primavera e sua ementa detalhada ainda dependem de fornecimento.
+`assets/agenda-share.js` exporta título, atualização, relação de turmas, datas, horários, contato, calendários, legenda e domínio oficial. O Canvas é utilizado somente nessa exportação. As prévias reais ficam em `assets/apostila-msproject-previa.pdf` e `assets/apostila-p6-reduzida.pdf`; os materiais completos não são publicados. O PDF do Primavera foi disponibilizado durante a sessão: suas sete páginas foram renderizadas e inspecionadas, e os tópicos da página 2 servem de fonte para o conteúdo, sem inventar ementa integral.
 
 ## Testes e publicação
 
