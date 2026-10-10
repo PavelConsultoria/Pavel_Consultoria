@@ -1,0 +1,2792 @@
+{
+  "base": "https://pavelconsultoria.com.br/",
+  "live": true,
+  "started": "2026-10-10T16:26:05.664Z",
+  "pages": [
+    {
+      "url": "https://pavelconsultoria.com.br/index.html",
+      "title": "Consultoria em Gestão de Projetos | Pavel Consultoria",
+      "h1": "Consultoria em Gestão de Projetos, Treinamentos MS Project e Primavera e Análise Forense de Atraso em Cronogramas",
+      "images": [
+        {
+          "url": "https://pavelconsultoria.com.br/assets/logo-pavel-dark.png",
+          "width": 2172
+        },
+        {
+          "url": "https://pavelconsultoria.com.br/assets/whatsapp-home.png",
+          "width": 423
+        }
+      ],
+      "active": [
+        "index.html"
+      ],
+      "whatsapp": [
+        "https://wa.me/5521995716270",
+        "https://wa.me/5521995716270",
+        "https://wa.me/5521995716270?text=Ol%C3%A1%2C%20Karolina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20os%20servi%C3%A7os%20de%20Consultoria%20em%20Planejamento%20e%20Gest%C3%A3o%20de%20Cronogramas.",
+        "https://wa.me/5521995716270?text=Ol%C3%A1%2C%20Karolina!%20Gostaria%20de%20conversar%20sobre%20uma%20necessidade%20de%20An%C3%A1lise%20Forense%20de%20Atrasos%20em%20Cronogramas.",
+        "https://wa.me/5521995716270?text=Ol%C3%A1%2C%20Karolina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20Pavel%20Consultoria.",
+        "https://wa.me/5521995716270"
+      ],
+      "clock": "SÁB, 10/10/2026, 13:26",
+      "visits": "indisponível",
+      "footer": 1
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/ms-project.html",
+      "title": "MS Project — do Básico ao Avançado | Pavel Consultoria",
+      "h1": "MS Project — do Básico ao Avançado",
+      "images": [
+        {
+          "url": "https://pavelconsultoria.com.br/assets/logo-pavel-dark.png",
+          "width": 2172
+        },
+        {
+          "url": "https://pavelconsultoria.com.br/assets/Certificado-digital.png",
+          "width": 1536
+        }
+      ],
+      "active": [
+        "ms-project.html"
+      ],
+      "whatsapp": [
+        "https://wa.me/5521995716270",
+        "https://wa.me/5521995716270?text=Ol%C3%A1%2C%20Karolina!%20Gostaria%20de%20adquirir%20a%20apostila%20de%20MS%20Project.",
+        "https://wa.me/5521995716270",
+        "https://wa.me/5521995716270?text=Ol%C3%A1%2C%20Karolina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20Pavel%20Consultoria."
+      ],
+      "clock": "SÁB, 10/10/2026, 13:26",
+      "visits": "3",
+      "footer": 1
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/primavera.html",
+      "title": "Primavera P6 Básico | Pavel Consultoria",
+      "h1": "Primavera P6 Básico",
+      "images": [
+        {
+          "url": "https://pavelconsultoria.com.br/assets/logo-pavel-dark.png",
+          "width": 2172
+        },
+        {
+          "url": "https://pavelconsultoria.com.br/assets/Certificado-digital.png",
+          "width": 1536
+        }
+      ],
+      "active": [
+        "primavera.html"
+      ],
+      "whatsapp": [
+        "https://wa.me/5521995716270",
+        "https://wa.me/5521995716270?text=Ol%C3%A1%2C%20Karolina!%20Gostaria%20de%20adquirir%20a%20apostila%20de%20Primavera%20P6.",
+        "https://wa.me/5521995716270",
+        "https://wa.me/5521995716270?text=Ol%C3%A1%2C%20Karolina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20Pavel%20Consultoria."
+      ],
+      "clock": "SÁB, 10/10/2026, 13:26",
+      "visits": "3",
+      "footer": 1
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/certificacao-pmp.html",
+      "title": "Certificação PMP | Pavel Consultoria",
+      "h1": "Certificação PMP",
+      "images": [
+        {
+          "url": "https://pavelconsultoria.com.br/assets/logo-pavel-dark.png",
+          "width": 2172
+        }
+      ],
+      "active": [
+        "certificacao-pmp.html"
+      ],
+      "whatsapp": [
+        "https://wa.me/5521995716270",
+        "https://wa.me/5521995716270",
+        "https://wa.me/5521995716270?text=Ol%C3%A1%2C%20Karolina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20Pavel%20Consultoria."
+      ],
+      "clock": "SÁB, 10/10/2026, 13:26",
+      "visits": "3",
+      "footer": 1
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/agenda.html",
+      "title": "Agenda de Treinamentos | Pavel Consultoria",
+      "h1": "Agenda de Treinamentos",
+      "images": [
+        {
+          "url": "https://pavelconsultoria.com.br/assets/logo-pavel-dark.png",
+          "width": 2172
+        }
+      ],
+      "active": [
+        "agenda.html"
+      ],
+      "whatsapp": [
+        "https://wa.me/5521995716270",
+        "https://wa.me/5521995716270?text=Ol%C3%A1%2C%20Karolina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20Treinamento%20de%20MS%20Project.%20Gostaria%20de%20consultar%20a%20s%C3%A1bado%2C%20com%20in%C3%ADcio%20em%2024%2F10%2F2026.",
+        "https://wa.me/5521995716270?text=Ol%C3%A1%2C%20Karolina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20Treinamento%20de%20Primavera%20P6.%20Gostaria%20de%20consultar%20a%20noturno%2C%20com%20in%C3%ADcio%20em%2020%2F10%2F2026.",
+        "https://wa.me/5521995716270?text=Ol%C3%A1%2C%20Karolina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20Treinamento%20de%20Primavera%20P6.%20Gostaria%20de%20consultar%20a%20s%C3%A1bado%2C%20com%20in%C3%ADcio%20em%2031%2F10%2F2026.",
+        "https://wa.me/5521995716270?text=Ol%C3%A1%2C%20Karolina!%20Gostaria%20de%20consultar%20a%20programa%C3%A7%C3%A3o%20das%20pr%C3%B3ximas%20turmas.",
+        "https://wa.me/5521995716270",
+        "https://wa.me/5521995716270?text=Ol%C3%A1%2C%20Karolina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20Pavel%20Consultoria."
+      ],
+      "clock": "SÁB, 10/10/2026, 13:26",
+      "visits": "3",
+      "footer": 1,
+      "agenda": {
+        "state": "ready",
+        "calendars": 2,
+        "updated": "Agenda atualizada em: 08/10/2026",
+        "list": "MS Project — do Básico ao AvançadoSábado: 24/10/2026.Horário: 9h–17h.Inscrição ou consulta ↗8 horas, online ao vivo.Primavera P6 BásicoNoturno: 20/10/2026, 22/10/2026, 27/10/2026, 29/10/2026.Horário: 19h30–21h30.Inscrição ou consulta ↗Sábado: 31/10/2026.Horário: 9h–17h.Inscrição ou consulta ↗8 horas, online ao vivo.",
+        "markers": 11,
+        "links": [
+          "https://wa.me/5521995716270?text=Ol%C3%A1%2C%20Karolina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20Treinamento%20de%20MS%20Project.%20Gostaria%20de%20consultar%20a%20s%C3%A1bado%2C%20com%20in%C3%ADcio%20em%2024%2F10%2F2026.",
+          "https://wa.me/5521995716270?text=Ol%C3%A1%2C%20Karolina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20Treinamento%20de%20Primavera%20P6.%20Gostaria%20de%20consultar%20a%20noturno%2C%20com%20in%C3%ADcio%20em%2020%2F10%2F2026.",
+          "https://wa.me/5521995716270?text=Ol%C3%A1%2C%20Karolina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20Treinamento%20de%20Primavera%20P6.%20Gostaria%20de%20consultar%20a%20s%C3%A1bado%2C%20com%20in%C3%ADcio%20em%2031%2F10%2F2026."
+        ]
+      },
+      "shareFallback": "URL oficial verificada com Clipboard API simulada no navegador",
+      "dialog": {
+        "text": "NoturnoSituação: EncerradaDatas: 06/10/2026, 08/10/2026, 13/10/2026, 15/10/2026Horário: 19h30–21h308h · Online ao vivoAula selecionada: 6 de outubro de 2026Alternativa ao sábadoRegistro para consulta. Esta turma não está disponível como próxima inscrição.",
+        "links": [
+          "https://wa.me/5521995716270?text=Ol%C3%A1%2C%20Karolina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20Treinamento%20de%20MS%20Project.%20Gostaria%20de%20consultar%20a%20noturno%2C%20com%20in%C3%ADcio%20em%2006%2F10%2F2026.",
+          "https://wa.me/5521995716270?text=Ol%C3%A1%2C%20Karolina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20Treinamento%20de%20MS%20Project.%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20noturno%20de%2006%2F10%2F2026%2C%2008%2F10%2F2026%2C%2013%2F10%2F2026%2C%2015%2F10%2F2026."
+        ]
+      },
+      "png": {
+        "bytes": 229959,
+        "width": 1800,
+        "height": 1110
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/sobre.html",
+      "title": "Sobre a Pavel | Pavel Consultoria",
+      "h1": "Sobre a Pavel",
+      "images": [
+        {
+          "url": "https://pavelconsultoria.com.br/assets/logo-pavel-dark.png",
+          "width": 2172
+        },
+        {
+          "url": "https://pavelconsultoria.com.br/assets/karolina-pavel.png",
+          "width": 1254
+        },
+        {
+          "url": "https://pavelconsultoria.com.br/assets/VIP.png",
+          "width": 486
+        }
+      ],
+      "active": [
+        "sobre.html"
+      ],
+      "whatsapp": [
+        "https://wa.me/5521995716270",
+        "https://wa.me/5521995716270?text=Ol%C3%A1%2C%20Karolina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20Pavel%20Consultoria.",
+        "https://wa.me/5521995716270",
+        "https://wa.me/5521995716270?text=Ol%C3%A1%2C%20Karolina!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20Pavel%20Consultoria."
+      ],
+      "clock": "SÁB, 10/10/2026, 13:26",
+      "visits": "3",
+      "footer": 1
+    }
+  ],
+  "errors": [],
+  "responses": [
+    {
+      "url": "https://pavelconsultoria.com.br/index.html",
+      "status": 200,
+      "mimeType": "text/html",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/styles.css",
+      "status": 200,
+      "mimeType": "text/css",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/home.css",
+      "status": 200,
+      "mimeType": "text/css",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/site.css",
+      "status": 200,
+      "mimeType": "text/css",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/whatsapp-home.png",
+      "status": 200,
+      "mimeType": "image/png",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/logo-pavel-dark.png",
+      "status": 200,
+      "mimeType": "image/png",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/config.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/app.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/site.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://gc.zgo.at/count.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "gc.zgo.at",
+        "sanList": [
+          "gc.zgo.at"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1790978790,
+        "validTo": 1798754789,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/consultoria-fundo.png",
+      "status": 200,
+      "mimeType": "image/png",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/visits.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/msproject-fundo.png",
+      "status": 200,
+      "mimeType": "image/png",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.goatcounter.com/count?p=%2F&t=Consultoria%20em%20Gest%C3%A3o%20de%20Projetos%20%7C%20Pavel%20Consultoria&s=800&b=0&rnd=pn8c4",
+      "status": 200,
+      "mimeType": "image/gif",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "*.goatcounter.com",
+        "sanList": [
+          "*.goatcounter.com"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1789433314,
+        "validTo": 1797209313,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.goatcounter.com/counter/TOTAL.json",
+      "status": 200,
+      "mimeType": "application/json",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "*.goatcounter.com",
+        "sanList": [
+          "*.goatcounter.com"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1789433314,
+        "validTo": 1797209313,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/ms-project.html",
+      "status": 200,
+      "mimeType": "text/html",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/styles.css",
+      "status": 200,
+      "mimeType": "text/css",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/site.css",
+      "status": 200,
+      "mimeType": "text/css",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/logo-pavel-dark.png",
+      "status": 200,
+      "mimeType": "image/png",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/config.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/site.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/app.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/visits.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/msproject-fundo.png",
+      "status": 200,
+      "mimeType": "image/png",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://gc.zgo.at/count.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "gc.zgo.at",
+        "sanList": [
+          "gc.zgo.at"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1790978790,
+        "validTo": 1798754789,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.goatcounter.com/counter/TOTAL.json",
+      "status": 200,
+      "mimeType": "application/json",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "*.goatcounter.com",
+        "sanList": [
+          "*.goatcounter.com"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1789433314,
+        "validTo": 1797209313,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/Certificado-digital.png",
+      "status": 200,
+      "mimeType": "image/png",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.goatcounter.com/count?p=%2Fms-project.html&t=MS%20Project%20%E2%80%94%20do%20B%C3%A1sico%20ao%20Avan%C3%A7ado%20%7C%20Pavel%20Consultoria&s=800&b=0&rnd=d67an",
+      "status": 200,
+      "mimeType": "image/gif",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "*.goatcounter.com",
+        "sanList": [
+          "*.goatcounter.com"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1789433314,
+        "validTo": 1797209313,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/primavera.html",
+      "status": 200,
+      "mimeType": "text/html",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/logo-pavel-dark.png",
+      "status": 200,
+      "mimeType": "image/png",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/styles.css",
+      "status": 200,
+      "mimeType": "text/css",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/site.css",
+      "status": 200,
+      "mimeType": "text/css",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/app.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/site.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/config.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://gc.zgo.at/count.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "gc.zgo.at",
+        "sanList": [
+          "gc.zgo.at"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1790978790,
+        "validTo": 1798754789,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/Certificado-digital.png",
+      "status": 200,
+      "mimeType": "image/png",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/visits.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/primavera-fundo.png",
+      "status": 200,
+      "mimeType": "image/png",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.goatcounter.com/count?p=%2Fprimavera.html&t=Primavera%20P6%20B%C3%A1sico%20%7C%20Pavel%20Consultoria&s=800&b=0&rnd=4anod",
+      "status": 200,
+      "mimeType": "image/gif",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "*.goatcounter.com",
+        "sanList": [
+          "*.goatcounter.com"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1789433314,
+        "validTo": 1797209313,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.goatcounter.com/counter/TOTAL.json",
+      "status": 200,
+      "mimeType": "application/json",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "*.goatcounter.com",
+        "sanList": [
+          "*.goatcounter.com"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1789433314,
+        "validTo": 1797209313,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/certificacao-pmp.html",
+      "status": 200,
+      "mimeType": "text/html",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/site.css",
+      "status": 200,
+      "mimeType": "text/css",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/config.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/app.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/visits.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/site.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/styles.css",
+      "status": 200,
+      "mimeType": "text/css",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/logo-pavel-dark.png",
+      "status": 200,
+      "mimeType": "image/png",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://gc.zgo.at/count.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "gc.zgo.at",
+        "sanList": [
+          "gc.zgo.at"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1790978790,
+        "validTo": 1798754789,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/pmp-fundo.png",
+      "status": 200,
+      "mimeType": "image/png",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.goatcounter.com/counter/TOTAL.json",
+      "status": 200,
+      "mimeType": "application/json",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "*.goatcounter.com",
+        "sanList": [
+          "*.goatcounter.com"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1789433314,
+        "validTo": 1797209313,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.goatcounter.com/count?p=%2Fcertificacao-pmp.html&t=Certifica%C3%A7%C3%A3o%20PMP%20%7C%20Pavel%20Consultoria&s=800&b=0&rnd=7u0l3",
+      "status": 200,
+      "mimeType": "image/gif",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "*.goatcounter.com",
+        "sanList": [
+          "*.goatcounter.com"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1789433314,
+        "validTo": 1797209313,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/agenda.html",
+      "status": 200,
+      "mimeType": "text/html",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/styles.css",
+      "status": 200,
+      "mimeType": "text/css",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/site.css",
+      "status": 200,
+      "mimeType": "text/css",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/app.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/config.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/site.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://gc.zgo.at/count.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "gc.zgo.at",
+        "sanList": [
+          "gc.zgo.at"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1790978790,
+        "validTo": 1798754789,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/agenda.css",
+      "status": 200,
+      "mimeType": "text/css",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/visits.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/agenda-data.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/agenda.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/agenda-share.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/vendor/astronomy.browser.min.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/calendar.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.goatcounter.com/count?p=%2Fagenda.html&t=Agenda%20de%20Treinamentos%20%7C%20Pavel%20Consultoria&s=800&b=0&rnd=p08ts",
+      "status": 200,
+      "mimeType": "image/gif",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "*.goatcounter.com",
+        "sanList": [
+          "*.goatcounter.com"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1789433314,
+        "validTo": 1797209313,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/logo-pavel-dark.png",
+      "status": 200,
+      "mimeType": "image/png",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.goatcounter.com/counter/TOTAL.json",
+      "status": 200,
+      "mimeType": "application/json",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "*.goatcounter.com",
+        "sanList": [
+          "*.goatcounter.com"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1789433314,
+        "validTo": 1797209313,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://doc-0c-2s-sheets.googleusercontent.com/pub/f3kk9gtum31ktuqh54kn7i1e14/c1nu4tkg42rpb74vse8ekptmps/1791649585000/104818170413419891351/*/e@2PACX-1vSdq2OSQfJlUYm4p1IhGubApJDU2qmh_RoSA0EVt6gHmpR7w9ntbQAvZOvYT4pdO8mkZ6zaJgQiekZe?gid=608855431&single=true&output=csv",
+      "status": 200,
+      "mimeType": "text/csv"
+    },
+    {
+      "url": "https://doc-0c-2s-sheets.googleusercontent.com/pub/f3kk9gtum31ktuqh54kn7i1e14/c1nu4tkg42rpb74vse8ekptmps/1791649585000/104818170413419891351/*/e@2PACX-1vSdq2OSQfJlUYm4p1IhGubApJDU2qmh_RoSA0EVt6gHmpR7w9ntbQAvZOvYT4pdO8mkZ6zaJgQiekZe?gid=613259854&single=true&output=csv",
+      "status": 200,
+      "mimeType": "text/csv"
+    },
+    {
+      "url": "https://pavelconsultoria.goatcounter.com/count?p=evento%2Fagenda-navegacao&t=agenda-navegacao&e=true&s=320&b=0&rnd=8865m",
+      "status": 200,
+      "mimeType": "image/gif",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "*.goatcounter.com",
+        "sanList": [
+          "*.goatcounter.com"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1789433314,
+        "validTo": 1797209313,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/sobre.html",
+      "status": 200,
+      "mimeType": "text/html",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/styles.css",
+      "status": 200,
+      "mimeType": "text/css",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/site.css",
+      "status": 200,
+      "mimeType": "text/css",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/logo-pavel-dark.png",
+      "status": 200,
+      "mimeType": "image/png",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/config.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/app.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/site.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/about.css",
+      "status": 200,
+      "mimeType": "text/css",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://gc.zgo.at/count.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "gc.zgo.at",
+        "sanList": [
+          "gc.zgo.at"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1790978790,
+        "validTo": 1798754789,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/visits.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/VIP.png",
+      "status": 200,
+      "mimeType": "image/png",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/karolina-pavel.png",
+      "status": 200,
+      "mimeType": "image/png",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.goatcounter.com/count?p=%2Fsobre.html&t=Sobre%20a%20Pavel%20%7C%20Pavel%20Consultoria&s=800&b=0&rnd=3hdyl",
+      "status": 429,
+      "mimeType": "text/plain",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "*.goatcounter.com",
+        "sanList": [
+          "*.goatcounter.com"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1789433314,
+        "validTo": 1797209313,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.goatcounter.com/counter/TOTAL.json",
+      "status": 200,
+      "mimeType": "application/json",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "*.goatcounter.com",
+        "sanList": [
+          "*.goatcounter.com"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1789433314,
+        "validTo": 1797209313,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/agenda.html",
+      "status": 200,
+      "mimeType": "text/html",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/styles.css",
+      "status": 200,
+      "mimeType": "text/css",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/agenda.css",
+      "status": 200,
+      "mimeType": "text/css",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/site.css",
+      "status": 200,
+      "mimeType": "text/css",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/logo-pavel-dark.png",
+      "status": 200,
+      "mimeType": "image/png",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/config.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/app.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/calendar.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/site.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/vendor/astronomy.browser.min.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/agenda-share.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/agenda-data.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/agenda.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://gc.zgo.at/count.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "gc.zgo.at",
+        "sanList": [
+          "gc.zgo.at"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1790978790,
+        "validTo": 1798754789,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    },
+    {
+      "url": "https://pavelconsultoria.com.br/assets/visits.js",
+      "status": 200,
+      "mimeType": "application/javascript",
+      "securityDetails": {
+        "protocol": "TLS 1.3",
+        "keyExchange": "",
+        "keyExchangeGroup": "X25519",
+        "cipher": "AES_128_GCM",
+        "certificateId": 0,
+        "subjectName": "pavelconsultoria.com.br",
+        "sanList": [
+          "pavelconsultoria.com.br",
+          "www.pavelconsultoria.com.br"
+        ],
+        "issuer": "AvastAntiTrackPremium 2",
+        "validFrom": 1791568136,
+        "validTo": 1799344135,
+        "signedCertificateTimestampList": [],
+        "certificateTransparencyCompliance": "unknown",
+        "serverSignatureAlgorithm": 2052,
+        "encryptedClientHello": false
+      }
+    }
+  ],
+  "security": [
+    {
+      "visibleSecurityState": {
+        "securityState": "neutral",
+        "securityStateIssueIds": [
+          "scheme-is-not-cryptographic"
+        ]
+      }
+    },
+    {
+      "visibleSecurityState": {
+        "securityState": "secure",
+        "certificateSecurityState": {
+          "protocol": "TLS 1.3",
+          "keyExchange": "",
+          "keyExchangeGroup": "X25519",
+          "cipher": "AES_128_GCM",
+          "certificate": [
+            "MIIDmDCCAoCgAwIBAgIRAM8dUGMNfzGHxnaoabv/rYowDQYJKoZIhvcNAQELBQAwgYQxFzAVBgNVBAoMDkF2YXN0IFNvZnR3YXJlMTowOAYDVQQLDDFHZW5lcmF0ZWQgYnkgQXZhc3QgQW50aVRyYWNrIGZvciBTU0wvVExTIHNjYW5uaW5nMQswCQYDVQQGEwJFTjEgMB4GA1UEAwwXQXZhc3RBbnRpVHJhY2tQcmVtaXVtIDIwHhcNMjYxMDA5MTc0ODU2WhcNMjcwMTA3MTc0ODU1WjAiMSAwHgYDVQQDExdwYXZlbGNvbnN1bHRvcmlhLmNvbS5icjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKJx118v9HhTShgZZ6gw3poaM86HCQyi2ZKeJGmjd7Iq8IxjBVIIs5OOWQhYS6cDXU8A/QpOWFzP1/OBql7eBCHuxcmGf/q8GSdFg5RflZhPYG4MWUfosjkSo8U2tKsyuxq7B5bG0c15GHX/ZKlQFDfWUoazf7bYt+ti764Pg/opatRSQWJgcLdUW32uh5otS34yJOn6HWDePFN+wh14Sob04JvLDGelIv/Z3iloMzXVusZeMmcmDzGG8FSjuhJbDeTyZ0mPHPvUPpggptgjnWw67aQECB610+i/3bWUpa/0exV8s97Q1XdUPMTp7LYvcshumzm4ekDl9TnMeT6WcSkCAwEAAaNmMGQwPwYDVR0RBDgwNoIXcGF2ZWxjb25zdWx0b3JpYS5jb20uYnKCG3d3dy5wYXZlbGNvbnN1bHRvcmlhLmNvbS5icjAMBgNVHRMBAf8EAjAAMBMGA1UdJQQMMAoGCCsGAQUFBwMBMA0GCSqGSIb3DQEBCwUAA4IBAQARg7sheiKTSsH/tCL7PVtuuSUxz/zlG8El1o97upSArL3QKfV7bo52Jc/kcmeRSyIjaRgTG4W4UDf35SEyTAhD2PvVDPZ5np4wLah+h32FU26F2J5ETzmq3JhP9rPl7uolVLpj9bxMxnxlvdFJtz4QTohqFzApU5gu4+e8D3i3fzJ55STpF5woKxJArdGHh93alwKkgdo7ahuicCzrC2+w8LWlizYaeZaAxNrbPCIMw1VvE3jpjTI55qrpikNml6uJo/1FI3eCBcCyHhLO12XmouWhNFuknPAgETuLIMtJiH9d+cfDbdlQl5JkDdTHQnqFivW/jnZivuJSXivmUJds",
+            "MIIDujCCAqKgAwIBAgIRAOFau9scjMi8p7nvITlF5C4wDQYJKoZIhvcNAQELBQAwgYQxFzAVBgNVBAoMDkF2YXN0IFNvZnR3YXJlMTowOAYDVQQLDDFHZW5lcmF0ZWQgYnkgQXZhc3QgQW50aVRyYWNrIGZvciBTU0wvVExTIHNjYW5uaW5nMQswCQYDVQQGEwJFTjEgMB4GA1UEAwwXQXZhc3RBbnRpVHJhY2tQcmVtaXVtIDIwIBcNMDQwODE5MjMwMjM3WhgPMjA2NDA4MDQyMzAyMzdaMIGEMRcwFQYDVQQKDA5BdmFzdCBTb2Z0d2FyZTE6MDgGA1UECwwxR2VuZXJhdGVkIGJ5IEF2YXN0IEFudGlUcmFjayBmb3IgU1NML1RMUyBzY2FubmluZzELMAkGA1UEBhMCRU4xIDAeBgNVBAMMF0F2YXN0QW50aVRyYWNrUHJlbWl1bSAyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtp3scg4GzEUwU0RzYVJt8tkpOsvatJLVUK2FOTiogI60mM3rN7t/f/hhGdIzaCFwMYKREAvmeUfoRsKLoxr+rVIf6gDJYjXgXF5+b1hXV6QagvnG77d2GB9IVFvRozWHprSt7gxlGP/x/jv5qQs8SR/5KJJKFheEMVzkqU7B0+lKHlE1ty4w6j5pg6BH3UIDbu7et7Ifd5WNY4W/hy7BQVZIRYAuCs+r2G53d5GRxd4CDjsnTtNsmBn+QkImnYtfoORzpaxSPUjJ+Anu0+lHEQpslQqdTUkErIgrvqNPwe12Y9Ds/bsRf90m4NJN4H7S9zdzKz9zNfTZyE6KlPu3LQIDAQABoyMwITAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBBjANBgkqhkiG9w0BAQsFAAOCAQEAcorbSPkmp+gKmLaCa/Kjh8pgjcmXHiWlpk0n/YUUPrGaAND3wcMD7ZF5V5bULsdDKZb3xoJDu0Wzca7QSrvcM47nJ3DvF86/DPbdXPH0UqR+JDkYTF7eHG4PybiMLYQjTE8YmY8ugOlKby0MkwxzXZDnnihwcHRrnz6rr3Ph7vrzFSm+7TKNWLgOQ4DXpjlzdEG3z4wiBQzwmE8Q7toqQal66mnJayi1aV5x+brsGV7zYWEYKMH7C6ORpVYS9JLOIPMiYjMkATLSdO6HlH0nvswwkDnvcB2+KcvUfNOCV7pjzC7IVazBjtTHsMbDFnlMGt0CRRozOgHhQCEU4KB8AQ=="
+          ],
+          "subjectName": "pavelconsultoria.com.br",
+          "issuer": "AvastAntiTrackPremium 2",
+          "validFrom": 1791568136,
+          "validTo": 1799344135,
+          "certificateHasWeakSignature": false,
+          "certificateHasSha1Signature": false,
+          "modernSSL": true,
+          "obsoleteSslProtocol": false,
+          "obsoleteSslKeyExchange": false,
+          "obsoleteSslCipher": false,
+          "obsoleteSslSignature": false
+        },
+        "securityStateIssueIds": []
+      }
+    },
+    {
+      "visibleSecurityState": {
+        "securityState": "secure",
+        "certificateSecurityState": {
+          "protocol": "TLS 1.3",
+          "keyExchange": "",
+          "keyExchangeGroup": "X25519",
+          "cipher": "AES_128_GCM",
+          "certificate": [
+            "MIIDmDCCAoCgAwIBAgIRAM8dUGMNfzGHxnaoabv/rYowDQYJKoZIhvcNAQELBQAwgYQxFzAVBgNVBAoMDkF2YXN0IFNvZnR3YXJlMTowOAYDVQQLDDFHZW5lcmF0ZWQgYnkgQXZhc3QgQW50aVRyYWNrIGZvciBTU0wvVExTIHNjYW5uaW5nMQswCQYDVQQGEwJFTjEgMB4GA1UEAwwXQXZhc3RBbnRpVHJhY2tQcmVtaXVtIDIwHhcNMjYxMDA5MTc0ODU2WhcNMjcwMTA3MTc0ODU1WjAiMSAwHgYDVQQDExdwYXZlbGNvbnN1bHRvcmlhLmNvbS5icjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKJx118v9HhTShgZZ6gw3poaM86HCQyi2ZKeJGmjd7Iq8IxjBVIIs5OOWQhYS6cDXU8A/QpOWFzP1/OBql7eBCHuxcmGf/q8GSdFg5RflZhPYG4MWUfosjkSo8U2tKsyuxq7B5bG0c15GHX/ZKlQFDfWUoazf7bYt+ti764Pg/opatRSQWJgcLdUW32uh5otS34yJOn6HWDePFN+wh14Sob04JvLDGelIv/Z3iloMzXVusZeMmcmDzGG8FSjuhJbDeTyZ0mPHPvUPpggptgjnWw67aQECB610+i/3bWUpa/0exV8s97Q1XdUPMTp7LYvcshumzm4ekDl9TnMeT6WcSkCAwEAAaNmMGQwPwYDVR0RBDgwNoIXcGF2ZWxjb25zdWx0b3JpYS5jb20uYnKCG3d3dy5wYXZlbGNvbnN1bHRvcmlhLmNvbS5icjAMBgNVHRMBAf8EAjAAMBMGA1UdJQQMMAoGCCsGAQUFBwMBMA0GCSqGSIb3DQEBCwUAA4IBAQARg7sheiKTSsH/tCL7PVtuuSUxz/zlG8El1o97upSArL3QKfV7bo52Jc/kcmeRSyIjaRgTG4W4UDf35SEyTAhD2PvVDPZ5np4wLah+h32FU26F2J5ETzmq3JhP9rPl7uolVLpj9bxMxnxlvdFJtz4QTohqFzApU5gu4+e8D3i3fzJ55STpF5woKxJArdGHh93alwKkgdo7ahuicCzrC2+w8LWlizYaeZaAxNrbPCIMw1VvE3jpjTI55qrpikNml6uJo/1FI3eCBcCyHhLO12XmouWhNFuknPAgETuLIMtJiH9d+cfDbdlQl5JkDdTHQnqFivW/jnZivuJSXivmUJds",
+            "MIIDujCCAqKgAwIBAgIRAOFau9scjMi8p7nvITlF5C4wDQYJKoZIhvcNAQELBQAwgYQxFzAVBgNVBAoMDkF2YXN0IFNvZnR3YXJlMTowOAYDVQQLDDFHZW5lcmF0ZWQgYnkgQXZhc3QgQW50aVRyYWNrIGZvciBTU0wvVExTIHNjYW5uaW5nMQswCQYDVQQGEwJFTjEgMB4GA1UEAwwXQXZhc3RBbnRpVHJhY2tQcmVtaXVtIDIwIBcNMDQwODE5MjMwMjM3WhgPMjA2NDA4MDQyMzAyMzdaMIGEMRcwFQYDVQQKDA5BdmFzdCBTb2Z0d2FyZTE6MDgGA1UECwwxR2VuZXJhdGVkIGJ5IEF2YXN0IEFudGlUcmFjayBmb3IgU1NML1RMUyBzY2FubmluZzELMAkGA1UEBhMCRU4xIDAeBgNVBAMMF0F2YXN0QW50aVRyYWNrUHJlbWl1bSAyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtp3scg4GzEUwU0RzYVJt8tkpOsvatJLVUK2FOTiogI60mM3rN7t/f/hhGdIzaCFwMYKREAvmeUfoRsKLoxr+rVIf6gDJYjXgXF5+b1hXV6QagvnG77d2GB9IVFvRozWHprSt7gxlGP/x/jv5qQs8SR/5KJJKFheEMVzkqU7B0+lKHlE1ty4w6j5pg6BH3UIDbu7et7Ifd5WNY4W/hy7BQVZIRYAuCs+r2G53d5GRxd4CDjsnTtNsmBn+QkImnYtfoORzpaxSPUjJ+Anu0+lHEQpslQqdTUkErIgrvqNPwe12Y9Ds/bsRf90m4NJN4H7S9zdzKz9zNfTZyE6KlPu3LQIDAQABoyMwITAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBBjANBgkqhkiG9w0BAQsFAAOCAQEAcorbSPkmp+gKmLaCa/Kjh8pgjcmXHiWlpk0n/YUUPrGaAND3wcMD7ZF5V5bULsdDKZb3xoJDu0Wzca7QSrvcM47nJ3DvF86/DPbdXPH0UqR+JDkYTF7eHG4PybiMLYQjTE8YmY8ugOlKby0MkwxzXZDnnihwcHRrnz6rr3Ph7vrzFSm+7TKNWLgOQ4DXpjlzdEG3z4wiBQzwmE8Q7toqQal66mnJayi1aV5x+brsGV7zYWEYKMH7C6ORpVYS9JLOIPMiYjMkATLSdO6HlH0nvswwkDnvcB2+KcvUfNOCV7pjzC7IVazBjtTHsMbDFnlMGt0CRRozOgHhQCEU4KB8AQ=="
+          ],
+          "subjectName": "pavelconsultoria.com.br",
+          "issuer": "AvastAntiTrackPremium 2",
+          "validFrom": 1791568136,
+          "validTo": 1799344135,
+          "certificateHasWeakSignature": false,
+          "certificateHasSha1Signature": false,
+          "modernSSL": true,
+          "obsoleteSslProtocol": false,
+          "obsoleteSslKeyExchange": false,
+          "obsoleteSslCipher": false,
+          "obsoleteSslSignature": false
+        },
+        "securityStateIssueIds": []
+      }
+    },
+    {
+      "visibleSecurityState": {
+        "securityState": "secure",
+        "certificateSecurityState": {
+          "protocol": "TLS 1.3",
+          "keyExchange": "",
+          "keyExchangeGroup": "X25519",
+          "cipher": "AES_128_GCM",
+          "certificate": [
+            "MIIDmDCCAoCgAwIBAgIRAM8dUGMNfzGHxnaoabv/rYowDQYJKoZIhvcNAQELBQAwgYQxFzAVBgNVBAoMDkF2YXN0IFNvZnR3YXJlMTowOAYDVQQLDDFHZW5lcmF0ZWQgYnkgQXZhc3QgQW50aVRyYWNrIGZvciBTU0wvVExTIHNjYW5uaW5nMQswCQYDVQQGEwJFTjEgMB4GA1UEAwwXQXZhc3RBbnRpVHJhY2tQcmVtaXVtIDIwHhcNMjYxMDA5MTc0ODU2WhcNMjcwMTA3MTc0ODU1WjAiMSAwHgYDVQQDExdwYXZlbGNvbnN1bHRvcmlhLmNvbS5icjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKJx118v9HhTShgZZ6gw3poaM86HCQyi2ZKeJGmjd7Iq8IxjBVIIs5OOWQhYS6cDXU8A/QpOWFzP1/OBql7eBCHuxcmGf/q8GSdFg5RflZhPYG4MWUfosjkSo8U2tKsyuxq7B5bG0c15GHX/ZKlQFDfWUoazf7bYt+ti764Pg/opatRSQWJgcLdUW32uh5otS34yJOn6HWDePFN+wh14Sob04JvLDGelIv/Z3iloMzXVusZeMmcmDzGG8FSjuhJbDeTyZ0mPHPvUPpggptgjnWw67aQECB610+i/3bWUpa/0exV8s97Q1XdUPMTp7LYvcshumzm4ekDl9TnMeT6WcSkCAwEAAaNmMGQwPwYDVR0RBDgwNoIXcGF2ZWxjb25zdWx0b3JpYS5jb20uYnKCG3d3dy5wYXZlbGNvbnN1bHRvcmlhLmNvbS5icjAMBgNVHRMBAf8EAjAAMBMGA1UdJQQMMAoGCCsGAQUFBwMBMA0GCSqGSIb3DQEBCwUAA4IBAQARg7sheiKTSsH/tCL7PVtuuSUxz/zlG8El1o97upSArL3QKfV7bo52Jc/kcmeRSyIjaRgTG4W4UDf35SEyTAhD2PvVDPZ5np4wLah+h32FU26F2J5ETzmq3JhP9rPl7uolVLpj9bxMxnxlvdFJtz4QTohqFzApU5gu4+e8D3i3fzJ55STpF5woKxJArdGHh93alwKkgdo7ahuicCzrC2+w8LWlizYaeZaAxNrbPCIMw1VvE3jpjTI55qrpikNml6uJo/1FI3eCBcCyHhLO12XmouWhNFuknPAgETuLIMtJiH9d+cfDbdlQl5JkDdTHQnqFivW/jnZivuJSXivmUJds",
+            "MIIDujCCAqKgAwIBAgIRAOFau9scjMi8p7nvITlF5C4wDQYJKoZIhvcNAQELBQAwgYQxFzAVBgNVBAoMDkF2YXN0IFNvZnR3YXJlMTowOAYDVQQLDDFHZW5lcmF0ZWQgYnkgQXZhc3QgQW50aVRyYWNrIGZvciBTU0wvVExTIHNjYW5uaW5nMQswCQYDVQQGEwJFTjEgMB4GA1UEAwwXQXZhc3RBbnRpVHJhY2tQcmVtaXVtIDIwIBcNMDQwODE5MjMwMjM3WhgPMjA2NDA4MDQyMzAyMzdaMIGEMRcwFQYDVQQKDA5BdmFzdCBTb2Z0d2FyZTE6MDgGA1UECwwxR2VuZXJhdGVkIGJ5IEF2YXN0IEFudGlUcmFjayBmb3IgU1NML1RMUyBzY2FubmluZzELMAkGA1UEBhMCRU4xIDAeBgNVBAMMF0F2YXN0QW50aVRyYWNrUHJlbWl1bSAyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtp3scg4GzEUwU0RzYVJt8tkpOsvatJLVUK2FOTiogI60mM3rN7t/f/hhGdIzaCFwMYKREAvmeUfoRsKLoxr+rVIf6gDJYjXgXF5+b1hXV6QagvnG77d2GB9IVFvRozWHprSt7gxlGP/x/jv5qQs8SR/5KJJKFheEMVzkqU7B0+lKHlE1ty4w6j5pg6BH3UIDbu7et7Ifd5WNY4W/hy7BQVZIRYAuCs+r2G53d5GRxd4CDjsnTtNsmBn+QkImnYtfoORzpaxSPUjJ+Anu0+lHEQpslQqdTUkErIgrvqNPwe12Y9Ds/bsRf90m4NJN4H7S9zdzKz9zNfTZyE6KlPu3LQIDAQABoyMwITAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBBjANBgkqhkiG9w0BAQsFAAOCAQEAcorbSPkmp+gKmLaCa/Kjh8pgjcmXHiWlpk0n/YUUPrGaAND3wcMD7ZF5V5bULsdDKZb3xoJDu0Wzca7QSrvcM47nJ3DvF86/DPbdXPH0UqR+JDkYTF7eHG4PybiMLYQjTE8YmY8ugOlKby0MkwxzXZDnnihwcHRrnz6rr3Ph7vrzFSm+7TKNWLgOQ4DXpjlzdEG3z4wiBQzwmE8Q7toqQal66mnJayi1aV5x+brsGV7zYWEYKMH7C6ORpVYS9JLOIPMiYjMkATLSdO6HlH0nvswwkDnvcB2+KcvUfNOCV7pjzC7IVazBjtTHsMbDFnlMGt0CRRozOgHhQCEU4KB8AQ=="
+          ],
+          "subjectName": "pavelconsultoria.com.br",
+          "issuer": "AvastAntiTrackPremium 2",
+          "validFrom": 1791568136,
+          "validTo": 1799344135,
+          "certificateHasWeakSignature": false,
+          "certificateHasSha1Signature": false,
+          "modernSSL": true,
+          "obsoleteSslProtocol": false,
+          "obsoleteSslKeyExchange": false,
+          "obsoleteSslCipher": false,
+          "obsoleteSslSignature": false
+        },
+        "securityStateIssueIds": []
+      }
+    },
+    {
+      "visibleSecurityState": {
+        "securityState": "secure",
+        "certificateSecurityState": {
+          "protocol": "TLS 1.3",
+          "keyExchange": "",
+          "keyExchangeGroup": "X25519",
+          "cipher": "AES_128_GCM",
+          "certificate": [
+            "MIIDmDCCAoCgAwIBAgIRAM8dUGMNfzGHxnaoabv/rYowDQYJKoZIhvcNAQELBQAwgYQxFzAVBgNVBAoMDkF2YXN0IFNvZnR3YXJlMTowOAYDVQQLDDFHZW5lcmF0ZWQgYnkgQXZhc3QgQW50aVRyYWNrIGZvciBTU0wvVExTIHNjYW5uaW5nMQswCQYDVQQGEwJFTjEgMB4GA1UEAwwXQXZhc3RBbnRpVHJhY2tQcmVtaXVtIDIwHhcNMjYxMDA5MTc0ODU2WhcNMjcwMTA3MTc0ODU1WjAiMSAwHgYDVQQDExdwYXZlbGNvbnN1bHRvcmlhLmNvbS5icjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKJx118v9HhTShgZZ6gw3poaM86HCQyi2ZKeJGmjd7Iq8IxjBVIIs5OOWQhYS6cDXU8A/QpOWFzP1/OBql7eBCHuxcmGf/q8GSdFg5RflZhPYG4MWUfosjkSo8U2tKsyuxq7B5bG0c15GHX/ZKlQFDfWUoazf7bYt+ti764Pg/opatRSQWJgcLdUW32uh5otS34yJOn6HWDePFN+wh14Sob04JvLDGelIv/Z3iloMzXVusZeMmcmDzGG8FSjuhJbDeTyZ0mPHPvUPpggptgjnWw67aQECB610+i/3bWUpa/0exV8s97Q1XdUPMTp7LYvcshumzm4ekDl9TnMeT6WcSkCAwEAAaNmMGQwPwYDVR0RBDgwNoIXcGF2ZWxjb25zdWx0b3JpYS5jb20uYnKCG3d3dy5wYXZlbGNvbnN1bHRvcmlhLmNvbS5icjAMBgNVHRMBAf8EAjAAMBMGA1UdJQQMMAoGCCsGAQUFBwMBMA0GCSqGSIb3DQEBCwUAA4IBAQARg7sheiKTSsH/tCL7PVtuuSUxz/zlG8El1o97upSArL3QKfV7bo52Jc/kcmeRSyIjaRgTG4W4UDf35SEyTAhD2PvVDPZ5np4wLah+h32FU26F2J5ETzmq3JhP9rPl7uolVLpj9bxMxnxlvdFJtz4QTohqFzApU5gu4+e8D3i3fzJ55STpF5woKxJArdGHh93alwKkgdo7ahuicCzrC2+w8LWlizYaeZaAxNrbPCIMw1VvE3jpjTI55qrpikNml6uJo/1FI3eCBcCyHhLO12XmouWhNFuknPAgETuLIMtJiH9d+cfDbdlQl5JkDdTHQnqFivW/jnZivuJSXivmUJds",
+            "MIIDujCCAqKgAwIBAgIRAOFau9scjMi8p7nvITlF5C4wDQYJKoZIhvcNAQELBQAwgYQxFzAVBgNVBAoMDkF2YXN0IFNvZnR3YXJlMTowOAYDVQQLDDFHZW5lcmF0ZWQgYnkgQXZhc3QgQW50aVRyYWNrIGZvciBTU0wvVExTIHNjYW5uaW5nMQswCQYDVQQGEwJFTjEgMB4GA1UEAwwXQXZhc3RBbnRpVHJhY2tQcmVtaXVtIDIwIBcNMDQwODE5MjMwMjM3WhgPMjA2NDA4MDQyMzAyMzdaMIGEMRcwFQYDVQQKDA5BdmFzdCBTb2Z0d2FyZTE6MDgGA1UECwwxR2VuZXJhdGVkIGJ5IEF2YXN0IEFudGlUcmFjayBmb3IgU1NML1RMUyBzY2FubmluZzELMAkGA1UEBhMCRU4xIDAeBgNVBAMMF0F2YXN0QW50aVRyYWNrUHJlbWl1bSAyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtp3scg4GzEUwU0RzYVJt8tkpOsvatJLVUK2FOTiogI60mM3rN7t/f/hhGdIzaCFwMYKREAvmeUfoRsKLoxr+rVIf6gDJYjXgXF5+b1hXV6QagvnG77d2GB9IVFvRozWHprSt7gxlGP/x/jv5qQs8SR/5KJJKFheEMVzkqU7B0+lKHlE1ty4w6j5pg6BH3UIDbu7et7Ifd5WNY4W/hy7BQVZIRYAuCs+r2G53d5GRxd4CDjsnTtNsmBn+QkImnYtfoORzpaxSPUjJ+Anu0+lHEQpslQqdTUkErIgrvqNPwe12Y9Ds/bsRf90m4NJN4H7S9zdzKz9zNfTZyE6KlPu3LQIDAQABoyMwITAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBBjANBgkqhkiG9w0BAQsFAAOCAQEAcorbSPkmp+gKmLaCa/Kjh8pgjcmXHiWlpk0n/YUUPrGaAND3wcMD7ZF5V5bULsdDKZb3xoJDu0Wzca7QSrvcM47nJ3DvF86/DPbdXPH0UqR+JDkYTF7eHG4PybiMLYQjTE8YmY8ugOlKby0MkwxzXZDnnihwcHRrnz6rr3Ph7vrzFSm+7TKNWLgOQ4DXpjlzdEG3z4wiBQzwmE8Q7toqQal66mnJayi1aV5x+brsGV7zYWEYKMH7C6ORpVYS9JLOIPMiYjMkATLSdO6HlH0nvswwkDnvcB2+KcvUfNOCV7pjzC7IVazBjtTHsMbDFnlMGt0CRRozOgHhQCEU4KB8AQ=="
+          ],
+          "subjectName": "pavelconsultoria.com.br",
+          "issuer": "AvastAntiTrackPremium 2",
+          "validFrom": 1791568136,
+          "validTo": 1799344135,
+          "certificateHasWeakSignature": false,
+          "certificateHasSha1Signature": false,
+          "modernSSL": true,
+          "obsoleteSslProtocol": false,
+          "obsoleteSslKeyExchange": false,
+          "obsoleteSslCipher": false,
+          "obsoleteSslSignature": false
+        },
+        "securityStateIssueIds": []
+      }
+    },
+    {
+      "visibleSecurityState": {
+        "securityState": "secure",
+        "certificateSecurityState": {
+          "protocol": "TLS 1.3",
+          "keyExchange": "",
+          "keyExchangeGroup": "X25519",
+          "cipher": "AES_128_GCM",
+          "certificate": [
+            "MIIDmDCCAoCgAwIBAgIRAM8dUGMNfzGHxnaoabv/rYowDQYJKoZIhvcNAQELBQAwgYQxFzAVBgNVBAoMDkF2YXN0IFNvZnR3YXJlMTowOAYDVQQLDDFHZW5lcmF0ZWQgYnkgQXZhc3QgQW50aVRyYWNrIGZvciBTU0wvVExTIHNjYW5uaW5nMQswCQYDVQQGEwJFTjEgMB4GA1UEAwwXQXZhc3RBbnRpVHJhY2tQcmVtaXVtIDIwHhcNMjYxMDA5MTc0ODU2WhcNMjcwMTA3MTc0ODU1WjAiMSAwHgYDVQQDExdwYXZlbGNvbnN1bHRvcmlhLmNvbS5icjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKJx118v9HhTShgZZ6gw3poaM86HCQyi2ZKeJGmjd7Iq8IxjBVIIs5OOWQhYS6cDXU8A/QpOWFzP1/OBql7eBCHuxcmGf/q8GSdFg5RflZhPYG4MWUfosjkSo8U2tKsyuxq7B5bG0c15GHX/ZKlQFDfWUoazf7bYt+ti764Pg/opatRSQWJgcLdUW32uh5otS34yJOn6HWDePFN+wh14Sob04JvLDGelIv/Z3iloMzXVusZeMmcmDzGG8FSjuhJbDeTyZ0mPHPvUPpggptgjnWw67aQECB610+i/3bWUpa/0exV8s97Q1XdUPMTp7LYvcshumzm4ekDl9TnMeT6WcSkCAwEAAaNmMGQwPwYDVR0RBDgwNoIXcGF2ZWxjb25zdWx0b3JpYS5jb20uYnKCG3d3dy5wYXZlbGNvbnN1bHRvcmlhLmNvbS5icjAMBgNVHRMBAf8EAjAAMBMGA1UdJQQMMAoGCCsGAQUFBwMBMA0GCSqGSIb3DQEBCwUAA4IBAQARg7sheiKTSsH/tCL7PVtuuSUxz/zlG8El1o97upSArL3QKfV7bo52Jc/kcmeRSyIjaRgTG4W4UDf35SEyTAhD2PvVDPZ5np4wLah+h32FU26F2J5ETzmq3JhP9rPl7uolVLpj9bxMxnxlvdFJtz4QTohqFzApU5gu4+e8D3i3fzJ55STpF5woKxJArdGHh93alwKkgdo7ahuicCzrC2+w8LWlizYaeZaAxNrbPCIMw1VvE3jpjTI55qrpikNml6uJo/1FI3eCBcCyHhLO12XmouWhNFuknPAgETuLIMtJiH9d+cfDbdlQl5JkDdTHQnqFivW/jnZivuJSXivmUJds",
+            "MIIDujCCAqKgAwIBAgIRAOFau9scjMi8p7nvITlF5C4wDQYJKoZIhvcNAQELBQAwgYQxFzAVBgNVBAoMDkF2YXN0IFNvZnR3YXJlMTowOAYDVQQLDDFHZW5lcmF0ZWQgYnkgQXZhc3QgQW50aVRyYWNrIGZvciBTU0wvVExTIHNjYW5uaW5nMQswCQYDVQQGEwJFTjEgMB4GA1UEAwwXQXZhc3RBbnRpVHJhY2tQcmVtaXVtIDIwIBcNMDQwODE5MjMwMjM3WhgPMjA2NDA4MDQyMzAyMzdaMIGEMRcwFQYDVQQKDA5BdmFzdCBTb2Z0d2FyZTE6MDgGA1UECwwxR2VuZXJhdGVkIGJ5IEF2YXN0IEFudGlUcmFjayBmb3IgU1NML1RMUyBzY2FubmluZzELMAkGA1UEBhMCRU4xIDAeBgNVBAMMF0F2YXN0QW50aVRyYWNrUHJlbWl1bSAyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtp3scg4GzEUwU0RzYVJt8tkpOsvatJLVUK2FOTiogI60mM3rN7t/f/hhGdIzaCFwMYKREAvmeUfoRsKLoxr+rVIf6gDJYjXgXF5+b1hXV6QagvnG77d2GB9IVFvRozWHprSt7gxlGP/x/jv5qQs8SR/5KJJKFheEMVzkqU7B0+lKHlE1ty4w6j5pg6BH3UIDbu7et7Ifd5WNY4W/hy7BQVZIRYAuCs+r2G53d5GRxd4CDjsnTtNsmBn+QkImnYtfoORzpaxSPUjJ+Anu0+lHEQpslQqdTUkErIgrvqNPwe12Y9Ds/bsRf90m4NJN4H7S9zdzKz9zNfTZyE6KlPu3LQIDAQABoyMwITAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBBjANBgkqhkiG9w0BAQsFAAOCAQEAcorbSPkmp+gKmLaCa/Kjh8pgjcmXHiWlpk0n/YUUPrGaAND3wcMD7ZF5V5bULsdDKZb3xoJDu0Wzca7QSrvcM47nJ3DvF86/DPbdXPH0UqR+JDkYTF7eHG4PybiMLYQjTE8YmY8ugOlKby0MkwxzXZDnnihwcHRrnz6rr3Ph7vrzFSm+7TKNWLgOQ4DXpjlzdEG3z4wiBQzwmE8Q7toqQal66mnJayi1aV5x+brsGV7zYWEYKMH7C6ORpVYS9JLOIPMiYjMkATLSdO6HlH0nvswwkDnvcB2+KcvUfNOCV7pjzC7IVazBjtTHsMbDFnlMGt0CRRozOgHhQCEU4KB8AQ=="
+          ],
+          "subjectName": "pavelconsultoria.com.br",
+          "issuer": "AvastAntiTrackPremium 2",
+          "validFrom": 1791568136,
+          "validTo": 1799344135,
+          "certificateHasWeakSignature": false,
+          "certificateHasSha1Signature": false,
+          "modernSSL": true,
+          "obsoleteSslProtocol": false,
+          "obsoleteSslKeyExchange": false,
+          "obsoleteSslCipher": false,
+          "obsoleteSslSignature": false
+        },
+        "securityStateIssueIds": []
+      }
+    },
+    {
+      "visibleSecurityState": {
+        "securityState": "secure",
+        "certificateSecurityState": {
+          "protocol": "TLS 1.3",
+          "keyExchange": "",
+          "keyExchangeGroup": "X25519",
+          "cipher": "AES_128_GCM",
+          "certificate": [
+            "MIIDmDCCAoCgAwIBAgIRAM8dUGMNfzGHxnaoabv/rYowDQYJKoZIhvcNAQELBQAwgYQxFzAVBgNVBAoMDkF2YXN0IFNvZnR3YXJlMTowOAYDVQQLDDFHZW5lcmF0ZWQgYnkgQXZhc3QgQW50aVRyYWNrIGZvciBTU0wvVExTIHNjYW5uaW5nMQswCQYDVQQGEwJFTjEgMB4GA1UEAwwXQXZhc3RBbnRpVHJhY2tQcmVtaXVtIDIwHhcNMjYxMDA5MTc0ODU2WhcNMjcwMTA3MTc0ODU1WjAiMSAwHgYDVQQDExdwYXZlbGNvbnN1bHRvcmlhLmNvbS5icjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKJx118v9HhTShgZZ6gw3poaM86HCQyi2ZKeJGmjd7Iq8IxjBVIIs5OOWQhYS6cDXU8A/QpOWFzP1/OBql7eBCHuxcmGf/q8GSdFg5RflZhPYG4MWUfosjkSo8U2tKsyuxq7B5bG0c15GHX/ZKlQFDfWUoazf7bYt+ti764Pg/opatRSQWJgcLdUW32uh5otS34yJOn6HWDePFN+wh14Sob04JvLDGelIv/Z3iloMzXVusZeMmcmDzGG8FSjuhJbDeTyZ0mPHPvUPpggptgjnWw67aQECB610+i/3bWUpa/0exV8s97Q1XdUPMTp7LYvcshumzm4ekDl9TnMeT6WcSkCAwEAAaNmMGQwPwYDVR0RBDgwNoIXcGF2ZWxjb25zdWx0b3JpYS5jb20uYnKCG3d3dy5wYXZlbGNvbnN1bHRvcmlhLmNvbS5icjAMBgNVHRMBAf8EAjAAMBMGA1UdJQQMMAoGCCsGAQUFBwMBMA0GCSqGSIb3DQEBCwUAA4IBAQARg7sheiKTSsH/tCL7PVtuuSUxz/zlG8El1o97upSArL3QKfV7bo52Jc/kcmeRSyIjaRgTG4W4UDf35SEyTAhD2PvVDPZ5np4wLah+h32FU26F2J5ETzmq3JhP9rPl7uolVLpj9bxMxnxlvdFJtz4QTohqFzApU5gu4+e8D3i3fzJ55STpF5woKxJArdGHh93alwKkgdo7ahuicCzrC2+w8LWlizYaeZaAxNrbPCIMw1VvE3jpjTI55qrpikNml6uJo/1FI3eCBcCyHhLO12XmouWhNFuknPAgETuLIMtJiH9d+cfDbdlQl5JkDdTHQnqFivW/jnZivuJSXivmUJds",
+            "MIIDujCCAqKgAwIBAgIRAOFau9scjMi8p7nvITlF5C4wDQYJKoZIhvcNAQELBQAwgYQxFzAVBgNVBAoMDkF2YXN0IFNvZnR3YXJlMTowOAYDVQQLDDFHZW5lcmF0ZWQgYnkgQXZhc3QgQW50aVRyYWNrIGZvciBTU0wvVExTIHNjYW5uaW5nMQswCQYDVQQGEwJFTjEgMB4GA1UEAwwXQXZhc3RBbnRpVHJhY2tQcmVtaXVtIDIwIBcNMDQwODE5MjMwMjM3WhgPMjA2NDA4MDQyMzAyMzdaMIGEMRcwFQYDVQQKDA5BdmFzdCBTb2Z0d2FyZTE6MDgGA1UECwwxR2VuZXJhdGVkIGJ5IEF2YXN0IEFudGlUcmFjayBmb3IgU1NML1RMUyBzY2FubmluZzELMAkGA1UEBhMCRU4xIDAeBgNVBAMMF0F2YXN0QW50aVRyYWNrUHJlbWl1bSAyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtp3scg4GzEUwU0RzYVJt8tkpOsvatJLVUK2FOTiogI60mM3rN7t/f/hhGdIzaCFwMYKREAvmeUfoRsKLoxr+rVIf6gDJYjXgXF5+b1hXV6QagvnG77d2GB9IVFvRozWHprSt7gxlGP/x/jv5qQs8SR/5KJJKFheEMVzkqU7B0+lKHlE1ty4w6j5pg6BH3UIDbu7et7Ifd5WNY4W/hy7BQVZIRYAuCs+r2G53d5GRxd4CDjsnTtNsmBn+QkImnYtfoORzpaxSPUjJ+Anu0+lHEQpslQqdTUkErIgrvqNPwe12Y9Ds/bsRf90m4NJN4H7S9zdzKz9zNfTZyE6KlPu3LQIDAQABoyMwITAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBBjANBgkqhkiG9w0BAQsFAAOCAQEAcorbSPkmp+gKmLaCa/Kjh8pgjcmXHiWlpk0n/YUUPrGaAND3wcMD7ZF5V5bULsdDKZb3xoJDu0Wzca7QSrvcM47nJ3DvF86/DPbdXPH0UqR+JDkYTF7eHG4PybiMLYQjTE8YmY8ugOlKby0MkwxzXZDnnihwcHRrnz6rr3Ph7vrzFSm+7TKNWLgOQ4DXpjlzdEG3z4wiBQzwmE8Q7toqQal66mnJayi1aV5x+brsGV7zYWEYKMH7C6ORpVYS9JLOIPMiYjMkATLSdO6HlH0nvswwkDnvcB2+KcvUfNOCV7pjzC7IVazBjtTHsMbDFnlMGt0CRRozOgHhQCEU4KB8AQ=="
+          ],
+          "subjectName": "pavelconsultoria.com.br",
+          "issuer": "AvastAntiTrackPremium 2",
+          "validFrom": 1791568136,
+          "validTo": 1799344135,
+          "certificateHasWeakSignature": false,
+          "certificateHasSha1Signature": false,
+          "modernSSL": true,
+          "obsoleteSslProtocol": false,
+          "obsoleteSslKeyExchange": false,
+          "obsoleteSslCipher": false,
+          "obsoleteSslSignature": false
+        },
+        "securityStateIssueIds": []
+      }
+    },
+    {
+      "visibleSecurityState": {
+        "securityState": "secure",
+        "certificateSecurityState": {
+          "protocol": "TLS 1.3",
+          "keyExchange": "",
+          "keyExchangeGroup": "X25519",
+          "cipher": "AES_128_GCM",
+          "certificate": [
+            "MIIDmDCCAoCgAwIBAgIRAM8dUGMNfzGHxnaoabv/rYowDQYJKoZIhvcNAQELBQAwgYQxFzAVBgNVBAoMDkF2YXN0IFNvZnR3YXJlMTowOAYDVQQLDDFHZW5lcmF0ZWQgYnkgQXZhc3QgQW50aVRyYWNrIGZvciBTU0wvVExTIHNjYW5uaW5nMQswCQYDVQQGEwJFTjEgMB4GA1UEAwwXQXZhc3RBbnRpVHJhY2tQcmVtaXVtIDIwHhcNMjYxMDA5MTc0ODU2WhcNMjcwMTA3MTc0ODU1WjAiMSAwHgYDVQQDExdwYXZlbGNvbnN1bHRvcmlhLmNvbS5icjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKJx118v9HhTShgZZ6gw3poaM86HCQyi2ZKeJGmjd7Iq8IxjBVIIs5OOWQhYS6cDXU8A/QpOWFzP1/OBql7eBCHuxcmGf/q8GSdFg5RflZhPYG4MWUfosjkSo8U2tKsyuxq7B5bG0c15GHX/ZKlQFDfWUoazf7bYt+ti764Pg/opatRSQWJgcLdUW32uh5otS34yJOn6HWDePFN+wh14Sob04JvLDGelIv/Z3iloMzXVusZeMmcmDzGG8FSjuhJbDeTyZ0mPHPvUPpggptgjnWw67aQECB610+i/3bWUpa/0exV8s97Q1XdUPMTp7LYvcshumzm4ekDl9TnMeT6WcSkCAwEAAaNmMGQwPwYDVR0RBDgwNoIXcGF2ZWxjb25zdWx0b3JpYS5jb20uYnKCG3d3dy5wYXZlbGNvbnN1bHRvcmlhLmNvbS5icjAMBgNVHRMBAf8EAjAAMBMGA1UdJQQMMAoGCCsGAQUFBwMBMA0GCSqGSIb3DQEBCwUAA4IBAQARg7sheiKTSsH/tCL7PVtuuSUxz/zlG8El1o97upSArL3QKfV7bo52Jc/kcmeRSyIjaRgTG4W4UDf35SEyTAhD2PvVDPZ5np4wLah+h32FU26F2J5ETzmq3JhP9rPl7uolVLpj9bxMxnxlvdFJtz4QTohqFzApU5gu4+e8D3i3fzJ55STpF5woKxJArdGHh93alwKkgdo7ahuicCzrC2+w8LWlizYaeZaAxNrbPCIMw1VvE3jpjTI55qrpikNml6uJo/1FI3eCBcCyHhLO12XmouWhNFuknPAgETuLIMtJiH9d+cfDbdlQl5JkDdTHQnqFivW/jnZivuJSXivmUJds",
+            "MIIDujCCAqKgAwIBAgIRAOFau9scjMi8p7nvITlF5C4wDQYJKoZIhvcNAQELBQAwgYQxFzAVBgNVBAoMDkF2YXN0IFNvZnR3YXJlMTowOAYDVQQLDDFHZW5lcmF0ZWQgYnkgQXZhc3QgQW50aVRyYWNrIGZvciBTU0wvVExTIHNjYW5uaW5nMQswCQYDVQQGEwJFTjEgMB4GA1UEAwwXQXZhc3RBbnRpVHJhY2tQcmVtaXVtIDIwIBcNMDQwODE5MjMwMjM3WhgPMjA2NDA4MDQyMzAyMzdaMIGEMRcwFQYDVQQKDA5BdmFzdCBTb2Z0d2FyZTE6MDgGA1UECwwxR2VuZXJhdGVkIGJ5IEF2YXN0IEFudGlUcmFjayBmb3IgU1NML1RMUyBzY2FubmluZzELMAkGA1UEBhMCRU4xIDAeBgNVBAMMF0F2YXN0QW50aVRyYWNrUHJlbWl1bSAyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtp3scg4GzEUwU0RzYVJt8tkpOsvatJLVUK2FOTiogI60mM3rN7t/f/hhGdIzaCFwMYKREAvmeUfoRsKLoxr+rVIf6gDJYjXgXF5+b1hXV6QagvnG77d2GB9IVFvRozWHprSt7gxlGP/x/jv5qQs8SR/5KJJKFheEMVzkqU7B0+lKHlE1ty4w6j5pg6BH3UIDbu7et7Ifd5WNY4W/hy7BQVZIRYAuCs+r2G53d5GRxd4CDjsnTtNsmBn+QkImnYtfoORzpaxSPUjJ+Anu0+lHEQpslQqdTUkErIgrvqNPwe12Y9Ds/bsRf90m4NJN4H7S9zdzKz9zNfTZyE6KlPu3LQIDAQABoyMwITAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBBjANBgkqhkiG9w0BAQsFAAOCAQEAcorbSPkmp+gKmLaCa/Kjh8pgjcmXHiWlpk0n/YUUPrGaAND3wcMD7ZF5V5bULsdDKZb3xoJDu0Wzca7QSrvcM47nJ3DvF86/DPbdXPH0UqR+JDkYTF7eHG4PybiMLYQjTE8YmY8ugOlKby0MkwxzXZDnnihwcHRrnz6rr3Ph7vrzFSm+7TKNWLgOQ4DXpjlzdEG3z4wiBQzwmE8Q7toqQal66mnJayi1aV5x+brsGV7zYWEYKMH7C6ORpVYS9JLOIPMiYjMkATLSdO6HlH0nvswwkDnvcB2+KcvUfNOCV7pjzC7IVazBjtTHsMbDFnlMGt0CRRozOgHhQCEU4KB8AQ=="
+          ],
+          "subjectName": "pavelconsultoria.com.br",
+          "issuer": "AvastAntiTrackPremium 2",
+          "validFrom": 1791568136,
+          "validTo": 1799344135,
+          "certificateHasWeakSignature": false,
+          "certificateHasSha1Signature": false,
+          "modernSSL": true,
+          "obsoleteSslProtocol": false,
+          "obsoleteSslKeyExchange": false,
+          "obsoleteSslCipher": false,
+          "obsoleteSslSignature": false
+        },
+        "securityStateIssueIds": []
+      }
+    }
+  ],
+  "functional": [
+    "Agenda real: CSV, calendários, navegação, detalhes, destinos de inscrição e download PNG completo.",
+    "Falha CSV simulada: mensagem correta e exportação desabilitada."
+  ],
+  "result": "APROVADO",
+  "finished": "2026-10-10T16:26:31.563Z"
+}

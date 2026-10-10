@@ -2,7 +2,7 @@
 
 ## Atualização de 10/10/2026 — novo mockup e validação para publicação
 
-Esta atualização prevalece sobre os estados históricos abaixo. Publicação técnica ainda depende de confirmação do workflow e testes no domínio após o push; aprovação visual final pertence à proprietária.
+Esta atualização prevalece sobre os estados históricos abaixo. Publicação técnica e testes no domínio próprio foram confirmados; aprovação visual final pertence à proprietária.
 
 - Estado inicial: `main` local e remoto em `5fe8a36ff557425f37b79bc3afc09a786be98c8c`; somente PDF demonstrativo e referência visual estavam sem rastreamento. Word e este MD foram disponibilizados durante a sessão.
 - Documentos lidos: este MD integralmente e texto, 16 imagens e anotações do `Mocup site.docx`. Renderizador alternativo permitiu visualizar todo o conteúdo, mas apresentou oito páginas com diferenças de paginação e páginas vazias; não é uma exportação nativa das sete páginas no Word.
@@ -18,7 +18,7 @@ Esta atualização prevalece sobre os estados históricos abaixo. Publicação t
 - Pendências: ementas integrais não fornecidas, mantendo-se tópicos aprovados e tópicos do sumário demonstrativo do Primavera; confirmar condições de pagamento e eventual preço de outubro; aprovação visual da proprietária; auditoria do painel analytics e análise dos avisos TLS da hospedagem compartilhada. A pendência da prévia PDF do Primavera foi resolvida durante a sessão.
 - Fontes visuais não usadas na aplicação (`Mocup site.docx`, `assets/referencia-visual-pavel.png`) serão preservadas sem inclusão no commit. Ferramentas, perfis e capturas temporários em `.preview/`, ignorado pelo Git. Alterações de código limitadas a este repositório; Simulator, DNS, planilha e Apps Script intocados.
 
-O resultado pós-publicação será acrescentado após comprovar o deploy e verificar o conteúdo servido contra os hashes dos arquivos do commit.
+Resultado final pós-publicação: commit funcional `17af33c72b1dee038a53eb54e4e22c64349febef`, push concluído e [workflow 38067581798](https://github.com/PavelConsultoria/Pavel_Consultoria/actions/runs/38067581798) completed/success. Em 10/10/2026 às 13:26 de Brasília, 31 recursos públicos retornaram HTTP 200 e hashes idênticos ao commit; seis páginas passaram no Chrome nas cinco larguras, sem exceções JavaScript e sem sobreposição do WhatsApp. Agenda real, download PNG e tratamento de falha CSV aprovados. Relatório e capturas permanentes: [VALIDACAO_PUBLICACAO_10-10-2026.md](VALIDACAO_PUBLICACAO_10-10-2026.md). O commit posterior de documentação preserva esses mesmos arquivos da aplicação. Compartilhamento nativo, destinos sociais com restrições, avisos TLS e aprovação visual continuam pendentes conforme o relatório.
 
 ### Revisão das primeiras capturas publicadas
 

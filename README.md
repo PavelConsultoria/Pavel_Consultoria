@@ -61,4 +61,4 @@ O segundo teste verifica recursos publicados por HTTP e hash, redirecionamentos,
 
 O contador usa somente o endpoint público GoatCounter `counter/TOTAL.json`; indisponibilidade aparece como “indisponível”. Não há números simulados. O script oficial conta as páginas; cliques comerciais são eventos, sem inventar conversões ou alegar acesso ao painel privado.
 
-Publicação técnica não significa aprovação visual da proprietária ou autorização final para divulgação. Consulte o MD de continuidade e o relatório de validação para resultados, limitações e pendências.
+Publicação técnica não significa aprovação visual da proprietária ou autorização final para divulgação. Consulte o MD de continuidade e o [relatório de validação com capturas e respostas verificáveis](VALIDACAO_PUBLICACAO_10-10-2026.md) para resultados, limitações e pendências.
