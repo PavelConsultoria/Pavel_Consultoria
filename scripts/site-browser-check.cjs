@@ -1,6 +1,6 @@
 // Chrome real, local ou publicado. Capturas e evidências ficam em .preview, fora do commit.
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),{spawn}=require('node:child_process');
-const root=path.resolve(__dirname,'..'),base=process.env.PAVEL_SITE_URL || 'http://localhost:4173/';
+const root=path.resolve(__dirname,'..'),base=process.env.PAVEL_SITE_URL || process.argv[2] || 'http://localhost:4173/';
 const live=!['localhost','127.0.0.1'].includes(new URL(base).hostname);
 const output=path.join(root,'.preview',live?'published':'local');fs.mkdirSync(output,{recursive:true});
 const pause=ms=>new Promise(r=>setTimeout(r,ms));
@@ -21,6 +21,7 @@ async function run(){
   const nav=await send('Page.navigate',{url:new URL(file,base).href});assert(!nav.errorText,`${file}: ${nav.errorText}`);
   for(let i=0;i<150;i++){if(await evaluate(`document.readyState==='complete' && location.pathname.endsWith('${file}') && !!document.querySelector('#footer-clock')`))break;await pause(100);}
   await evaluate('Promise.all([...document.images].map(img=>{img.loading="eager";return img.decode().catch(()=>null)}))');
+  if(file==='agenda.html')for(let i=0;i<200;i++){if(await evaluate('document.querySelector("#calendar-grid")?.dataset.agendaState !== "loading" && !document.querySelector("#agenda-updated").hidden'))break;await pause(100);}
   const page=await evaluate(`({url:location.href,title:document.title,h1:document.querySelector('h1')?.textContent,images:[...document.images].map(i=>({url:i.src,width:i.naturalWidth})),active:[...document.querySelectorAll('#menu a[aria-current]')].map(a=>a.getAttribute('href')),whatsapp:[...document.querySelectorAll('a[href^="https://wa.me/"]')].map(a=>a.href),clock:document.querySelector('#footer-clock').textContent,visits:document.querySelector('#site-visits').textContent,footer:document.querySelectorAll('footer').length})`);
   assert(page.h1);assert.equal(page.footer,1);assert.deepEqual(page.active,[file]);assert(page.images.every(i=>i.width>0),`${file}: imagem quebrada`);assert(page.whatsapp.every(u=>u.startsWith('https://wa.me/5521995716270')));assert(page.clock.length>10);
   assert.equal(await evaluate('document.querySelectorAll(".whatsapp-floating").length'),file==='index.html'?0:1);
@@ -36,9 +37,12 @@ async function run(){
   if(file==='ms-project.html')assert(await evaluate('document.querySelector("#investimento").textContent.includes("novembro de 2026")'));
   if(file==='primavera.html')assert(await evaluate('[...document.querySelectorAll("#apostila a")].some(a=>a.href.endsWith("apostila-p6-reduzida.pdf"))'));
   if(file==='certificacao-pmp.html')assert(await evaluate('document.body.textContent.includes("R$ 199,00") && document.body.textContent.includes("90 dias")'));
+  if(file==='sobre.html')assert(await evaluate('getComputedStyle(document.querySelector("#sobre")).backgroundColor === "rgb(32, 49, 45)" && getComputedStyle(document.querySelector("#sobre h1")).color === "rgb(244, 247, 245)"'),'Sobre: contraste do fundo e título');
   if(file==='agenda.html'){
    for(let i=0;i<200;i++){if(await evaluate('document.querySelector("#calendar-grid").dataset.agendaState !== "loading"'))break;await pause(100);}
    const agenda=await evaluate(`({state:document.querySelector('#calendar-grid').dataset.agendaState,calendars:document.querySelectorAll('.calendar table').length,updated:document.querySelector('#agenda-updated').textContent,list:document.querySelector('#class-list').textContent,markers:document.querySelectorAll('.class-day').length,links:[...document.querySelectorAll('#class-list a')].map(a=>a.href)})`);page.agenda=agenda;assert.equal(agenda.state,'ready','CSV real indisponível');assert.equal(agenda.calendars,2);assert(agenda.markers>0);
+   assert(await evaluate('document.querySelector(".agenda-content").getBoundingClientRect().width > document.querySelector(".agenda-heading").getBoundingClientRect().width * .9'),'Agenda: conteúdo usa a largura disponível');
+   await evaluate('window.__sharedLink="";Object.defineProperty(navigator,"share",{value:undefined,configurable:true});Object.defineProperty(navigator,"clipboard",{value:{writeText:async value=>{window.__sharedLink=value;}},configurable:true});document.querySelector(".agenda-share button").click()');await pause(80);assert.equal(await evaluate('window.__sharedLink'),'https://pavelconsultoria.com.br/agenda.html');page.shareFallback='URL oficial verificada com Clipboard API simulada no navegador';
    const month=await evaluate('document.querySelector(".calendar h3").textContent');await evaluate('document.querySelector("#next-month").click()');assert.notEqual(await evaluate('document.querySelector(".calendar h3").textContent'),month);await evaluate('document.querySelector("#previous-month").click()');assert.equal(await evaluate('document.querySelector(".calendar h3").textContent'),month);
    await evaluate('document.querySelector(".class-day").click()');assert(await evaluate('document.querySelector("#class-dialog").open'));page.dialog=await evaluate('({text:document.querySelector("#dialog-details").textContent,links:[...document.querySelectorAll("#dialog-actions a")].map(a=>a.href)})');await evaluate('document.querySelector("#close-dialog").click()');assert(await evaluate('!document.querySelector("#class-dialog").open'));
    const pngPath=path.join(output,'pavel-agenda-completa.png');if(fs.existsSync(pngPath))fs.unlinkSync(pngPath);

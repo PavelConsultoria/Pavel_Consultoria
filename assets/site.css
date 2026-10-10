@@ -23,8 +23,11 @@ body {background:#f7f8f5;color:#203036}
 .home .expertise {min-height:0;padding-block:54px}
 .home .expertise .service {padding-block:20px}
 .home .expertise .service-list {gap:0}
+.home .expertise .service-list {display:block;flex:none}
 .home .contact-section,.contact-section {background:#1b252a;color:#fff}
 .contact-section .contact {padding-block:32px}
+.contact-section .contact p {color:#dbe4df}
+.contact-section .contact h2 {font-size:24px;line-height:1.35}
 .footer,.home .footer {width:100%;margin:0;padding:18px max(24px,calc((100% - 1280px)/2));display:grid;grid-template-columns:1fr 1.5fr 1fr;align-items:center;gap:20px;background:#172126;color:#fff;border:0;font-size:13px}
 .footer p,.home .footer p {margin:4px 0;color:#e2e9e9;line-height:1.5}
 .footer-name {font-size:14px}
@@ -83,12 +86,16 @@ body {background:#f7f8f5;color:#203036}
 .pmp-information p,.pmp-information li {line-height:1.8}
 .pmp-information li {margin:10px 0}
 .agenda-section {padding-block:44px}
+#turmas {background:#f0f3f0;color:#263c31}
+#turmas .agenda {display:block;margin:0 auto;padding:0;border:0}
 .agenda-heading h1 {font-size:clamp(32px,4vw,44px);margin-bottom:14px}
 .agenda-share {display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;align-items:center}
 .agenda-share button {background:#fff;border:1px solid #5a8070;border-radius:7px;color:#234c3b;padding:10px 16px;font:inherit;cursor:pointer}
 .agenda-share button:disabled {opacity:.55;cursor:wait}
 .agenda-share-status {font-size:13px}
 .pavel-about h1 {font-size:clamp(34px,4vw,44px)}
+#sobre {background:#20312d;color:#f4f7f5;padding:32px 0}
+#sobre h1 {color:#f4f7f5;margin-bottom:10px}
 @media(max-width:1200px){#menu,.home #menu{display:none;position:absolute;top:100%;left:0;right:0;background:#1b252a;padding:16px 24px;flex-direction:column;border-bottom:1px solid #ffffff30}#menu.is-open,.home #menu.is-open{display:flex}.menu-toggle,.home .menu-toggle{display:block;margin-left:auto}.header-inner,.home .header-inner{min-height:82px}.learning-grid{grid-template-columns:repeat(3,1fr)}}
 @media(min-width:1201px){.menu-toggle,.home .menu-toggle{display:none}}
 @media(max-width:760px){.header-inner,.home .header-inner{width:calc(100% - 32px);gap:14px}.brand-image,.home .brand-image{width:145px}.home .hero{padding-top:36px;min-height:760px}.home .hero h1{font-size:clamp(29px,7.8vw,42px)}.home .hero-copy{padding-bottom:80px}.home .hero-disciplines{font-size:12px}.home .hero-actions{align-items:flex-start}.footer,.home .footer{grid-template-columns:1fr;text-align:center;padding:22px 60px 22px 20px;gap:14px}.footer-status{text-align:center}.learning-grid{grid-template-columns:repeat(2,1fr)}.course-shortcuts,.course-details,.pmp-columns,.testimonial-grid,.home .testimonial-grid{grid-template-columns:1fr}.course-agenda{float:none;display:inline-block;margin:0 0 20px}.course-intro{font-size:17px}.course-cover{background-image:linear-gradient(180deg,#0c2029ef,#0c2029df),url('msproject-fundo.png')}.course-cover--p6{background-image:linear-gradient(180deg,#14222eef,#14222edf),url('primavera-fundo.png')}.course-details>div{padding:22px}.certificate{flex-direction:column;align-items:flex-start}.pmp-cover{min-height:600px;padding-block:46px}.pmp-cover h1{font-size:38px}.pmp-cover .container{padding-right:40px}.course-cover .button,.course-details .button{white-space:normal}.learning-grid article{padding:16px 12px}.learning-grid h3{font-size:16px}.course-details{gap:22px}}
