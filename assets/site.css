@@ -1,0 +1,95 @@
+/* Novo mockup de outubro/2026: acabamento compartilhado em todas as páginas. */
+html {scroll-padding-top:110px}
+body {background:#f7f8f5;color:#203036}
+.site-header,.home .site-header {background:#1b252a;color:#fff;position:sticky;top:0;z-index:40;border-bottom:1px solid #ffffff18}
+.header-inner,.home .header-inner {width:min(1380px,calc(100% - 48px));display:flex;align-items:center;gap:22px;min-height:90px;margin:auto;padding-block:10px}
+.brand,.home .brand {flex-shrink:0;max-width:180px}
+.brand-image,.home .brand-image {width:180px;height:auto;max-height:65px;object-fit:contain;filter:none}
+#menu,.home #menu {display:flex;gap:3px;margin-left:auto}
+#menu a,.home #menu a {color:#f4f8f8;padding:11px 12px;border-radius:7px;border:0;font-size:14px;text-decoration:none;white-space:nowrap;background:none;box-shadow:none}
+#menu a::after,.home #menu a::after {display:none}
+#menu a:hover,.home #menu a:hover {background:#24434c;color:white}
+#menu a[aria-current],.home #menu a[aria-current] {background:#2c515c;box-shadow:0 0 16px #5aa7bd25;color:white;border:0;text-decoration:none}
+.header-whatsapp,.home .header-whatsapp {display:inline-flex;color:#25d366;width:28px;height:28px;flex-shrink:0;position:static;margin:0}
+.header-whatsapp svg {width:100%;height:100%}
+.menu-toggle {color:#fff;border-color:#ffffff55;background:transparent}
+.home .hero h1 {font-size:clamp(32px,3.2vw,48px);line-height:1.14;max-width:690px;text-wrap:balance;margin-top:0}
+.home .hero-copy {max-width:690px;padding-bottom:64px}
+.home .hero {padding-top:64px;min-height:calc(100svh - 90px);justify-content:space-between}
+.home .hero-actions {align-items:center;gap:20px}
+.home-whatsapp {display:inline-block;width:230px;max-width:100%;flex-shrink:0}
+.home-whatsapp img {width:100%;height:auto;display:block}
+.home .hero-disciplines {font-size:15px;text-align:center;line-height:1.7;padding:22px 0}
+.home .expertise {min-height:0;padding-block:54px}
+.home .expertise .service {padding-block:20px}
+.home .expertise .service-list {gap:0}
+.home .contact-section,.contact-section {background:#1b252a;color:#fff}
+.contact-section .contact {padding-block:32px}
+.footer,.home .footer {width:100%;margin:0;padding:18px max(24px,calc((100% - 1280px)/2));display:grid;grid-template-columns:1fr 1.5fr 1fr;align-items:center;gap:20px;background:#172126;color:#fff;border:0;font-size:13px}
+.footer p,.home .footer p {margin:4px 0;color:#e2e9e9;line-height:1.5}
+.footer-name {font-size:14px}
+.footer-contact {text-align:center}
+.footer-channels,.home .footer-channels {display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;margin-top:5px}
+.footer-whatsapp {display:inline-flex;align-items:center;gap:7px;white-space:nowrap;color:#fff}
+.footer-whatsapp svg {width:20px;height:20px;color:#25d366}
+.footer-socials {display:flex;gap:12px;margin:0!important}
+.footer-socials a svg {width:20px;height:20px}
+.footer-socials a[href*="instagram"] {color:#e4405f}
+.footer-socials a[href*="linkedin"] {color:#309bdf}
+.footer-socials a[href*="facebook"] {color:#1877f2}
+.footer-status {text-align:right}
+.footer-status time {white-space:nowrap;font-size:12px}
+.whatsapp-floating {position:fixed!important;right:22px!important;bottom:22px!important;top:auto!important;left:auto!important;transform:none!important;width:52px!important;height:52px!important;padding:12px;background:#148749;border-radius:50%;color:white;z-index:30;box-shadow:0 3px 12px #0003}
+.whatsapp-floating svg {width:100%;height:100%}
+.course-cover {padding:40px 0;background:linear-gradient(90deg,#0c2029f5,#0c2029d9 52%,#0c202940),url('msproject-fundo.png') center/cover;color:white}
+.course-cover--p6 {background-image:linear-gradient(90deg,#14222ef5,#14222ed9 52%,#14222e40),url('primavera-fundo.png')}
+.course-cover h1 {font-size:clamp(34px,4.2vw,62px);max-width:760px;margin-block:18px}
+.course-cover h2 {font-size:27px;margin-top:36px}
+.course-cover p,.course-cover .eyebrow,.course-cover .text-link {color:#e7efef}
+.course-intro {font-size:19px;line-height:1.65;max-width:680px;margin-block:18px}
+.course-highlights {max-width:760px;margin-block:20px;font-size:15px;line-height:1.8}
+.course-agenda {float:right;margin:0 0 20px 20px}
+.learning-grid {display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:22px}
+.learning-grid article {padding:20px 14px;background:#12313cdf;border:1px solid #538a9460;border-radius:12px}
+.learning-number {font-size:24px;color:#96d7c4}
+.learning-grid h3 {font-size:17px;line-height:1.35;margin-block:10px}
+.learning-grid p {font-size:13px;line-height:1.6}
+.course-shortcuts {display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.course-shortcuts a {padding:22px;background:#f3f7f8;color:#17333d;border-radius:10px;font-weight:700;font-size:18px}
+.course-shortcuts span {display:block;font-size:13px;font-weight:400;margin-top:5px}
+.course-details {display:grid;grid-template-columns:1.25fr 1fr;gap:36px}
+.course-details>div {scroll-margin-top:115px;padding:28px;border:1px solid #d6dfdc;border-radius:12px;min-width:0}
+.course-details h2 {font-size:28px;margin-bottom:18px}
+.course-details h3 {font-size:19px;margin:24px 0 12px}
+.course-details p {line-height:1.8;margin-block:12px}
+.course-details .text-link {display:block;margin-top:18px}
+.price {font-size:36px;font-weight:700;color:#21805c;margin-block:14px}
+.certificate {display:flex;align-items:center;gap:24px}
+.certificate img {width:130px;height:120px;object-fit:contain}
+.certificate h2 {font-size:21px}
+.testimonials h2 {font-size:30px;margin-bottom:24px}
+.testimonial-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.testimonial {margin:0;padding:26px;border:1px solid #cbd9d6;border-radius:12px;background:white}
+.testimonial blockquote {margin:0;font-size:15px;line-height:1.8}
+.testimonial figcaption {margin-top:18px;font-weight:700;color:#286746}
+.home .testimonial-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+.pmp-cover {padding:70px 0;background:linear-gradient(90deg,#1b252af5,#1b252ad9 48%,#1b252a30),url('pmp-fundo.png') center/cover;color:white;min-height:650px}
+.pmp-cover h1 {font-size:clamp(40px,4.5vw,64px);margin:18px 0}
+.pmp-cover h2 {font-size:28px;margin-bottom:24px}
+.pmp-cover p {max-width:540px;color:white;margin:20px 0;line-height:1.7}
+.pmp-cover .price {font-size:36px;color:#8dd4b7}
+.pmp-columns {display:grid;grid-template-columns:2fr 1fr;gap:30px;margin:30px 0}
+.pmp-columns>div {padding:28px;border:1px solid #cad8d3;border-radius:12px;background:white}
+.pmp-information p,.pmp-information li {line-height:1.8}
+.pmp-information li {margin:10px 0}
+.agenda-section {padding-block:44px}
+.agenda-heading h1 {font-size:clamp(32px,4vw,44px);margin-bottom:14px}
+.agenda-share {display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;align-items:center}
+.agenda-share button {background:#fff;border:1px solid #5a8070;border-radius:7px;color:#234c3b;padding:10px 16px;font:inherit;cursor:pointer}
+.agenda-share button:disabled {opacity:.55;cursor:wait}
+.agenda-share-status {font-size:13px}
+.pavel-about h1 {font-size:clamp(34px,4vw,44px)}
+@media(max-width:1200px){#menu,.home #menu{display:none;position:absolute;top:100%;left:0;right:0;background:#1b252a;padding:16px 24px;flex-direction:column;border-bottom:1px solid #ffffff30}#menu.is-open,.home #menu.is-open{display:flex}.menu-toggle,.home .menu-toggle{display:block;margin-left:auto}.header-inner,.home .header-inner{min-height:82px}.learning-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1201px){.menu-toggle,.home .menu-toggle{display:none}}
+@media(max-width:760px){.header-inner,.home .header-inner{width:calc(100% - 32px);gap:14px}.brand-image,.home .brand-image{width:145px}.home .hero{padding-top:36px;min-height:760px}.home .hero h1{font-size:clamp(29px,7.8vw,42px)}.home .hero-copy{padding-bottom:80px}.home .hero-disciplines{font-size:12px}.home .hero-actions{align-items:flex-start}.footer,.home .footer{grid-template-columns:1fr;text-align:center;padding:22px 60px 22px 20px;gap:14px}.footer-status{text-align:center}.learning-grid{grid-template-columns:repeat(2,1fr)}.course-shortcuts,.course-details,.pmp-columns,.testimonial-grid,.home .testimonial-grid{grid-template-columns:1fr}.course-agenda{float:none;display:inline-block;margin:0 0 20px}.course-intro{font-size:17px}.course-cover{background-image:linear-gradient(180deg,#0c2029ef,#0c2029df),url('msproject-fundo.png')}.course-cover--p6{background-image:linear-gradient(180deg,#14222eef,#14222edf),url('primavera-fundo.png')}.course-details>div{padding:22px}.certificate{flex-direction:column;align-items:flex-start}.pmp-cover{min-height:600px;padding-block:46px}.pmp-cover h1{font-size:38px}.pmp-cover .container{padding-right:40px}.course-cover .button,.course-details .button{white-space:normal}.learning-grid article{padding:16px 12px}.learning-grid h3{font-size:16px}.course-details{gap:22px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}

@@ -42,7 +42,7 @@ async function run(response, expected, exists = true) {
   for (const page of ['index.html', 'ms-project.html']) {
     const html = fs.readFileSync(path.join(root, page), 'utf8');
     assert.equal((html.match(/data-goatcounter=/g) || []).length, 1);
-    assert(html.includes('<script async data-goatcounter="https://pavelconsultoria.goatcounter.com/count" src="https://gc.zgo.at/count.js"></script>'));
+    assert(/<script async data-goatcounter="https:\/\/pavelconsultoria.goatcounter.com\/count" src="https:\/\/gc.zgo.at\/count.js">\s*<\/script>/.test(html));
   }
   const home = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
   assert.equal((home.match(/id="site-visits"/g) || []).length, 1);

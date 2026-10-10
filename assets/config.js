@@ -12,7 +12,7 @@ window.PAVEL_CONFIG = {
     apostilaMsp: 'Olá, Karolina! Gostaria de adquirir a apostila de MS Project.',
     apostilaP6: 'Olá, Karolina! Gostaria de adquirir a apostila de Primavera P6.'
   },
-  simulatorUrl: '',
+  simulatorUrl: 'https://pavelpmpsimulator.com.br/',
   forms: { msp: '', p6: '' },
   samples: { msp: '', p6: '' },
   // Fonte pública, somente leitura. Não usar o endereço de edição da planilha.

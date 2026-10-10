@@ -118,7 +118,8 @@
   if (simulatorUrl && document.querySelector('[data-simulator]')) {
     const link = document.querySelector('[data-simulator]');
     link.href = simulatorUrl; link.target = '_blank'; link.rel = 'noopener noreferrer';
-    document.querySelector('#simulator-pendente').hidden = true;
+    const pendingSimulator = document.querySelector('#simulator-pendente');
+    if (pendingSimulator) pendingSimulator.hidden = true;
   }
 
 })();

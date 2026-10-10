@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-# Adicionar a URL absoluta do sitemap depois de confirmar o endereço de publicação.
+Sitemap: https://pavelconsultoria.com.br/sitemap.xml

@@ -4,8 +4,9 @@
   "private": true,
   "description": "Home institucional estática da Pavel Consultoria",
   "scripts": {
+    "build": "node scripts/build-site.cjs",
     "start": "node scripts/serve.cjs",
-    "check:browser": "node scripts/browser-check.cjs",
-    "check": "node --check assets/config.js && node --check assets/app.js && node --check scripts/serve.cjs && node scripts/check.cjs && node --check assets/agenda.js && node --check assets/calendar.js && node scripts/calendar-check.cjs && node --check assets/agenda-data.js && node scripts/agenda-data-check.cjs && node --check assets/visits.js && node scripts/visits-check.cjs"
+    "check:browser": "node scripts/site-browser-check.cjs",
+    "check": "node --check assets/config.js && node --check assets/app.js && node --check assets/site.js && node --check assets/agenda-share.js && node --check scripts/build-site.cjs && node --check scripts/serve.cjs && node scripts/check-site.cjs && node --check assets/agenda.js && node --check assets/calendar.js && node scripts/calendar-check.cjs && node --check assets/agenda-data.js && node scripts/agenda-data-check.cjs && node --check assets/visits.js && node scripts/visits-check.cjs"
   }
 }
