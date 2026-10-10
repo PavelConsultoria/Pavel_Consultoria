@@ -24,6 +24,8 @@ O resultado pós-publicação será acrescentado após comprovar o deploy e veri
 
 O primeiro deploy do novo mockup foi concluído em `bc7a968`; a prévia real do Primavera foi publicada em `9f3edce`. A inspeção das capturas públicas identificou duas regressões por estilos antigos restritos à Home: fundo de Sobre ausente e largura da Agenda reduzida. Os escopos foram corrigidos em `assets/site.css`, junto com os espaços da Home no celular e o contraste do contato. O teste passou a conferir o fundo de Sobre e a largura disponível da Agenda, e as capturas aguardam os CSVs reais. O compartilhamento por cópia foi verificado com Clipboard API simulada apenas no navegador de teste, sem substituir a área de transferência da proprietária. Novos testes locais foram aprovados antes da publicação dessas correções.
 
+Após essa correção, a validação de rede confirmou 31 recursos HTTP 200 com SHA-256 idêntico ao commit `dff2422`, redirecionamentos 301 → 200 para o domínio canônico e DNS corretos. Uma faixa livre no conteúdo das páginas internas no celular foi acrescentada para evitar que o WhatsApp fixo cubra textos ou controles; sua posição foi preservada. LinkedIn retornou HTTP 999 ao acesso automatizado e permanece pendente de inspeção manual, sem alteração do link.
+
 ---
 
 **Fechamento:** 08/10/2026

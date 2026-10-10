@@ -29,6 +29,7 @@ async function run(){
   for(const width of [1440,1024,768,390,320]){
    await send('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:width<700});await pause(80);
    const overflow=await evaluate('({width:innerWidth,scroll:document.documentElement.scrollWidth})');assert(overflow.scroll<=overflow.width,`${file}: overflow ${width}: ${JSON.stringify(overflow)}`);
+   if(file!=='index.html' && width<700)assert(await evaluate('document.querySelector(".whatsapp-floating").getBoundingClientRect().left >= document.querySelector("main .container").getBoundingClientRect().right - 1'),`${file}: WhatsApp não deve cobrir conteúdo`);
    if(width===390){await evaluate('document.querySelector(".menu-toggle").click()');assert(await evaluate('document.querySelector("#menu").classList.contains("is-open")'));await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',code:'Escape'});assert(await evaluate('!document.querySelector("#menu").classList.contains("is-open")'));}
    if([1440,390].includes(width)){
     const metrics=await send('Page.getLayoutMetrics');const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:true,clip:{x:0,y:0,width,height:metrics.cssContentSize.height,scale:1}});fs.writeFileSync(path.join(output,`${file.replace('.html','')}-${width}.png`),Buffer.from(shot.data,'base64'));
