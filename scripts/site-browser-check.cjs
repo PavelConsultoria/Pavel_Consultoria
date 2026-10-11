@@ -34,6 +34,7 @@ async function run(){
     assert.equal(home.title,'Consultoria em Gestão de Projetos');assert.equal(home.secondary,'Treinamentos e Soluções Especializadas');
     assert.equal(home.subtitle,'Planejamento e gestão de cronogramas, treinamentos MS Project e Primavera P6 e análise forense de atrasos.');
     assert.equal(home.actions,1);assert.equal(home.whatsapp,'https://wa.me/5521995716270');assert(home.background.includes('consultoria-home.png'));
+    assert(await evaluate('getComputedStyle(document.querySelector(".hero-stage")).backgroundSize.split(",").every(value=>value.trim()==="cover")'),'Fotografia da Home usa cover sem deformação');
     assert(home.seal.bottom<=home.band.top+1,'Selo acima da faixa');assert(home.seal.left>=home.copy.right-1||home.seal.top>=home.copy.bottom-1,'Selo não sobrepõe texto/botão');
     assert(Math.abs(home.seal.width/home.seal.height-home.sealRatio)<.01,'Proporção original do selo');assert(home.seal.width>=85&&home.seal.width<=100);
     assert(home.footer.top>=home.main.bottom-1,'Rodapé não sobrepõe conteúdo');assert.equal(home.footerPosition,'static');

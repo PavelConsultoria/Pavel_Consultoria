@@ -2,7 +2,9 @@
 .home .hero-stage {
   min-height: 0;
   background-image: linear-gradient(90deg, rgba(27,37,42,.97), rgba(27,37,42,.86) 40%, rgba(27,37,42,.12) 77%), url('consultoria-home.png');
-  background-position: center, center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center, center 45%;
 }
 .home .hero {
   min-height: clamp(460px, 65svh, 640px);
@@ -50,7 +52,7 @@
 .home .footer-socials { justify-content: center; }
 @media (min-width: 761px) { .home .footer-contact a { min-height: 32px; } }
 @media (max-width: 760px) {
-  .home .hero-stage { background-image: linear-gradient(180deg, rgba(27,37,42,.97), rgba(27,37,42,.88) 45%, rgba(27,37,42,.2) 80%, rgba(27,37,42,.55)), url('consultoria-home.png'); }
+  .home .hero-stage { background-image: linear-gradient(180deg, rgba(27,37,42,.97), rgba(27,37,42,.88) 45%, rgba(27,37,42,.2) 80%, rgba(27,37,42,.55)), url('consultoria-home.png'); background-position: center, 58% center; }
   .home .hero { min-height: 0; padding-top: 32px; grid-template-columns: 1fr; grid-template-rows: auto auto auto; }
   .home .hero-copy { padding-bottom: 32px; max-width: 100%; }
   .home .institutional-seal { grid-column: 1; grid-row: 2; justify-self: end; width: 85px; margin-bottom: 20px; }
