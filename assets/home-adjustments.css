@@ -1,5 +1,10 @@
 /* Ajustes aprovados em 11/10/2026. Carregado exclusivamente pela Home. */
+.home { min-height: 100svh; display: flex; flex-direction: column; }
+.home #conteudo { flex: 1; display: flex; flex-direction: column; }
 .home .hero-stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   min-height: 0;
   background-image: linear-gradient(90deg, rgba(27,37,42,.97), rgba(27,37,42,.86) 40%, rgba(27,37,42,.12) 77%), url('consultoria-home.png');
   background-size: cover;
@@ -7,6 +12,9 @@
   background-position: center, center 45%;
 }
 .home .hero {
+  flex: 1;
+  display: grid;
+  row-gap: 0;
   min-height: clamp(460px, 65svh, 640px);
   padding-top: clamp(32px, 5svh, 56px);
   grid-template-columns: minmax(0, 1fr) 96px;

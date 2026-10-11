@@ -27,9 +27,10 @@ async function run(){
   assert.equal(await evaluate('document.querySelectorAll(".whatsapp-floating").length'),file==='index.html'?0:1);
   assert(await evaluate('getComputedStyle(document.querySelector("#menu a[aria-current]")).textDecorationLine === "none"'));
   for(const width of [1440,1024,768,390,320]){
-   await send('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:width<700});await pause(80);
+   await send('Emulation.setDeviceMetricsOverride',{width,height:file==='index.html'&&width<700?(width===320?568:844):1000,deviceScaleFactor:1,mobile:width<700});await pause(80);
    const overflow=await evaluate('({width:innerWidth,scroll:document.documentElement.scrollWidth})');assert(overflow.scroll<=overflow.width,`${file}: overflow ${width}: ${JSON.stringify(overflow)}`);
    if(file==='index.html'){
+    assert(await evaluate(`document.querySelector('main').children.length===1 && document.querySelector('main').firstElementChild.classList.contains('hero-stage') && document.querySelector('main').nextElementSibling.tagName==='FOOTER' && document.querySelector('.hero-disciplines')===document.querySelector('.hero').lastElementChild && !document.querySelector('main .expertise, main .testimonials, main .contact-section') && !document.querySelector('main').textContent.includes('Especialização que conecta planejamento e prática')`),'Home: somente apresentação e faixa, seguidas imediatamente pelo rodapé');
     const home=await evaluate(`(()=>{const rect=s=>{const r=document.querySelector(s).getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height}};const title=document.querySelector('#hero-title');return {title:title.childNodes[0].textContent,secondary:title.querySelector('.hero-title-secondary').textContent,subtitle:document.querySelector('.hero-description').textContent,actions:document.querySelectorAll('.hero-actions a').length,whatsapp:document.querySelector('.home-whatsapp').href,seal:rect('.institutional-seal'),copy:rect('.hero-copy'),band:rect('.hero-disciplines'),footer:rect('footer'),main:rect('main'),footerPosition:getComputedStyle(document.querySelector('footer')).position,background:getComputedStyle(document.querySelector('.hero-stage')).backgroundImage,sealRatio:document.querySelector('.institutional-seal').naturalWidth/document.querySelector('.institutional-seal').naturalHeight,footerColumns:getComputedStyle(document.querySelector('footer')).gridTemplateColumns}})()`);
     assert.equal(home.title,'Consultoria em Gestão de Projetos');assert.equal(home.secondary,'Treinamentos e Soluções Especializadas');
     assert.equal(home.subtitle,'Planejamento e gestão de cronogramas, treinamentos MS Project e Primavera P6 e análise forense de atrasos.');
@@ -38,6 +39,8 @@ async function run(){
     assert(home.seal.bottom<=home.band.top+1,'Selo acima da faixa');assert(home.seal.left>=home.copy.right-1||home.seal.top>=home.copy.bottom-1,'Selo não sobrepõe texto/botão');
     assert(Math.abs(home.seal.width/home.seal.height-home.sealRatio)<.01,'Proporção original do selo');assert(home.seal.width>=85&&home.seal.width<=100);
     assert(home.footer.top>=home.main.bottom-1,'Rodapé não sobrepõe conteúdo');assert.equal(home.footerPosition,'static');
+    assert(Math.abs(home.footer.top-home.band.bottom)<2,'Rodapé imediatamente após faixa institucional, sem espaço residual');
+    if(width>=1024)assert(await evaluate('document.documentElement.scrollHeight <= innerHeight + 1'),'Home desktop distribuída na altura disponível');
     if(width>760){assert.equal(home.footerColumns.split(' ').length,3);assert(home.footer.height<160,'Rodapé compacto em desktop');}
     (page.homeLayouts??=[]).push({width,...home});
    }
