@@ -1,0 +1,63 @@
+/* Ajustes aprovados em 11/10/2026. Carregado exclusivamente pela Home. */
+.home .hero-stage {
+  min-height: 0;
+  background-image: linear-gradient(90deg, rgba(27,37,42,.97), rgba(27,37,42,.86) 40%, rgba(27,37,42,.12) 77%), url('consultoria-home.png');
+  background-position: center, center;
+}
+.home .hero {
+  min-height: clamp(460px, 65svh, 640px);
+  padding-top: clamp(32px, 5svh, 56px);
+  grid-template-columns: minmax(0, 1fr) 96px;
+  grid-template-rows: 1fr auto;
+  column-gap: 28px;
+}
+.home .institutional-seal {
+  display: block;
+  width: 96px;
+  height: auto;
+  grid-column: 2;
+  grid-row: 1;
+  align-self: end;
+  margin-bottom: 24px;
+  background: #f3f5f2;
+  border-radius: 50%;
+}
+.home .hero-copy { padding-bottom: 32px; max-width: 740px; }
+.home .hero h1 {
+  max-width: 740px;
+  font-size: clamp(32px, 3.1vw, 46px);
+  line-height: 1.18;
+  letter-spacing: -.035em;
+  text-wrap: initial;
+  margin: 0;
+}
+.home .hero-title-secondary {
+  display: block;
+  margin-top: 12px;
+  font-size: .74em;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -.025em;
+}
+.home .hero-description { margin-top: 20px; max-width: 590px; font-size: 18px; line-height: 1.65; }
+.home .hero-actions { margin-top: 22px; }
+.home .hero-disciplines { padding-block: 16px; }
+.home .footer { padding-block: 16px; column-gap: 24px; }
+.home .footer p { font-size: 13px; line-height: 1.5; }
+.home .footer .footer-name { font-size: 14px; margin: 0; }
+.home .footer-identity strong { font-size: 16px; }
+.home .footer-channels { flex-direction: column; gap: 6px; }
+.home .footer-socials { justify-content: center; }
+@media (min-width: 761px) { .home .footer-contact a { min-height: 32px; } }
+@media (max-width: 760px) {
+  .home .hero-stage { background-image: linear-gradient(180deg, rgba(27,37,42,.97), rgba(27,37,42,.88) 45%, rgba(27,37,42,.2) 80%, rgba(27,37,42,.55)), url('consultoria-home.png'); }
+  .home .hero { min-height: 0; padding-top: 32px; grid-template-columns: 1fr; grid-template-rows: auto auto auto; }
+  .home .hero-copy { padding-bottom: 32px; max-width: 100%; }
+  .home .institutional-seal { grid-column: 1; grid-row: 2; justify-self: end; width: 85px; margin-bottom: 20px; }
+  .home .hero h1 { font-size: clamp(29px, 7.5vw, 40px); }
+  .home .hero-title-secondary { font-size: .78em; margin-top: 10px; }
+  .home .hero-description { font-size: 16px; margin-top: 18px; }
+  .home .hero-actions { align-items: flex-start; margin-top: 18px; }
+  .home .hero-disciplines { padding-block: 16px; }
+  .home .footer { padding: 20px; gap: 14px; }
+}

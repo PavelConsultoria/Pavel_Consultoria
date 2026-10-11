@@ -29,6 +29,17 @@ async function run(){
   for(const width of [1440,1024,768,390,320]){
    await send('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:width<700});await pause(80);
    const overflow=await evaluate('({width:innerWidth,scroll:document.documentElement.scrollWidth})');assert(overflow.scroll<=overflow.width,`${file}: overflow ${width}: ${JSON.stringify(overflow)}`);
+   if(file==='index.html'){
+    const home=await evaluate(`(()=>{const rect=s=>{const r=document.querySelector(s).getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height}};const title=document.querySelector('#hero-title');return {title:title.childNodes[0].textContent,secondary:title.querySelector('.hero-title-secondary').textContent,subtitle:document.querySelector('.hero-description').textContent,actions:document.querySelectorAll('.hero-actions a').length,whatsapp:document.querySelector('.home-whatsapp').href,seal:rect('.institutional-seal'),copy:rect('.hero-copy'),band:rect('.hero-disciplines'),footer:rect('footer'),main:rect('main'),footerPosition:getComputedStyle(document.querySelector('footer')).position,background:getComputedStyle(document.querySelector('.hero-stage')).backgroundImage,sealRatio:document.querySelector('.institutional-seal').naturalWidth/document.querySelector('.institutional-seal').naturalHeight,footerColumns:getComputedStyle(document.querySelector('footer')).gridTemplateColumns}})()`);
+    assert.equal(home.title,'Consultoria em Gestão de Projetos');assert.equal(home.secondary,'Treinamentos e Soluções Especializadas');
+    assert.equal(home.subtitle,'Planejamento e gestão de cronogramas, treinamentos MS Project e Primavera P6 e análise forense de atrasos.');
+    assert.equal(home.actions,1);assert.equal(home.whatsapp,'https://wa.me/5521995716270');assert(home.background.includes('consultoria-home.png'));
+    assert(home.seal.bottom<=home.band.top+1,'Selo acima da faixa');assert(home.seal.left>=home.copy.right-1||home.seal.top>=home.copy.bottom-1,'Selo não sobrepõe texto/botão');
+    assert(Math.abs(home.seal.width/home.seal.height-home.sealRatio)<.01,'Proporção original do selo');assert(home.seal.width>=85&&home.seal.width<=100);
+    assert(home.footer.top>=home.main.bottom-1,'Rodapé não sobrepõe conteúdo');assert.equal(home.footerPosition,'static');
+    if(width>760){assert.equal(home.footerColumns.split(' ').length,3);assert(home.footer.height<160,'Rodapé compacto em desktop');}
+    (page.homeLayouts??=[]).push({width,...home});
+   }
    if(file!=='index.html' && width<700)assert(await evaluate('document.querySelector(".whatsapp-floating").getBoundingClientRect().left >= document.querySelector("main .container").getBoundingClientRect().right - 1'),`${file}: WhatsApp não deve cobrir conteúdo`);
    if(width===390){await evaluate('document.querySelector(".menu-toggle").click()');assert(await evaluate('document.querySelector("#menu").classList.contains("is-open")'));await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',code:'Escape'});assert(await evaluate('!document.querySelector("#menu").classList.contains("is-open")'));}
    if([1440,390].includes(width)){

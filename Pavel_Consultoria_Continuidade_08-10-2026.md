@@ -1,5 +1,14 @@
 # Pavel Consultoria — Continuidade do projeto
 
+## Atualização de 11/10/2026 — ajustes pontuais da Home
+
+- Título em dois blocos: “Consultoria em Gestão de Projetos” e “Treinamentos e Soluções Especializadas”; subtítulo substituído pelo texto aprovado. Removido “Veja como podemos ajudar”; Fale Conosco preservado com o mesmo WhatsApp.
+- Fotografia original `assets/consultoria-home.png` e selo original `assets/selo qualidade.png`, indicados pela proprietária nesta sessão, usados sem edição. O selo fornecido contém “Compromisso, Qualidade e Resultados”; seu desenho e texto foram preservados, sem recriação para trocar por “Excelência”. Representa compromisso institucional, sem alegação de certificação externa. Largura de 96 px no desktop e 85 px no celular, sem sombra/animação, acima da faixa institucional e fora dos textos/botão.
+- Ajustes isolados em `assets/home-adjustments.css`, carregado somente pela Home após os estilos existentes. Altura principal proporcional e limitada no desktop, natural no celular; rodapé compacto em três áreas, com ícones abaixo do WhatsApp, no fluxo do documento. Faixa institucional e demais conteúdos preservados.
+- O nome antigo `assets/consultoria-fundo.png`, utilizado por outros estilos da Home, foi preservado com os mesmos bytes do Git após a disponibilização da imagem com o novo nome. Nenhuma alteração nas cinco páginas internas, folhas de estilo compartilhadas, dados da Agenda, formulários, PDFs, depoimentos, contador, analytics, DNS, HTTPS ou Simulator.
+- `npm.cmd run build`, `npm.cmd run check` e Chrome local aprovados. Seis páginas verificadas em 320, 390, 768, 1024 e 1440 px; verificações adicionais da Home conferem título, subtítulo, botão único, fotografia, proporção/posição do selo e ausência de sobreposição do rodapé. Capturas desktop/celular inspecionadas. Os testes existentes da Agenda e CSVs reais continuam aprovados.
+- O commit de evidências `27a3cf9` da sessão anterior ainda estava local ao iniciar esta revisão. Será enviado junto com os ajustes aprovados, sem alterar os arquivos da aplicação dessa sessão anterior. A conclusão desta revisão exige workflow Pages completed/success e teste no domínio; resultados e hash serão informados no fechamento da conversa. Evidências atuais do navegador ficam em `.preview/local/` e `.preview/published/`, ignoradas pelo Git.
+
 ## Atualização de 10/10/2026 — novo mockup e validação para publicação
 
 Esta atualização prevalece sobre os estados históricos abaixo. Publicação técnica e testes no domínio próprio foram confirmados; aprovação visual final pertence à proprietária.
