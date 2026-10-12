@@ -153,6 +153,10 @@ body {background:#f7f8f5;color:#203036}
 .p6-modal {width:min(760px,calc(100% - 32px));max-width:760px;max-height:calc(100svh - 40px);padding:24px;border:0;border-radius:16px;background:#E8F4EE;color:#18251E;overflow:auto}
 #ementa.p6-modal {position:fixed;inset:0;margin:auto;width:min(680px,calc(100vw - 32px));max-width:680px;max-height:min(80vh,720px);overflow-y:auto;overflow-wrap:anywhere}
 .p6-modal::backdrop {background:#101b20bb}
+.pmp-simulator-modal {position:fixed;inset:0;margin:auto;box-sizing:border-box;width:90vw;max-width:90vw;height:85vh;height:85svh;max-height:85svh;overflow:hidden}
+.pmp-simulator-modal[open] {display:flex;flex-direction:column}
+.pmp-simulator-modal .p6-modal-heading {flex-shrink:0}
+.pmp-simulator-modal iframe {display:block;flex:1;min-height:0;width:100%;border:0;background:#fff;border-radius:8px}
 body.p6-modal-open {overflow:hidden}
 .p6-modal-heading {display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}
 .p6-modal h2 {font-size:26px;margin:0}

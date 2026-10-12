@@ -24,14 +24,18 @@
   });
 })();
 
-// Janelas do Primavera: mantem o conteudo atual e a navegacao para a Agenda.
+// Janelas compartilhadas dos cursos.
 (() => {
  const dialogs = [...document.querySelectorAll('.p6-modal')].filter(dialog => !dialog.dataset.pdfSrc);
  if (!dialogs.length) return;
  document.querySelectorAll('[data-p6-modal]').forEach(link => link.addEventListener('click', event => {
   if (document.getElementById(link.dataset.p6Modal).dataset.pdfSrc) return;
   event.preventDefault();
-  document.getElementById(link.dataset.p6Modal).showModal();
+  const dialog = document.getElementById(link.dataset.p6Modal);
+  const frame = dialog.querySelector('iframe[data-src]');
+  // Carrega uma vez e preserva a sessão ao fechar e reabrir.
+  if (frame && !frame.hasAttribute('src')) frame.src = frame.dataset.src;
+  dialog.showModal();
   document.body.classList.add('p6-modal-open');
  }));
  dialogs.forEach(dialog => {
