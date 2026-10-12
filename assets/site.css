@@ -252,3 +252,8 @@ body.p6-modal-open {overflow:hidden}
 @keyframes msp-testimonial-float { 0%,100% { transform: translateY(-3px); } 50% { transform: translateY(3px); } }
 @media(max-width:1200px){.primavera-page .msp-testimonial {display:none}}
 @media(prefers-reduced-motion:reduce){.primavera-page .msp-testimonial {animation:none}}
+
+/* PMP: acoes alinhadas, com contato nas mesmas dimensoes do MS Project. */
+.pmp-page .pmp-actions {display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+@media(min-width:761px){.pmp-page .pmp-cover {padding-block:19px}}
+@media(max-width:760px){.pmp-page .pmp-actions {gap:14px}}
