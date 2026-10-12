@@ -103,3 +103,31 @@ body {background:#f7f8f5;color:#203036}
 /* Faixa livre à direita no celular: o WhatsApp fixo não cobre texto ou controles. */
 @media(max-width:760px){.internal main .container,#turmas .agenda{width:calc(100% - 96px);margin-left:20px;margin-right:76px}.internal .pmp-cover .container{padding-right:0}.internal .footer{padding-right:76px}}
 @media(max-width:400px){.internal .learning-grid{grid-template-columns:1fr}}
+
+/* Cabecalho unico das seis paginas, conforme a Home. */
+.site-header .header-inner {width:min(1380px,calc(100vw - 48px));left:calc((100vw - 100%)/2);max-width:1440px;padding:10px 48px;min-height:88px;justify-content:space-between;position:relative}
+.site-header .brand {display:flex;flex-direction:column;line-height:1;width:180px;max-width:180px;background:transparent;padding:0;border-radius:0;flex-shrink:0}
+.site-header .brand-image {display:block;width:180px;height:auto;max-height:65px;object-fit:contain;filter:none}
+.site-header #menu {align-items:center;gap:3px;margin:0 0 0 auto;transform:translateY(1px)}
+.site-header #menu a {font-family:var(--font);font-size:14px;font-weight:400;line-height:22px;letter-spacing:normal;padding:11px 12px;min-height:44px;border-radius:7px}
+.site-header .header-whatsapp {display:inline-flex;place-items:center;width:28px;min-width:48px;height:28px;flex-shrink:0;position:static;margin:0;color:#25d366}
+.site-header .header-whatsapp svg {width:29px;height:29px}
+.site-header .header-whatsapp:hover {color:#73e59d}
+.site-header .menu-toggle {background:transparent;color:#fff;border:1px solid #ffffff55;margin-left:auto;border-radius:3px}
+.site-header a:focus-visible,.site-header button:focus-visible {outline:3px solid #79c694;outline-offset:5px}
+@media(max-width:1200px){
+ .site-header .header-inner {padding-inline:32px;min-height:82px}
+ .site-header #menu {margin:0;background:#1b252a;border-color:#ffffff26;box-shadow:none;transform:none}
+}
+@media(max-width:760px){
+ .site-header .header-inner {width:calc(100vw - 32px);gap:14px}
+ .site-header .brand-image {width:145px}
+}
+@media(max-width:700px){
+ .site-header .header-inner {padding:12px 16px}
+ .site-header .brand {width:150px}
+ .site-header .menu-toggle {padding:8px 10px;font-size:12px;gap:8px}
+ .site-header .header-whatsapp {min-width:44px}
+ .site-header .header-whatsapp svg {width:26px;height:26px}
+ .site-header #menu.is-open {padding-inline:20px}
+}
