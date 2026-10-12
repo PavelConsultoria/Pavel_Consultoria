@@ -9,7 +9,7 @@
 .ms-project-page .course-highlights { max-width: 650px; font-size: 18px; font-weight: 600; line-height: 1.65; margin: 0 0 22px; }
 .ms-project-page .course-cover h2 { font-size: 24px; margin: 26px 0 16px; }
 .ms-project-page .learning-grid { grid-template-columns: repeat(6,minmax(0,1fr)); gap: 10px; }
-.ms-project-page .learning-grid article { background: #D8EADF; color: #18251E; border-radius: 12px; padding: 14px 12px; min-height: 144px; }
+.ms-project-page .learning-grid article { background: #12313cdf; color: #18251E; border-radius: 12px; padding: 14px 12px; min-height: 144px; }
 .ms-project-page .learning-number { color: #236A47; font-size: 16px; margin-bottom: 8px; }
 .ms-project-page .learning-grid h3 { color: #18251E; font-style: normal; font-size: 15px; font-weight: 600; line-height: 1.25; margin-bottom: 8px; }
 .ms-project-page .learning-grid p { color: #18251E; font-size: 12px; line-height: 1.45; font-style: italic; }
