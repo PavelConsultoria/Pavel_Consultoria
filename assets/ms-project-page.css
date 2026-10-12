@@ -30,10 +30,6 @@
 .ms-project-page #apostila button { background: #25383d; border-color: #57716d; color: #edf4f1; transition: background .2s; }
 .ms-project-page #apostila button:hover:not(:disabled) { background: #36504f; }
 .ms-project-page #apostila button:disabled { opacity: .4; cursor: default; }
-.ms-project-page .msp-course-seal-block { display: flex; justify-content: center; width: 100%; margin-block: 16px 18px; }
-.ms-project-page .msp-course-seal-crop { position: relative; width: 158px; height: 180px; overflow: hidden; flex-shrink: 0; }
-/* Preserve a proporção do PNG e recorte somente suas margens transparentes. */
-.ms-project-page .msp-course-seal { display: block; position: absolute; width: 270px; max-width: none; height: 180px; left: 50%; top: 0; transform: translateX(-50%); margin: 0; object-fit: contain; }
 .ms-project-page .msp-modal::backdrop { background: #101b20bb; }
 .ms-project-page.msp-modal-open { overflow: hidden; }
 .ms-project-page .msp-modal-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
