@@ -52,13 +52,6 @@
 .home .hero-description { margin-top: 20px; max-width: 590px; font-size: 18px; line-height: 1.65; }
 .home .hero-actions { margin-top: 22px; }
 .home .hero-disciplines { padding-block: 16px; }
-.home .footer { padding-block: 16px; column-gap: 24px; }
-.home .footer p { font-size: 13px; line-height: 1.5; }
-.home .footer .footer-name { font-size: 14px; margin: 0; }
-.home .footer-identity strong { font-size: 16px; }
-.home .footer-channels { flex-direction: column; gap: 6px; }
-.home .footer-socials { justify-content: center; }
-@media (min-width: 761px) { .home .footer-contact a { min-height: 32px; } }
 @media (max-width: 760px) {
   .home .hero-stage { background-image: linear-gradient(180deg, rgba(27,37,42,.97), rgba(27,37,42,.88) 45%, rgba(27,37,42,.2) 80%, rgba(27,37,42,.55)), url('consultoria-home.png'); background-position: center, 58% center; }
   .home .hero { min-height: 0; padding-top: 32px; grid-template-columns: 1fr; grid-template-rows: auto auto auto; }
@@ -69,5 +62,7 @@
   .home .hero-description { font-size: 16px; margin-top: 18px; }
   .home .hero-actions { align-items: flex-start; margin-top: 18px; }
   .home .hero-disciplines { padding-block: 16px; }
-  .home .footer { padding: 20px; gap: 14px; }
 }
+
+/* Mesmo espaçamento móvel do rodapé do MS Project. */
+@media (max-width: 760px) { .home .footer { padding-right: 76px; } }
