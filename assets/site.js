@@ -23,3 +23,28 @@
     if(action)window.goatcounter.count({path:'evento/'+action,title:action,event:true});
   });
 })();
+
+// Janelas do Primavera: mantem o conteudo atual e a navegacao para a Agenda.
+(() => {
+ const dialogs = [...document.querySelectorAll('.p6-modal')];
+ if (!dialogs.length) return;
+ document.querySelectorAll('[data-p6-modal]').forEach(link => link.addEventListener('click', event => {
+  event.preventDefault();
+  document.getElementById(link.dataset.p6Modal).showModal();
+  document.body.classList.add('p6-modal-open');
+ }));
+ dialogs.forEach(dialog => {
+  dialog.querySelector('[data-p6-close]').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('close', () => document.body.classList.remove('p6-modal-open'));
+  dialog.addEventListener('click', event => {
+   const r = dialog.getBoundingClientRect();
+   if (event.target === dialog && (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom)) dialog.close();
+  });
+ });
+ document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+   const dialog = dialogs.find(item => item.open);
+   if (dialog) { event.preventDefault(); dialog.close(); }
+  }
+ });
+})();

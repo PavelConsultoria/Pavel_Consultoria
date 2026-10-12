@@ -24,6 +24,15 @@ const agenda = extract('    <section class="agenda-section', '    <section class
 const about = extract('    <section class="pavel-about', '    <section class="contact-section').replace('IPMA-D.</h3>','IPMA-D</h3>');
 const contact = extract('    <section class="contact-section','  </main>');
 const agendaScripts = ['assets/vendor/astronomy.browser.min.js','assets/calendar.js','assets/agenda-data.js','assets/agenda.js','assets/agenda-share.js'];
+function primaveraShortcuts(content) {
+ const cards = [
+  ['apostila','Apostila Primavera','Prévia e material do treinamento ↗'],
+  ['ementa','Ver ementa','Conheça os tópicos disponíveis ↗'],
+  ['investimento','Investimento','Valores confirmados e inscrição ↗']
+ ].map(([id,title,text])=>'<a href="#'+id+'" data-p6-modal="'+id+'" aria-haspopup="dialog" aria-controls="'+id+'">'+title+' <span>'+text+'</span></a>').join('');
+ content = content.replace(/<div class="course-shortcuts">[\s\S]*?<\/div>/,'<div class="course-shortcuts">'+cards+'<a href="agenda.html">Agenda 2026 <span>Escolha a turma que melhor se adapta à sua disponibilidade</span></a></div>');
+ return content.replace(/<div id="(ementa|apostila|investimento)">([\s\S]*?)<\/div>/g,(_,id,body)=>'<dialog class="p6-modal" id="'+id+'" aria-labelledby="'+id+'-title">'+body.replace(/<h2>([\s\S]*?)<\/h2>/,(_,title)=>'<div class="p6-modal-heading"><h2 id="'+id+'-title">'+title+'</h2><button type="button" data-p6-close aria-label="Fechar '+title+'">×</button></div>')+'</dialog>');
+}
 function page(file,title,content,{home=false,calendar=false,styles=[]}={}) {
  if(file==='ms-project.html') content=require('./ms-project-content.cjs')(content);
  const description=title+' — consultoria especializada e treinamentos práticos Pavel.';
@@ -51,7 +60,7 @@ for(const key of ['msp','p6']) {
   .replace(/<p class="course-intro">[^<]*<\/p>/,'')
   .replace('<p class="course-highlights">8 horas','<p class="course-highlights">8 horas (Básico)')
   .replace(/<a class="button" href="agenda.html">Quero me inscrever[^<]*<\/a>/,"<a class=\"home-whatsapp\" href=\"https://wa.me/5521995716270\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"Fale conosco pelo WhatsApp\"><img src=\"assets/whatsapp-home.png\" alt=\"Fale Conosco\" width=\"440\" height=\"147\"></a>");
- page(msp?'ms-project.html':'primavera.html',title,presentation);
+ page(msp?'ms-project.html':'primavera.html',title,msp?presentation:primaveraShortcuts(presentation));
 }
 page('certificacao-pmp.html','Certificação PMP',`<section class="pmp-cover"><div class="container"><p class="eyebrow">TECNOLOGIA PAVEL</p><h1>Certificação PMP</h1><h2>Pavel PMP Simulator</h2><p>Uma solução digital própria para apoiar sua preparação para o exame PMP.</p><p class="price">R$ 199,00</p><p>Assinatura trimestral · 90 dias</p><a class="button" href="https://pavelpmpsimulator.com.br/" target="_blank" rel="noopener noreferrer">Acessar o Simulator ↗</a></div></section><section class="container section pmp-information"><h2>Preparação com prática e diagnóstico</h2><p>Plataforma de preparação para o exame PMP®, desenvolvida pela Pavel Consultoria, com foco em prática, diagnóstico e evolução do aluno.</p><div class="pmp-columns"><div><h3>Conteúdo da plataforma</h3><ul><li>600 questões no banco atual</li><li>500 questões regulares</li><li>100 questões contextualizadas em 20 Case Studies</li><li>5 questões vinculadas a cada Case Study</li><li>Questões Single Response e Multiple Response</li><li>Modos Estudo, Exame e Revisão</li><li>Filtros por Domínio ECO, dificuldade, abordagem, tipo de resposta e área de conhecimento</li></ul></div><div><h3>Referências</h3><ul><li>PMP® 2026</li><li>ECO vigente</li><li>PMBOK® Guide – 8ª edição</li></ul></div></div><p>As faixas de desempenho utilizadas pelo Pavel PMP Simulator são referências pedagógicas internas e não representam percentual oficial de aprovação definido pelo PMI.</p></section>`);
 page('agenda.html','Agenda de Treinamentos',agenda.replace('<h2 id="agenda-title">','<h1 id="agenda-title">').replace('Agenda de Treinamentos</h2>','Agenda de Treinamentos</h1>'),{calendar:true,styles:['assets/agenda.css']});

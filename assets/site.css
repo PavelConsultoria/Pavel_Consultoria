@@ -145,3 +145,24 @@ body {background:#f7f8f5;color:#203036}
  .course-cover--p6 h1 span {white-space:normal}
  .course-cover--p6 .course-highlights {font-size:17px}
 }
+
+/* Quadros e janelas Primavera, conforme MS Project. */
+.course-cover--p6 .course-shortcuts { grid-template-columns: repeat(4,minmax(0,1fr)); grid-auto-rows: 1fr; gap: 12px; margin-top: 22px; }
+.course-cover--p6 .course-shortcuts a { background: #E8F4EE; color: #18251E; border-radius: 12px; padding: 16px; font-size: 16px; }
+.course-cover--p6 .course-shortcuts span { font-size: 12px; }
+.p6-modal {width:min(760px,calc(100% - 32px));max-width:760px;max-height:calc(100svh - 40px);padding:24px;border:0;border-radius:16px;background:#E8F4EE;color:#18251E;overflow:auto}
+#ementa.p6-modal {position:fixed;inset:0;margin:auto;width:min(680px,calc(100vw - 32px));max-width:680px;max-height:min(80vh,720px);overflow-y:auto;overflow-wrap:anywhere}
+.p6-modal::backdrop {background:#101b20bb}
+body.p6-modal-open {overflow:hidden}
+.p6-modal-heading {display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}
+.p6-modal h2 {font-size:26px;margin:0}
+.p6-modal h3 {font-size:19px;margin:22px 0 12px}
+.p6-modal p,.p6-modal li {color:#18251E;font-size:16px;line-height:1.65;margin-block:12px}
+.p6-modal button {min-height:44px;padding:8px 12px;border:1px solid #719d83;border-radius:8px;background:#f7fbf8;color:#18251E}
+.p6-modal [data-p6-close] {flex-shrink:0;font-size:26px;width:44px;padding:0!important}
+@media(max-width:760px){
+ .course-cover--p6 .course-shortcuts {grid-template-columns:1fr}
+ .course-cover--p6 .course-shortcuts a {padding:14px}
+ .p6-modal {padding:18px;max-height:calc(100svh - 24px)}
+ .p6-modal h2 {font-size:22px}
+}
