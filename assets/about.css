@@ -1,4 +1,16 @@
 /* Composição editorial compacta, com escopo exclusivo de Sobre a Pavel. */
+.about-page{min-height:100svh;display:flex;flex-direction:column}
+.about-page main{flex:1;display:flex;flex-direction:column}
+.about-page #sobre{flex:1;padding-block:24px}
+.about-page #sobre .about-leader-copy p{margin:0}
+.about-page #sobre .about-leader-copy p+p{margin-top:8px}
+.about-page #sobre .about-experience-grid p{margin:0}
+.about-page #sobre .about-publication p:last-child{margin:0}
+.about-page .contact-section .contact{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:center;padding-block:18px}
+.about-page .contact-section .contact h2{margin:0;font-size:24px}
+.about-page .contact-section .contact p{margin:0;max-width:none;font-size:14px;line-height:1.6}
+.about-page .footer{flex-shrink:0}
+@media(max-width:760px){.about-page .contact-section .contact{grid-template-columns:1fr;gap:12px}.about-page .contact-section .contact h2{font-size:22px}}
 .home #sobre{background:#20312D;color:#F4F7F5;padding:20px 0 16px}
 #sobre .about-heading{margin-bottom:16px}
 #sobre h2{font-size:32px;line-height:1.15;margin:0 0 6px}
