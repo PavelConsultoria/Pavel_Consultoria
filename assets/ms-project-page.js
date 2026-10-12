@@ -46,6 +46,7 @@ setInterval(() => {
   });
 }, 5000);
 let pdf, loading, book, pageImages = [], pageRatio = 1, layoutKey = '', resizeFrame;
+const renderedPages = new Map();
 const mobile = matchMedia('(max-width:760px)'), pages = document.querySelector('.msp-book-pages');
 const previous = document.querySelector('[data-msp-previous]'), next = document.querySelector('[data-msp-next]');
 function syncBook(state) {
@@ -108,18 +109,36 @@ async function loadBook() {
   if (loading) return loading;
   loading = (async () => {
     try {
-      const lib = await import('./vendor/msp-pdf.js');
-      await loadPageFlip();
+      const [lib] = await Promise.all([import('./vendor/msp-pdf.js'), loadPageFlip()]);
       lib.GlobalWorkerOptions.workerSrc = new URL('./vendor/msp-pdf.worker.js', import.meta.url).href;
-      pdf = await lib.getDocument({url:new URL('./apostila-msproject-previa.pdf', import.meta.url).href}).promise;
-      const images = [];
-      for (let number = 1; number <= pdf.numPages; number++) {
-        const page = await pdf.getPage(number), viewport = page.getViewport({scale:1.5});
-        const canvas = document.createElement('canvas'); canvas.width = viewport.width; canvas.height = viewport.height;
-        pageRatio = viewport.width / viewport.height;
-        await page.render({canvasContext:canvas.getContext('2d'),viewport}).promise;
-        images.push(canvas.toDataURL('image/png'));
-      }
+      pdf ??= await lib.getDocument({url:new URL('./apostila-msproject-previa.pdf', import.meta.url).href}).promise;
+      const images = new Array(pdf.numPages);
+      let nextPage = 1;
+      const renderPages = async () => {
+        while (nextPage <= pdf.numPages) {
+          const number = nextPage++;
+          if (!renderedPages.has(number)) {
+            const rendered = (async () => {
+              const page = await pdf.getPage(number), viewport = page.getViewport({scale:1.5});
+              const canvas = document.createElement('canvas'); canvas.width = viewport.width; canvas.height = viewport.height;
+              pageRatio = viewport.width / viewport.height;
+              try {
+                await page.render({canvasContext:canvas.getContext('2d'),viewport}).promise;
+                const blob = await new Promise((resolve,reject) => canvas.toBlob(value => value ? resolve(value) : reject(new Error('PDF page encoding failed')), 'image/png'));
+                return URL.createObjectURL(blob);
+              } finally {
+                canvas.width = canvas.height = 0;
+                page.cleanup();
+              }
+            })();
+            renderedPages.set(number, rendered);
+            rendered.catch(() => renderedPages.delete(number));
+          }
+          images[number - 1] = await renderedPages.get(number);
+        }
+      };
+      // Two workers preserve page order and reuse cached images on reopening or retry.
+      await Promise.all([renderPages(), renderPages()]);
       pageImages = images;
       document.querySelector('[data-msp-book-status]').hidden = true;
       fitBook();
