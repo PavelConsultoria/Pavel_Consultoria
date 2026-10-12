@@ -69,14 +69,12 @@
       article.append(element('h3', config.courses[course].name));
       cohorts.forEach(item => {
         const group = element('div', '', 'agenda-cohort'); group.dataset.cohort = item.sourceId;
-        group.append(element('p', `${item.variant}: ${dateSummary(item)}.`), element('p', `Horário: ${item.time}.`),
+        group.append(element('p', `${item.variant}: ${dateSummary(item)} · ${item.time}.`, 'agenda-date-time'),
           contactLink(item, item.statusKey === 'esgotada' ? 'Consultar outras opções ↗' : 'Inscrição ou consulta ↗'));
         if (item.statusKey === 'esgotada') group.append(element('p', 'Esgotada.'));
         article.append(group);
       });
 
-      const summaries = [...new Set(cohorts.map(item => `${item.duration.replace(/^(\d+)\s*h$/i, '$1 horas')}, ${item.modality.toLowerCase()}.`))];
-      summaries.forEach(summary => article.append(element('p', summary, 'agenda-modality')));
       list.append(article);
     });
   }
