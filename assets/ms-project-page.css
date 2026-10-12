@@ -30,7 +30,7 @@
 .ms-project-page #apostila button { background: #25383d; border-color: #57716d; color: #edf4f1; transition: background .2s; }
 .ms-project-page #apostila button:hover:not(:disabled) { background: #36504f; }
 .ms-project-page #apostila button:disabled { opacity: .4; cursor: default; }
-.ms-project-page .msp-course-seal { display: block; width: 110px; max-width: 100%; height: auto; margin: 14px auto 0; }
+.ms-project-page .msp-course-seal { display: block; width: 85px; max-width: 100%; height: auto; margin: 10px auto 6px; }
 .ms-project-page .msp-modal::backdrop { background: #101b20bb; }
 .ms-project-page.msp-modal-open { overflow: hidden; }
 .ms-project-page .msp-modal-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
@@ -45,19 +45,10 @@
 .ms-project-page .msp-price { font-size: 24px; color: #236A47; }
 .ms-project-page .msp-book-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
 .ms-project-page [data-msp-pages] { text-align: center; font-size: 14px; }
-.ms-project-page .msp-book-pages { position: relative; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0; width: var(--msp-book-width,100%); max-width: 100%; margin: 0 auto; perspective: 1600px; box-shadow: 0 10px 24px #0008; }
-.ms-project-page .msp-book-page { position: relative; background: white; min-width: 0; }
-.ms-project-page .msp-book-page::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to left,#0002,transparent 12%); }
-.ms-project-page .msp-book-page:nth-child(2)::after { background: linear-gradient(to right,#0002,transparent 12%); }
-.ms-project-page .msp-book-page canvas { display: block; width: 100%; height: auto; }
-.ms-project-page .msp-book-leaf { position: absolute; inset: 0 0 0 50%; z-index: 3; transform-origin: left center; transform-style: preserve-3d; pointer-events: none; }
-.ms-project-page .msp-book-leaf.is-backward { inset: 0 50% 0 0; transform-origin: right center; }
-.ms-project-page .msp-book-face { position: absolute; inset: 0; background: white; backface-visibility: hidden; -webkit-backface-visibility: hidden; box-shadow: 0 6px 18px #0006; }
-.ms-project-page .msp-book-face.is-back { transform: rotateY(180deg); }
-.ms-project-page .msp-book-face canvas { display: block; width: 100%; height: 100%; }
-.ms-project-page .msp-book-shade { position: absolute; inset: 0; background: linear-gradient(90deg,#0007,transparent 65%,#0002); opacity: 0; }
-.ms-project-page .msp-book-pages.is-single .msp-book-leaf { inset: 0; }
-.ms-project-page .msp-book-pages.is-single .msp-book-page::after { background: none; }
+.ms-project-page .msp-book-pages { position: relative; max-width: 100%; margin: 0 auto; perspective: 1600px; box-shadow: 0 10px 24px #0008; }
+.ms-project-page .msp-book-mount { width: 100%; height: 100%; }
+.ms-project-page .msp-book-page { background: white; overflow: hidden; }
+.ms-project-page .msp-book-page img { display: block; width: 100%; height: 100%; object-fit: contain; }
 @keyframes msp-testimonial-float { 0%,100% { transform: translateY(-3px); } 50% { transform: translateY(3px); } }
 @media(max-width:1200px) { .ms-project-page .msp-testimonial { display: none; } }
 @media(max-width:1100px) { .ms-project-page .learning-grid { grid-template-columns: repeat(3,minmax(0,1fr)); } }

@@ -45,70 +45,80 @@ setInterval(() => {
     nextQuote(); content.animate([{opacity:0},{opacity:1}], {duration:200,fill:'forwards'});
   });
 }, 5000);
-let pdf, loading, first = 1, rendering = false;
+let pdf, loading, book, pageImages = [], pageRatio = 1, layoutKey = '', resizeFrame;
 const mobile = matchMedia('(max-width:760px)'), pages = document.querySelector('.msp-book-pages');
 const previous = document.querySelector('[data-msp-previous]'), next = document.querySelector('[data-msp-next]');
-const pageCache = new Map();
-let pageRatio = 1;
+function syncBook(state) {
+  if (!book) return;
+  const index = book.getCurrentPageIndex();
+  const first = book.getOrientation() === 'portrait' ? index + 1 : 2 * Math.floor(index / 2) + 1;
+  const end = Math.min(first + (book.getOrientation() === 'portrait' ? 0 : 1), pdf.numPages);
+  const currentState = typeof state === 'string' ? state : book.getState();
+  const busy = currentState !== 'read';
+  previous.disabled = busy || first === 1;
+  next.disabled = busy || end === pdf.numPages;
+  pages.dataset.flipState = currentState;
+  pages.dataset.visiblePages = `${first}-${end}`;
+  if (!busy) document.querySelector('[data-msp-pages]').textContent = `${first === end ? 'Página '+first : 'Páginas '+first+'–'+end} de ${pdf.numPages}`;
+}
 function fitBook() {
   const dialog = document.getElementById('apostila');
-  if (!dialog.open) return;
+  if (!dialog.open || !pageImages.length) return;
   const style = getComputedStyle(dialog);
   const heading = dialog.querySelector('.msp-modal-heading');
   const controls = dialog.querySelector('.msp-book-controls');
   const availableHeight = Math.max(80, parseFloat(style.maxHeight) - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom) - heading.getBoundingClientRect().height - parseFloat(getComputedStyle(heading).marginBottom) - controls.getBoundingClientRect().height - parseFloat(getComputedStyle(controls).marginBottom) - 4);
   const availableWidth = dialog.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
-  pages.style.setProperty('--msp-book-width', `${Math.min(availableWidth, availableHeight * pageRatio * (mobile.matches ? 1 : 2))}px`);
+  const width = Math.max(1, Math.floor(Math.min(availableWidth / (mobile.matches ? 1 : 2), availableHeight * pageRatio)));
+  const height = Math.floor(width / pageRatio);
+  const key = `${width}:${height}:${mobile.matches}`;
+  if (key === layoutKey && book) { book.update(); syncBook(); return; }
+  let index = book?.getCurrentPageIndex() || 0;
+  if (!mobile.matches) index -= index % 2;
+  book?.destroy(); pages.replaceChildren();
+  pages.style.width = `${width * (mobile.matches ? 1 : 2)}px`;
+  pages.style.height = `${height}px`;
+  const mount = document.createElement('div'); mount.className = 'msp-book-mount'; pages.append(mount);
+  const items = pageImages.map((src,i) => {
+    const page = document.createElement('div'); page.className = 'msp-book-page'; page.dataset.density = 'soft';
+    const image = document.createElement('img'); image.src = src; image.alt = `Página ${i+1} da apostila MS Project`; image.draggable = false;
+    page.append(image); mount.append(page); return page;
+  });
+  book = new window.St.PageFlip(mount, {
+    width, height, size:'fixed', startPage:index, usePortrait:mobile.matches,
+    showCover:false, drawShadow:true, maxShadowOpacity:.55, flippingTime:1000,
+    autoSize:false, mobileScrollSupport:false, showPageCorners:true, useMouseEvents:true
+  });
+  book.on('init',syncBook); book.on('flip',syncBook); book.on('changeState',event => syncBook(event.data)); book.on('changeOrientation',syncBook);
+  book.loadFromHTML(items); layoutKey = key; syncBook();
 }
-async function pageCanvas(number) {
-  if (!pageCache.has(number)) {
-    const page = await pdf.getPage(number), viewport = page.getViewport({scale:1.5});
-    const canvas = document.createElement('canvas'); canvas.width = viewport.width; canvas.height = viewport.height;
-    pageRatio = viewport.width / viewport.height;
-    canvas.setAttribute('role','img'); canvas.setAttribute('aria-label',`Página ${number} da apostila`);
-    await page.render({canvasContext:canvas.getContext('2d'),viewport}).promise;
-    pageCache.set(number, canvas);
-  }
-  const original = pageCache.get(number), copy = original.cloneNode();
-  copy.getContext('2d').drawImage(original,0,0);
-  return copy;
-}
-function pageWrap(canvas) {
-  const wrap = document.createElement('div'); wrap.className = 'msp-book-page'; wrap.append(canvas); return wrap;
-}
-async function flipLeaf(oldPages, newPages, direction) {
-  const single = mobile.matches;
-  const leaf = document.createElement('div'); leaf.className = 'msp-book-leaf' + (direction < 0 ? ' is-backward' : '');
-  const front = document.createElement('div'), back = document.createElement('div');
-  front.className = 'msp-book-face'; back.className = 'msp-book-face is-back';
-  // Keep the stationary page in place while the sheet turns around the spine.
-  front.append(oldPages[single || direction < 0 ? 0 : 1].firstElementChild.cloneNode());
-  const oldCanvas = oldPages[single || direction < 0 ? 0 : 1].firstElementChild;
-  front.firstChild.getContext('2d').drawImage(oldCanvas,0,0);
-  const newCanvas = newPages[single || direction > 0 ? 0 : 1].firstElementChild;
-  back.append(newCanvas.cloneNode()); back.firstChild.getContext('2d').drawImage(newCanvas,0,0);
-  if (single) pages.replaceChildren(newPages[0].cloneNode(true));
-  else if (direction > 0) pages.replaceChildren(oldPages[0], newPages[1]);
-  else pages.replaceChildren(newPages[0], oldPages[1]);
-  // A cloned canvas needs its bitmap copied explicitly.
-  if (single) pages.firstChild.firstChild.getContext('2d').drawImage(newCanvas,0,0);
-  const shades = [front,back].map(face => { const shade = document.createElement('div'); shade.className = 'msp-book-shade'; face.append(shade); return shade; });
-  leaf.append(front,back); pages.append(leaf);
-  const options = {duration:850,easing:'cubic-bezier(.35,.05,.25,1)',fill:'forwards'};
-  shades.forEach(shade => shade.animate([{opacity:0},{opacity:.65,offset:.5},{opacity:0}],options));
-  await leaf.animate([{transform:'rotateY(0deg)'},{transform:`rotateY(${direction > 0 ? -180 : 180}deg)`}],options).finished;
-  leaf.remove();
+function loadPageFlip() {
+  if (window.St?.PageFlip) return Promise.resolve();
+  return new Promise((resolve,reject) => {
+    const script = document.createElement('script'); script.src = new URL('./vendor/msp-page-flip.js',import.meta.url).href;
+    script.onload = resolve; script.onerror = reject; document.head.append(script);
+  });
 }
 async function loadBook() {
-  if (pdf) return;
+  if (book) { fitBook(); return; }
   if (loading) return loading;
   loading = (async () => {
     try {
       const lib = await import('./vendor/msp-pdf.js');
+      await loadPageFlip();
       lib.GlobalWorkerOptions.workerSrc = new URL('./vendor/msp-pdf.worker.js', import.meta.url).href;
       pdf = await lib.getDocument({url:new URL('./apostila-msproject-previa.pdf', import.meta.url).href}).promise;
+      const images = [];
+      for (let number = 1; number <= pdf.numPages; number++) {
+        const page = await pdf.getPage(number), viewport = page.getViewport({scale:1.5});
+        const canvas = document.createElement('canvas'); canvas.width = viewport.width; canvas.height = viewport.height;
+        pageRatio = viewport.width / viewport.height;
+        await page.render({canvasContext:canvas.getContext('2d'),viewport}).promise;
+        images.push(canvas.toDataURL('image/png'));
+      }
+      pageImages = images;
       document.querySelector('[data-msp-book-status]').hidden = true;
-      await renderBook();
+      fitBook();
     } catch (error) {
       console.error('Prévia MS Project:', error);
       document.querySelector('[data-msp-book-status]').textContent = 'Não foi possível carregar a prévia. Feche a janela e tente novamente.';
@@ -117,21 +127,6 @@ async function loadBook() {
   })();
   return loading;
 }
-async function renderBook(direction = 0, target = first) {
-  if (!pdf || rendering) return;
-  rendering = true; previous.disabled = next.disabled = true;
-  const end = Math.min(target + (mobile.matches ? 0 : 1), pdf.numPages);
-  try {
-    const spread = [];
-    for (let n = target; n <= end; n++) spread.push(pageWrap(await pageCanvas(n)));
-    pages.classList.toggle('is-single',mobile.matches); fitBook();
-    const oldPages = [...pages.children];
-    if (direction && oldPages.length === spread.length && !matchMedia('(prefers-reduced-motion: reduce)').matches) await flipLeaf(oldPages,spread,direction);
-    pages.replaceChildren(...spread); first = target;
-    document.querySelector('[data-msp-pages]').textContent = `${first === end ? 'Página '+first : 'Páginas '+first+'–'+end} de ${pdf.numPages}`;
-  } finally { rendering = false; previous.disabled = first === 1; next.disabled = end === pdf.numPages; }
-}
-previous.addEventListener('click', () => renderBook(-1,Math.max(1, first - (mobile.matches ? 1 : 2))));
-next.addEventListener('click', () => renderBook(1,Math.min(pdf.numPages, first + (mobile.matches ? 1 : 2))));
-mobile.addEventListener('change', () => renderBook(0,mobile.matches ? first : 1 + 2 * Math.floor((first - 1) / 2)));
-window.addEventListener('resize', fitBook);
+previous.addEventListener('click', () => { if (book && !previous.disabled) book.flipPrev('bottom'); });
+next.addEventListener('click', () => { if (book && !next.disabled) book.flipNext('bottom'); });
+window.addEventListener('resize', () => { cancelAnimationFrame(resizeFrame); resizeFrame = requestAnimationFrame(fitBook); });
