@@ -1,0 +1,62 @@
+/* Exclusivo da página MS Project; estilos das demais páginas permanecem intactos. */
+.ms-project-page { min-height: 100svh; display: flex; flex-direction: column; }
+.ms-project-page main { flex: 1; display: flex; flex-direction: column; }
+.ms-project-page .course-cover { flex: 1; padding-block: 32px; }
+.ms-project-page .msp-panel { position: relative; }
+.ms-project-page .course-cover h1 { max-width: 650px; margin: 16px 0 20px; font-size: clamp(28px, 3.4vw, 44px); line-height: 1.16; }
+.ms-project-page .course-cover h1 span { display: block; white-space: nowrap; color: white; }
+.ms-project-page .msp-title-secondary { font-size: .82em; }
+.ms-project-page .course-highlights { max-width: 650px; font-size: 18px; font-weight: 600; line-height: 1.65; margin: 0 0 22px; }
+.ms-project-page .course-cover h2 { font-size: 24px; margin: 26px 0 16px; }
+.ms-project-page .learning-grid { grid-template-columns: repeat(6,minmax(0,1fr)); gap: 10px; }
+.ms-project-page .learning-grid article { background: #E8F4EE; color: #18251E; border-radius: 12px; padding: 14px 12px; min-height: 144px; }
+.ms-project-page .learning-number { color: #236A47; font-size: 16px; margin-bottom: 8px; }
+.ms-project-page .learning-grid h3 { color: #18251E; font-style: normal; font-size: 15px; font-weight: 600; line-height: 1.25; margin-bottom: 8px; }
+.ms-project-page .learning-grid p { color: #18251E; font-size: 12px; line-height: 1.45; font-style: italic; }
+.ms-project-page .course-shortcuts { gap: 12px; margin-top: 22px; }
+.ms-project-page .course-shortcuts a { background: #E8F4EE; color: #18251E; border-radius: 12px; padding: 16px; font-size: 16px; }
+.ms-project-page .course-shortcuts span { font-size: 12px; }
+.ms-project-page .msp-testimonial { position: absolute; right: 0; top: 76px; width: 300px; min-height: 170px; box-sizing: border-box; background: #E8F4EE; color: #18251E; padding: 16px; border-radius: 14px; box-shadow: 0 4px 14px #0000001c; z-index: 2; animation: msp-testimonial-float 6s ease-in-out infinite; }
+.ms-project-page .msp-testimonial[hidden] { display: none; }
+.ms-project-page .msp-testimonial-content { height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+.ms-project-page .msp-testimonial-quote { margin: 14px 0 0; font-size: 13px; font-style: italic; font-weight: 400; line-height: 1.45; color: #18251E; }
+.ms-project-page .msp-testimonial-author { font-size: 10px; font-style: normal; font-weight: 600; line-height: 1.35; text-align: right; padding-top: 6px; margin: 0; color: #236A47; }
+.ms-project-page .msp-testimonial-mark { position: absolute; top: 7px; left: 12px; font-size: 17px; color: #236A47; line-height: 1; }
+.ms-project-page .msp-modal { width: min(1080px,calc(100% - 32px)); max-width: 1080px; max-height: calc(100svh - 40px); padding: 24px; border: 0; border-radius: 16px; background: #E8F4EE; color: #18251E; overflow: auto; }
+.ms-project-page .msp-modal:not(#apostila) { width: min(760px,calc(100% - 32px)); }
+.ms-project-page .msp-modal::backdrop { background: #101b20bb; }
+.ms-project-page.msp-modal-open { overflow: hidden; }
+.ms-project-page .msp-modal-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.ms-project-page .msp-modal h2 { font-size: 26px; margin: 0; }
+.ms-project-page .msp-modal h3 { font-size: 19px; margin: 22px 0 12px; }
+.ms-project-page .msp-modal p,.ms-project-page .msp-modal li { color: #18251E; font-size: 16px; line-height: 1.65; margin-block: 12px; }
+.ms-project-page .msp-modal button { min-height: 44px; padding: 8px 12px; border: 1px solid #719d83; border-radius: 8px; background: #f7fbf8; color: #18251E; }
+.ms-project-page [data-msp-close] { flex-shrink: 0; font-size: 26px; width: 44px; padding: 0!important; }
+.ms-project-page .msp-modal-actions { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
+.ms-project-page .msp-modal .certificate { margin-top: 26px; }
+.ms-project-page .msp-modal .certificate h2 { font-size: 20px; }
+.ms-project-page .msp-price { font-size: 24px; color: #236A47; }
+.ms-project-page .msp-book-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.ms-project-page [data-msp-pages] { text-align: center; font-size: 14px; }
+.ms-project-page .msp-book-pages { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; perspective: 1200px; }
+.ms-project-page .msp-book-page { background: white; min-width: 0; box-shadow: 0 2px 8px #18251e18; }
+.ms-project-page .msp-book-page canvas { display: block; width: 100%; height: auto; }
+.ms-project-page .msp-book-pages.is-turning { animation: msp-book-turn 300ms ease; }
+@keyframes msp-testimonial-float { 0%,100% { transform: translateY(-3px); } 50% { transform: translateY(3px); } }
+@keyframes msp-book-turn { 0% { transform: rotateY(-7deg); opacity: .7; } 100% { transform: rotateY(0); opacity: 1; } }
+@media(max-width:1200px) { .ms-project-page .msp-testimonial { display: none; } }
+@media(max-width:1100px) { .ms-project-page .learning-grid { grid-template-columns: repeat(3,minmax(0,1fr)); } }
+@media(max-width:760px) {
+  .ms-project-page .course-cover h1 span { white-space: normal; }
+  .ms-project-page .course-cover { padding-block: 24px; }
+  .ms-project-page .course-highlights { font-size: 17px; }
+  .ms-project-page .learning-grid { grid-template-columns: repeat(2,minmax(0,1fr)); grid-auto-rows: 1fr; gap: 8px; }
+  .ms-project-page .course-shortcuts { grid-template-columns: 1fr; }
+  .ms-project-page .course-shortcuts a { padding: 14px; }
+  .ms-project-page .msp-modal { padding: 18px; max-height: calc(100svh - 24px); }
+  .ms-project-page .msp-modal h2 { font-size: 22px; }
+  .ms-project-page .msp-book-pages { grid-template-columns: 1fr; }
+  .ms-project-page .msp-book-controls { gap: 8px; }
+  .ms-project-page .msp-book-controls button { font-size: 12px; padding: 8px; }
+}
+@media(prefers-reduced-motion:reduce) { .ms-project-page .msp-testimonial,.ms-project-page .msp-book-pages { animation: none; } }

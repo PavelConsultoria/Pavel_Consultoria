@@ -1,0 +1,17 @@
+// Somente MS Project: reaproveita literalmente os conteúdos aprovados gerados.
+module.exports = function finalizeMsProject(source) {
+  const section = id => source.match(new RegExp(`<div id="${id}">([\\s\\S]*?)<\\/div>`))[1];
+  const certificate = source.match(/<div class="certificate">[\s\S]*?<\/div><\/div>/)[0];
+  const modal = (id, title, content) => `<dialog class="msp-modal" id="${id}" aria-labelledby="${id}-title"><div class="msp-modal-heading"><h2 id="${id}-title">${title}</h2><button type="button" data-msp-close aria-label="Fechar ${title}">×</button></div>${content}</dialog>`;
+  let panel = source.slice(0, source.indexOf('<section class="container course-details'));
+  panel = panel.replace('<div class="container">','<div class="container msp-panel">')
+    .replace(/<h1>[\s\S]*?<\/h1>/,'<h1><span>MS Project</span><span class="msp-title-secondary">do Básico ao Avançado</span></h1>')
+    .replace(/<p class="course-intro">[\s\S]*?<\/p>/,'')
+    .replace(/href="#(apostila|ementa|investimento)"/g,(_,id)=>`href="#${id}" data-msp-modal="${id}" aria-haspopup="dialog" aria-controls="${id}"`)
+    .replace('<h2>O que você vai aprender</h2>','<aside class="msp-testimonial" tabindex="0" aria-label="Depoimentos sobre o treinamento MS Project" hidden><span class="msp-testimonial-mark" aria-hidden="true">“</span><div class="msp-testimonial-content"><p class="msp-testimonial-quote">Super recomendo, excelente didática e clareza.</p><p class="msp-testimonial-author">Afonso Vieira Braida</p></div></aside><h2>O que você vai aprender</h2>');
+  const book = `<div class="msp-flipbook"><div class="msp-book-controls"><button type="button" data-msp-previous disabled aria-label="Páginas anteriores">← Anterior</button><span data-msp-pages aria-live="polite">Carregando a prévia…</span><button type="button" data-msp-next disabled aria-label="Próximas páginas">Próxima →</button></div><p data-msp-book-status role="status">A prévia contém somente as páginas reais do PDF fornecido.</p><div class="msp-book-pages" aria-label="Páginas da apostila demonstrativa"></div></div>`;
+  const material = section('apostila').replace(/<h2>[\s\S]*?<\/h2>/,'');
+  const syllabus = section('ementa').replace(/<h2>[\s\S]*?<\/h2>/,'');
+  const investment = `<p><strong>Treinamento do Básico ao Avançado — 8 horas.</strong></p><p>Valor por participante: <strong class="msp-price">R$ 460,00</strong>.</p><ul><li>PIX à vista, 5% de desconto: <strong>R$ 437,00</strong>.</li><li>Cartão de crédito em até 12 vezes, com juros da operadora.</li><li>Inscrição em dupla: 10% de desconto para cada participante — <strong>R$ 414,00 por pessoa</strong>.</li><li>Desconto em dupla não cumulativo com PIX.</li><li>Apostila completa e certificado digital incluídos.</li></ul><p>R$ 460,00 válido para turmas a partir de novembro de 2026; para outubro, consultar pelo WhatsApp.</p><div class="msp-modal-actions"><a class="button" href="https://wa.me/5521995716270" target="_blank" rel="noopener noreferrer">Quero saber mais ↗</a><a class="text-link" href="agenda.html">Consultar turmas e inscrição ↗</a></div>`;
+  return panel + modal('apostila','Apostila do MS Project',book+material+certificate) + modal('ementa','Conteúdo do treinamento',syllabus) + modal('investimento','Investimento',investment);
+};

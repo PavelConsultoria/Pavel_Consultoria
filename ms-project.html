@@ -25,8 +25,11 @@
 </script>
 <script defer src="assets/visits.js">
 </script>
+<link rel="stylesheet" href="assets/ms-project-page.css">
+<script type="module" src="assets/ms-project-page.js">
+</script>
 </head>
-<body class="internal">
+<body class="internal ms-project-page">
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 <header class="site-header">
 <div class="header-inner">
@@ -52,13 +55,22 @@
 </header>
 <main id="conteudo">
 <section class="course-cover course-cover--msp">
-<div class="container">
+<div class="container msp-panel">
 <a class="course-agenda text-link" href="agenda.html">Próximas turmas · Veja as datas na Agenda ↗</a>
 <p class="eyebrow">TREINAMENTO · MS PROJECT</p>
-<h1>MS Project — do Básico ao Avançado</h1>
-<p class="course-intro">Aprenda a planejar, estruturar, analisar e controlar cronogramas de projetos de forma prática e profissional.</p>
+<h1>
+<span>MS Project</span>
+<span class="msp-title-secondary">do Básico ao Avançado</span>
+</h1>
 <p class="course-highlights">8 horas · Online ao vivo · Turmas reduzidas · Apostila completa · Certificado digital</p>
 <a class="button" href="agenda.html">Quero me inscrever ↗</a>
+<aside class="msp-testimonial" tabindex="0" aria-label="Depoimentos sobre o treinamento MS Project" hidden>
+<span class="msp-testimonial-mark" aria-hidden="true">“</span>
+<div class="msp-testimonial-content">
+<p class="msp-testimonial-quote">Super recomendo, excelente didática e clareza.</p>
+<p class="msp-testimonial-author">Afonso Vieira Braida</p>
+</div>
+</aside>
 <h2>O que você vai aprender</h2>
 <div class="learning-grid">
 <article>
@@ -93,38 +105,33 @@
 </article>
 </div>
 <div class="course-shortcuts">
-<a href="#apostila">Conheça a apostila <span>Prévia e material do treinamento ↗</span>
+<a href="#apostila" data-msp-modal="apostila" aria-haspopup="dialog" aria-controls="apostila">Conheça a apostila <span>Prévia e material do treinamento ↗</span>
 </a>
-<a href="#ementa">Ver ementa <span>Conheça os tópicos disponíveis ↗</span>
+<a href="#ementa" data-msp-modal="ementa" aria-haspopup="dialog" aria-controls="ementa">Ver ementa <span>Conheça os tópicos disponíveis ↗</span>
 </a>
-<a href="#investimento">Investimento <span>Valores confirmados e inscrição ↗</span>
+<a href="#investimento" data-msp-modal="investimento" aria-haspopup="dialog" aria-controls="investimento">Investimento <span>Valores confirmados e inscrição ↗</span>
 </a>
 </div>
 </div>
 </section>
-<section class="container course-details section">
-<div id="ementa">
-<h2>Conteúdo do treinamento</h2>
-<h3>Fundamentos e estruturação — Básico</h3>
-<p>Criação e configuração do projeto • Calendários • Estrutura Analítica do Projeto (EAP/WBS) • Tarefas e marcos • Durações • Predecessoras e sucessoras • Tipos de relacionamento • Caminho crítico • Recursos • Programação e visualização do cronograma</p>
-<h3>Planejamento e controle — Avançado</h3>
-<p>Tipos de tarefa e comportamento de duração, trabalho e unidades • Recursos e nivelamento • Linha de base • Atualização e acompanhamento • Data de status • Duração real e restante • Uso da tarefa/recurso • Campos personalizados e fórmulas • Histograma • Curva S • Sinalizadores • Filtros, agrupamentos, tabelas e layouts • Relatórios e análise do cronograma</p>
-<p>Não é necessário conhecimento prévio de MS Project.</p>
-<p>É desejável ter o MS Project instalado para praticar durante o treinamento.</p>
+<dialog class="msp-modal" id="apostila" aria-labelledby="apostila-title">
+<div class="msp-modal-heading">
+<h2 id="apostila-title">Apostila do MS Project</h2>
+<button type="button" data-msp-close aria-label="Fechar Apostila do MS Project">×</button>
 </div>
-<div id="apostila">
-<h2>Apostila do MS Project</h2>
+<div class="msp-flipbook">
+<div class="msp-book-controls">
+<button type="button" data-msp-previous disabled aria-label="Páginas anteriores">← Anterior</button>
+<span data-msp-pages aria-live="polite">Carregando a prévia…</span>
+<button type="button" data-msp-next disabled aria-label="Próximas páginas">Próxima →</button>
+</div>
+<p data-msp-book-status role="status">A prévia contém somente as páginas reais do PDF fornecido.</p>
+<div class="msp-book-pages" aria-label="Páginas da apostila demonstrativa">
+</div>
+</div>
 <p>Apostila completa incluída no treinamento.</p>
 <a class="button" href="assets/apostila-msproject-previa.pdf" target="_blank" rel="noopener noreferrer">Abrir prévia demonstrativa (PDF) ↗</a>
 <a class="text-link" href="https://wa.me/5521995716270" data-whatsapp="apostilaMsp">Consultar a apostila ↗</a>
-</div>
-<div id="investimento">
-<h2>Investimento</h2>
-<p class="price">R$ 460,00</p>
-<p>Valor válido para turmas a partir de novembro de 2026. Para turmas de outubro, consulte o investimento pelo WhatsApp.</p>
-<p>Consulte condições de pagamento e disponibilidade com a Pavel.</p>
-<a class="button" href="agenda.html">Consultar turmas e inscrição ↗</a>
-</div>
 <div class="certificate">
 <img src="assets/Certificado-digital.png" alt="Certificado de conclusão Pavel Consultoria" width="1536" height="1024" loading="lazy">
 <div>
@@ -132,30 +139,41 @@
 <p>Ao concluir o treinamento, receba seu certificado digital.</p>
 </div>
 </div>
-</section>
-<section class="testimonials container section" aria-labelledby="testimonials-title">
-<h2 id="testimonials-title">O que dizem nossos alunos</h2>
-<div class="testimonial-grid">
-<figure class="testimonial">
-<blockquote>
-<p>“O treinamento do MS Project, designado a planejamento e controle profissional de projetos, reforçou conhecimentos em cronogramas, dependências, recursos, linha de base, acompanhamento e análise de desvios entre planejado e realizado. […]”</p>
-</blockquote>
-<figcaption>Rubens Santos</figcaption>
-</figure>
-<figure class="testimonial">
-<blockquote>
-<p>“Foi um treinamento excelente e que, sem dúvida, valeu muito a pena. Além do conhecimento técnico, os exemplos e a forma de condução das aulas contribuíram muito para tornar o aprendizado mais prático e aplicável ao dia a dia.”</p>
-</blockquote>
-<figcaption>Melquisedeque Lima</figcaption>
-</figure>
-<figure class="testimonial">
-<blockquote>
-<p>“Super recomendo, excelente didática e clareza.”</p>
-</blockquote>
-<figcaption>Afonso Vieira Braida</figcaption>
-</figure>
+</dialog>
+<dialog class="msp-modal" id="ementa" aria-labelledby="ementa-title">
+<div class="msp-modal-heading">
+<h2 id="ementa-title">Conteúdo do treinamento</h2>
+<button type="button" data-msp-close aria-label="Fechar Conteúdo do treinamento">×</button>
 </div>
-</section>
+<h3>Fundamentos e estruturação — Básico</h3>
+<p>Criação e configuração do projeto • Calendários • Estrutura Analítica do Projeto (EAP/WBS) • Tarefas e marcos • Durações • Predecessoras e sucessoras • Tipos de relacionamento • Caminho crítico • Recursos • Programação e visualização do cronograma</p>
+<h3>Planejamento e controle — Avançado</h3>
+<p>Tipos de tarefa e comportamento de duração, trabalho e unidades • Recursos e nivelamento • Linha de base • Atualização e acompanhamento • Data de status • Duração real e restante • Uso da tarefa/recurso • Campos personalizados e fórmulas • Histograma • Curva S • Sinalizadores • Filtros, agrupamentos, tabelas e layouts • Relatórios e análise do cronograma</p>
+<p>Não é necessário conhecimento prévio de MS Project.</p>
+<p>É desejável ter o MS Project instalado para praticar durante o treinamento.</p>
+</dialog>
+<dialog class="msp-modal" id="investimento" aria-labelledby="investimento-title">
+<div class="msp-modal-heading">
+<h2 id="investimento-title">Investimento</h2>
+<button type="button" data-msp-close aria-label="Fechar Investimento">×</button>
+</div>
+<p>
+<strong>Treinamento do Básico ao Avançado — 8 horas.</strong>
+</p>
+<p>Valor por participante: <strong class="msp-price">R$ 460,00</strong>.</p>
+<ul>
+<li>PIX à vista, 5% de desconto: <strong>R$ 437,00</strong>.</li>
+<li>Cartão de crédito em até 12 vezes, com juros da operadora.</li>
+<li>Inscrição em dupla: 10% de desconto para cada participante — <strong>R$ 414,00 por pessoa</strong>.</li>
+<li>Desconto em dupla não cumulativo com PIX.</li>
+<li>Apostila completa e certificado digital incluídos.</li>
+</ul>
+<p>R$ 460,00 válido para turmas a partir de novembro de 2026; para outubro, consultar pelo WhatsApp.</p>
+<div class="msp-modal-actions">
+<a class="button" href="https://wa.me/5521995716270" target="_blank" rel="noopener noreferrer">Quero saber mais ↗</a>
+<a class="text-link" href="agenda.html">Consultar turmas e inscrição ↗</a>
+</div>
+</dialog>
 </main>
 <footer class="container footer">
 <div class="footer-identity">
