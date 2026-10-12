@@ -67,30 +67,34 @@ function fitBook() {
   const style = getComputedStyle(dialog);
   const heading = dialog.querySelector('.msp-modal-heading');
   const controls = dialog.querySelector('.msp-book-controls');
-  const availableHeight = Math.max(80, parseFloat(style.maxHeight) - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom) - heading.getBoundingClientRect().height - parseFloat(getComputedStyle(heading).marginBottom) - controls.getBoundingClientRect().height - parseFloat(getComputedStyle(controls).marginBottom) - 4);
-  const availableWidth = dialog.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+  const paddingY = parseFloat(style.paddingTop) + parseFloat(style.paddingBottom);
+  const paddingX = parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+  const availableHeight = Math.max(1, Math.min(parseFloat(style.maxHeight), window.innerHeight - 32) - paddingY - heading.getBoundingClientRect().height - parseFloat(getComputedStyle(heading).marginBottom) - controls.getBoundingClientRect().height - parseFloat(getComputedStyle(controls).marginBottom) - 24);
+  const availableWidth = dialog.clientWidth - paddingX - 16;
   const width = Math.max(1, Math.floor(Math.min(availableWidth / (mobile.matches ? 1 : 2), availableHeight * pageRatio)));
   const height = Math.floor(width / pageRatio);
   const key = `${width}:${height}:${mobile.matches}`;
-  if (key === layoutKey && book) { book.update(); syncBook(); return; }
-  let index = book?.getCurrentPageIndex() || 0;
-  if (!mobile.matches) index -= index % 2;
-  book?.destroy(); pages.replaceChildren();
+  if (key === layoutKey && book) return;
+  // Redimensiona a instância existente; a navegação não recria o livro nem as páginas.
   pages.style.width = `${width * (mobile.matches ? 1 : 2)}px`;
   pages.style.height = `${height}px`;
+  if (book) {
+    const settings = book.getSettings();
+    Object.assign(settings, { width, height, usePortrait: mobile.matches });
+    const mount = pages.querySelector('.msp-book-mount');
+    mount.style.minWidth = pages.style.width;
+    mount.style.minHeight = pages.style.height;
+    layoutKey = key; book.getUI().update(); book.update(); syncBook(); return;
+  }
   const mount = document.createElement('div'); mount.className = 'msp-book-mount'; pages.append(mount);
-  const items = pageImages.map((src,i) => {
-    const page = document.createElement('div'); page.className = 'msp-book-page'; page.dataset.density = 'soft';
-    const image = document.createElement('img'); image.src = src; image.alt = `Página ${i+1} da apostila MS Project`; image.draggable = false;
-    page.append(image); mount.append(page); return page;
-  });
   book = new window.St.PageFlip(mount, {
-    width, height, size:'fixed', startPage:index, usePortrait:mobile.matches,
-    showCover:false, drawShadow:true, maxShadowOpacity:.55, flippingTime:1000,
+    width, height, size:'fixed', startPage:0, usePortrait:mobile.matches,
+    showCover:false, drawShadow:true, maxShadowOpacity:.65, flippingTime:1600,
     autoSize:false, mobileScrollSupport:false, showPageCorners:true, useMouseEvents:true
   });
   book.on('init',syncBook); book.on('flip',syncBook); book.on('changeState',event => syncBook(event.data)); book.on('changeOrientation',syncBook);
-  book.loadFromHTML(items); layoutKey = key; syncBook();
+  // Canvas desenha folhas flexíveis e sombras dentro de uma única superfície.
+  book.loadFromImages(pageImages); layoutKey = key; syncBook();
 }
 function loadPageFlip() {
   if (window.St?.PageFlip) return Promise.resolve();
