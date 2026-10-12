@@ -222,3 +222,20 @@ body.p6-modal-open {overflow:hidden}
 .primavera-page .msp-investment-whatsapp { display: block; width: 230px; max-width: 100%; }
 .primavera-page .msp-investment-whatsapp img { display: block; width: 100%; height: auto; }
 .primavera-page .msp-price { font-size: 24px; color: #236A47; }
+
+/* Certificacao PMP: conteudo compacto entre cabecalho e rodape padrao. */
+.pmp-page {min-height:100svh;display:flex;flex-direction:column}
+.pmp-page main {flex:1;display:flex;flex-direction:column}
+.pmp-page .pmp-cover {flex:1;min-height:0;padding-block:32px}
+.pmp-page .pmp-cover>.container>p {margin-block:12px;line-height:1.6}
+.pmp-page .learning-grid {grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.pmp-page .learning-grid article {background:#12313cdf;padding:14px 12px;min-height:144px;border-radius:12px}
+.pmp-page .learning-number {color:#8DE0D3;font-size:16px;margin-bottom:8px}
+.pmp-page .learning-grid h3 {color:#FFFFFF;font-size:15px;font-weight:600;line-height:1.25;margin-bottom:8px}
+.pmp-page .learning-grid p {color:#FFFFFF;font-size:12px;font-style:italic;line-height:1.45;margin:0}
+.pmp-page .footer {flex-shrink:0}
+@media(max-width:1100px){.pmp-page .learning-grid {grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){
+ .pmp-page .pmp-cover {padding-block:24px}
+ .pmp-page .learning-grid {grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:8px}
+}
