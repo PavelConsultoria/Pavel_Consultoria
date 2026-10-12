@@ -182,3 +182,22 @@ body.p6-modal-open {overflow:hidden}
 @media(max-width:760px){
  .primavera-page .learning-grid {grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:8px}
 }
+
+/* Apostila Primavera utiliza a janela e o flipbook do MS Project. */
+.primavera-page #apostila.p6-modal { position: fixed; inset: auto; top: 50vh; left: 50vw; transform: translate(-50%, -50%); margin: 0; width: min(680px, calc(100vw - 32px)); max-width: 680px; max-height: min(80vh, 720px); overflow: hidden; overflow-wrap: anywhere; background: #172126; color: #edf4f1; }
+.primavera-page #apostila h2,.primavera-page #apostila p { color: #edf4f1; }
+.primavera-page #apostila button { background: #25383d; border-color: #57716d; color: #edf4f1; transition: background .2s; }
+.primavera-page #apostila button:hover:not(:disabled) { background: #36504f; }
+.primavera-page #apostila button:disabled { opacity: .4; cursor: default; }
+.primavera-page .msp-modal-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.primavera-page .msp-book-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.primavera-page [data-msp-pages] { text-align: center; font-size: 14px; }
+.primavera-page .msp-book-pages { position: relative; max-width: 100%; overflow: hidden; margin: 0 auto; perspective: 1600px; box-shadow: 0 10px 24px #0008; }
+.primavera-page .msp-book-mount { width: 100%; height: 100%; }
+.primavera-page .msp-book-mount .stf__wrapper { position: relative; width: 100%; height: 100%; }
+.primavera-page .msp-book-mount canvas { display: block; }
+.primavera-page .msp-book-pages { grid-template-columns: 1fr; }
+.primavera-page .msp-book-controls { gap: 8px; }
+.primavera-page .msp-book-controls button { font-size: 12px; padding: 8px; }
+.primavera-page.msp-modal-open {overflow:hidden}
+@media(max-width:760px){.primavera-page .msp-book-controls {gap:8px}.primavera-page .msp-book-controls button {font-size:12px;padding:8px}}

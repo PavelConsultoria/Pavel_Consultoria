@@ -1,18 +1,18 @@
 const close = dialog => dialog.close();
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape') {
-    const dialog = document.querySelector('.msp-modal[open]');
+    const dialog = document.querySelector('.msp-modal[open], #apostila.p6-modal[open]');
     if (dialog) { event.preventDefault(); close(dialog); }
   }
 });
-document.querySelectorAll('[data-msp-modal]').forEach(link => link.addEventListener('click', event => {
+document.querySelectorAll('[data-msp-modal], [data-p6-modal="apostila"]').forEach(link => link.addEventListener('click', event => {
   event.preventDefault();
-  const dialog = document.getElementById(link.dataset.mspModal);
+  const dialog = document.getElementById(link.dataset.mspModal || link.dataset.p6Modal);
   dialog.showModal(); document.body.classList.add('msp-modal-open');
   if (dialog.id === 'apostila') { loadBook(); fitBook(); }
 }));
-document.querySelectorAll('.msp-modal').forEach(dialog => {
-  dialog.querySelector('[data-msp-close]').addEventListener('click', () => close(dialog));
+document.querySelectorAll('.msp-modal, #apostila.p6-modal').forEach(dialog => {
+  dialog.querySelector('[data-msp-close], [data-p6-close]').addEventListener('click', () => close(dialog));
   dialog.addEventListener('close', () => document.body.classList.remove('msp-modal-open'));
   dialog.addEventListener('click', event => {
     const r = dialog.getBoundingClientRect();
@@ -26,7 +26,9 @@ const quotes = [
   ['Melquisedeque Lima', 'Foram noites dedicadas ao aprendizado, aprimoramento e troca de experiências sobre uma ferramenta tão importante para o planejamento e gerenciamento de projetos.'],
   ['Kristina Moraes', 'Recomendo! Se você está procurando aprimorar seus conhecimentos, o da Pavel, sem dúvida, é o ideal.']
 ];
-const box = document.querySelector('.msp-testimonial'), quote = box.querySelector('.msp-testimonial-quote'), author = box.querySelector('.msp-testimonial-author');
+const box = document.querySelector('.msp-testimonial');
+if (box) {
+const quote = box.querySelector('.msp-testimonial-quote'), author = box.querySelector('.msp-testimonial-author');
 let round = [], last = -1;
 function nextQuote() {
   if (!round.length) {
@@ -45,6 +47,7 @@ setInterval(() => {
     nextQuote(); content.animate([{opacity:0},{opacity:1}], {duration:200,fill:'forwards'});
   });
 }, 5000);
+}
 let pdf, loading, book, pageImages = [], pageRatio = 1, layoutKey = '', resizeFrame;
 const renderedPages = new Map();
 const mobile = matchMedia('(max-width:760px)'), pages = document.querySelector('.msp-book-pages');
@@ -111,7 +114,7 @@ async function loadBook() {
     try {
       const [lib] = await Promise.all([import('./vendor/msp-pdf.js'), loadPageFlip()]);
       lib.GlobalWorkerOptions.workerSrc = new URL('./vendor/msp-pdf.worker.js', import.meta.url).href;
-      pdf ??= await lib.getDocument({url:new URL('./apostila-msproject-previa.pdf', import.meta.url).href}).promise;
+      pdf ??= await lib.getDocument({url:new URL(document.getElementById('apostila').dataset.pdfSrc || './apostila-msproject-previa.pdf', import.meta.url).href}).promise;
       const images = new Array(pdf.numPages);
       let nextPage = 1;
       const renderPages = async () => {

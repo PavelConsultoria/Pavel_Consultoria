@@ -26,9 +26,10 @@
 
 // Janelas do Primavera: mantem o conteudo atual e a navegacao para a Agenda.
 (() => {
- const dialogs = [...document.querySelectorAll('.p6-modal')];
+ const dialogs = [...document.querySelectorAll('.p6-modal')].filter(dialog => !dialog.dataset.pdfSrc);
  if (!dialogs.length) return;
  document.querySelectorAll('[data-p6-modal]').forEach(link => link.addEventListener('click', event => {
+  if (document.getElementById(link.dataset.p6Modal).dataset.pdfSrc) return;
   event.preventDefault();
   document.getElementById(link.dataset.p6Modal).showModal();
   document.body.classList.add('p6-modal-open');
