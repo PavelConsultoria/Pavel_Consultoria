@@ -239,3 +239,16 @@ body.p6-modal-open {overflow:hidden}
  .pmp-page .pmp-cover {padding-block:24px}
  .pmp-page .learning-grid {grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:8px}
 }
+
+/* Depoimentos Primavera: mesma janela e animacao do MS Project. */
+.primavera-page .msp-panel {position:relative}
+.primavera-page .msp-testimonial { position: absolute; right: 0; top: 76px; width: 300px; min-height: 170px; box-sizing: border-box; background: #E8F4EE; color: #18251E; padding: 16px; border-radius: 14px; box-shadow: 0 4px 14px #0000001c; z-index: 2; animation: msp-testimonial-float 6s ease-in-out infinite; }
+.primavera-page .msp-testimonial[hidden] { display: none; }
+.primavera-page .msp-testimonial-content { height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+.primavera-page .msp-testimonial-quote { margin: 14px 0 0; font-size: 13px; font-style: italic; font-weight: 400; line-height: 1.45; color: #18251E; }
+.primavera-page .msp-testimonial-author { font-size: 10px; font-style: normal; font-weight: 600; line-height: 1.35; text-align: right; padding-top: 6px; margin: 0; color: #236A47; }
+.primavera-page .msp-testimonial-mark { position: absolute; top: 7px; left: 12px; font-size: 17px; color: #236A47; line-height: 1; }
+
+@keyframes msp-testimonial-float { 0%,100% { transform: translateY(-3px); } 50% { transform: translateY(3px); } }
+@media(max-width:1200px){.primavera-page .msp-testimonial {display:none}}
+@media(prefers-reduced-motion:reduce){.primavera-page .msp-testimonial {animation:none}}

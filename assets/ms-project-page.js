@@ -28,15 +28,16 @@ const quotes = [
 ];
 const box = document.querySelector('.msp-testimonial');
 if (box) {
+const testimonials = box.dataset.testimonials ? JSON.parse(box.dataset.testimonials) : quotes;
 const quote = box.querySelector('.msp-testimonial-quote'), author = box.querySelector('.msp-testimonial-author');
 let round = [], last = -1;
 function nextQuote() {
   if (!round.length) {
-    round = quotes.map((_, i) => i);
+    round = testimonials.map((_, i) => i);
     for (let i = round.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [round[i], round[j]] = [round[j], round[i]]; }
     if (round[0] === last) [round[0], round[1]] = [round[1], round[0]];
   }
-  last = round.shift(); author.textContent = quotes[last][0]; quote.textContent = quotes[last][1];
+  last = round.shift(); author.textContent = testimonials[last][0]; quote.textContent = testimonials[last][1];
 }
 nextQuote(); box.hidden = false;
 setInterval(() => {
