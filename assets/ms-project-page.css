@@ -13,7 +13,7 @@
 .ms-project-page .learning-number { color: #236A47; font-size: 16px; margin-bottom: 8px; }
 .ms-project-page .learning-grid h3 { color: #18251E; font-style: normal; font-size: 15px; font-weight: 600; line-height: 1.25; margin-bottom: 8px; }
 .ms-project-page .learning-grid p { color: #18251E; font-size: 12px; line-height: 1.45; font-style: italic; }
-.ms-project-page .course-shortcuts { gap: 12px; margin-top: 22px; }
+.ms-project-page .course-shortcuts { grid-template-columns: repeat(4,minmax(0,1fr)); grid-auto-rows: 1fr; gap: 12px; margin-top: 22px; }
 .ms-project-page .course-shortcuts a { background: #E8F4EE; color: #18251E; border-radius: 12px; padding: 16px; font-size: 16px; }
 .ms-project-page .course-shortcuts span { font-size: 12px; }
 .ms-project-page .msp-testimonial { position: absolute; right: 0; top: 76px; width: 300px; min-height: 170px; box-sizing: border-box; background: #E8F4EE; color: #18251E; padding: 16px; border-radius: 14px; box-shadow: 0 4px 14px #0000001c; z-index: 2; animation: msp-testimonial-float 6s ease-in-out infinite; }
