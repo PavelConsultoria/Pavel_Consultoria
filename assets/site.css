@@ -201,3 +201,8 @@ body.p6-modal-open {overflow:hidden}
 .primavera-page .msp-book-controls button { font-size: 12px; padding: 8px; }
 .primavera-page.msp-modal-open {overflow:hidden}
 @media(max-width:760px){.primavera-page .msp-book-controls {gap:8px}.primavera-page .msp-book-controls button {font-size:12px;padding:8px}}
+
+/* Ementa Primavera: topicos na ordem fornecida e aviso do Avancado. */
+#ementa.p6-modal .p6-syllabus {margin:12px 0;padding-left:24px}
+#ementa.p6-modal .p6-syllabus li {margin-block:6px}
+#ementa.p6-modal .p6-syllabus-notice {padding:12px 16px;border-left:3px solid #236A47;background:#D8EADF;color:#236A47}
