@@ -202,7 +202,17 @@ body.p6-modal-open {overflow:hidden}
 .primavera-page.msp-modal-open {overflow:hidden}
 @media(max-width:760px){.primavera-page .msp-book-controls {gap:8px}.primavera-page .msp-book-controls button {font-size:12px;padding:8px}}
 
-/* Ementa Primavera: topicos na ordem fornecida e aviso do Avancado. */
-#ementa.p6-modal .p6-syllabus {margin:12px 0;padding-left:24px}
-#ementa.p6-modal .p6-syllabus li {margin-block:6px}
-#ementa.p6-modal .p6-syllabus-notice {padding:12px 16px;border-left:3px solid #236A47;background:#D8EADF;color:#236A47}
+/* Ementa Primavera: paragrafos no padrao MS Project, com espacos compactos. */
+#ementa.p6-modal .p6-modal-heading {margin-bottom:12px}
+#ementa.p6-modal h3 {margin:14px 0 8px}
+#ementa.p6-modal .p6-syllabus {font-size:14px;line-height:1.45;margin:8px 0}
+#ementa.p6-modal .p6-syllabus-notice {font-size:14px;line-height:1.4;margin:8px 0;padding:8px 12px;border-left:3px solid #236A47;background:#D8EADF;color:#236A47}
+@media(min-width:761px) and (max-height:750px){
+ #ementa.p6-modal .p6-modal-heading {margin-bottom:8px}
+ #ementa.p6-modal h3 {font-size:17px;margin:10px 0 6px}
+ #ementa.p6-modal .p6-syllabus {font-size:13px;line-height:1.35;margin:6px 0}
+ #ementa.p6-modal .p6-syllabus-notice {font-size:13px;margin:6px 0;padding:6px 10px}
+}
+@media(max-width:760px){
+ #ementa.p6-modal .p6-syllabus {font-size:16px;line-height:1.65;margin:12px 0}
+}
