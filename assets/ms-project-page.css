@@ -41,6 +41,8 @@
 .ms-project-page .msp-modal-actions { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
 .ms-project-page .msp-modal .certificate { margin-top: 26px; }
 .ms-project-page .msp-modal .certificate h2 { font-size: 20px; }
+.ms-project-page .msp-investment-whatsapp { display: block; width: 230px; max-width: 100%; }
+.ms-project-page .msp-investment-whatsapp img { display: block; width: 100%; height: auto; }
 .ms-project-page .msp-price { font-size: 24px; color: #236A47; }
 .ms-project-page .msp-book-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
 .ms-project-page [data-msp-pages] { text-align: center; font-size: 14px; }
