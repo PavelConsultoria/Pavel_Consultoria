@@ -216,3 +216,9 @@ body.p6-modal-open {overflow:hidden}
 @media(max-width:760px){
  #ementa.p6-modal .p6-syllabus {font-size:16px;line-height:1.65;margin:12px 0}
 }
+
+/* Investimento Primavera: mesmos estilos e contato do MS Project. */
+.primavera-page .msp-modal-actions { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
+.primavera-page .msp-investment-whatsapp { display: block; width: 230px; max-width: 100%; }
+.primavera-page .msp-investment-whatsapp img { display: block; width: 100%; height: auto; }
+.primavera-page .msp-price { font-size: 24px; color: #236A47; }
