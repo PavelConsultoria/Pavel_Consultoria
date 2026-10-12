@@ -133,3 +133,15 @@ body {background:#f7f8f5;color:#203036}
  .site-header .header-whatsapp svg {width:26px;height:26px}
  .site-header #menu.is-open {padding-inline:20px}
 }
+
+/* Apresentacao Primavera: mesmas medidas da apresentacao MS Project. */
+.course-cover--p6 {padding-block:32px}
+.course-cover--p6 h1 {max-width:650px;margin:16px 0 20px;font-size:clamp(28px,3.4vw,44px);line-height:1.16}
+.course-cover--p6 h1 span {display:block;white-space:nowrap;color:white}
+.course-cover--p6 .p6-title-secondary {font-size:.82em}
+.course-cover--p6 .course-highlights {max-width:650px;font-size:18px;font-weight:600;line-height:1.65;margin:0 0 22px}
+@media(max-width:760px){
+ .course-cover--p6 {padding-block:24px}
+ .course-cover--p6 h1 span {white-space:normal}
+ .course-cover--p6 .course-highlights {font-size:17px}
+}
