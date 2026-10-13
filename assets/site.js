@@ -26,7 +26,7 @@
 
 // Janelas compartilhadas dos cursos.
 (() => {
- const dialogs = [...document.querySelectorAll('.p6-modal')].filter(dialog => !dialog.dataset.pdfSrc);
+ const dialogs = [...document.querySelectorAll('.p6-modal')].filter(dialog => !dialog.dataset.pdfSrc && !dialog.hasAttribute('data-pmp-dialog'));
  if (!dialogs.length) return;
  document.querySelectorAll('[data-p6-modal]').forEach(link => link.addEventListener('click', event => {
   if (document.getElementById(link.dataset.p6Modal).dataset.pdfSrc) return;

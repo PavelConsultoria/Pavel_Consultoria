@@ -59,20 +59,84 @@
 <p>Uma solução digital própria para apoiar sua preparação para o exame PMP.</p>
 <p class="price">R$ 199,00</p>
 <p>Assinatura trimestral · 90 dias</p>
-<div class="pmp-actions"><a class="button" href="https://pavelpmpsimulator.com.br/#/demo" data-p6-modal="pmp-simulator" aria-haspopup="dialog" aria-controls="pmp-simulator">Acessar o Simulator ↗</a>
-<a class="home-whatsapp" href="https://wa.me/5521995716270" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp"><img src="assets/whatsapp-home.png" alt="Fale Conosco" width="440" height="147"></a></div>
-<div class="learning-grid"><article><span class="learning-number">1</span><h3>600 | Questões PMP</h3><p>Banco de questões com diferentes níveis de dificuldade e abordagens.</p></article>
-<article><span class="learning-number">2</span><h3>20 | Case Studies</h3><p>100 questões contextualizadas para desenvolver a tomada de decisão.</p></article>
-<article><span class="learning-number">3</span><h3>180 | Questões por Exame</h3><p>Simulação completa do exame PMP.</p></article>
-<article><span class="learning-number">4</span><h3>230 | Minutos de Prova</h3><p>Cronômetro para praticar a gestão do tempo.</p></article>
-<article><span class="learning-number">5</span><h3>2 | Modos de Preparação</h3><p>Estudo com feedback e Exame com simulação da prova.</p></article>
-<article><span class="learning-number">6</span><h3>★ | Revisão e Estatísticas</h3><p>Questões favoritas, relatórios de desempenho e histórico de resultados.</p></article></div>
+<div class="pmp-actions">
+<button class="button" type="button" data-pmp-preview aria-haspopup="dialog" aria-controls="pmp-video">Assistir à prévia em vídeo ▷</button>
+<a class="button" href="https://pavelpmpsimulator.com.br/#/demo" data-p6-modal="pmp-simulator" aria-haspopup="dialog" aria-controls="pmp-simulator">Acessar o Simulator ↗</a>
+<a class="home-whatsapp" href="https://wa.me/5521995716270" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">
+<img src="assets/whatsapp-home.png" alt="Fale Conosco" width="440" height="147">
+</a>
+</div>
+<div class="learning-grid">
+<article>
+<span class="learning-number">1</span>
+<h3>600 | Questões PMP</h3>
+<p>Banco de questões com diferentes níveis de dificuldade e abordagens.</p>
+</article>
+<article>
+<span class="learning-number">2</span>
+<h3>20 | Case Studies</h3>
+<p>100 questões contextualizadas para desenvolver a tomada de decisão.</p>
+</article>
+<article>
+<span class="learning-number">3</span>
+<h3>180 | Questões por Exame</h3>
+<p>Simulação completa do exame PMP.</p>
+</article>
+<article>
+<span class="learning-number">4</span>
+<h3>230 | Minutos de Prova</h3>
+<p>Cronômetro para praticar a gestão do tempo.</p>
+</article>
+<article>
+<span class="learning-number">5</span>
+<h3>2 | Modos de Preparação</h3>
+<p>Estudo com feedback e Exame com simulação da prova.</p>
+</article>
+<article>
+<span class="learning-number">6</span>
+<h3>★ | Revisão e Estatísticas</h3>
+<p>Questões favoritas, relatórios de desempenho e histórico de resultados.</p>
+</article>
+</div>
 </div>
 </section>
-
 <dialog class="p6-modal pmp-simulator-modal" id="pmp-simulator" aria-labelledby="pmp-simulator-title">
-<div class="p6-modal-heading"><h2 id="pmp-simulator-title">Pavel PMP Simulator</h2><button type="button" data-p6-close aria-label="Fechar demonstração do simulador">×</button></div>
-<iframe data-src="https://pavelpmpsimulator.com.br/#/demo" title="Demonstração do Pavel PMP Simulator"></iframe>
+<div class="p6-modal-heading">
+<h2 id="pmp-simulator-title">Pavel PMP Simulator</h2>
+<button type="button" data-p6-close aria-label="Fechar demonstração do simulador">×</button>
+</div>
+<iframe data-src="https://pavelpmpsimulator.com.br/#/demo" title="Demonstração do Pavel PMP Simulator">
+</iframe>
+</dialog>
+
+<link rel="stylesheet" href="assets/pmp-video.css">
+<script defer src="assets/pmp-video.js">
+</script>
+<dialog class="p6-modal pmp-video-modal" data-pmp-dialog id="pmp-video" aria-labelledby="pmp-video-title">
+<div class="p6-modal-heading">
+<h2 id="pmp-video-title">Conheça o Pavel PMP Simulator</h2>
+<button type="button" data-pmp-exit aria-label="Fechar vídeo">×</button>
+</div>
+<video controls playsinline preload="metadata" aria-label="Prévia do Pavel PMP Simulator">
+<source src="assets/Pavel_PMP_Simulator_PREVIA_2X.mp4" type="video/mp4">Seu navegador não suporta vídeo. <a href="assets/Pavel_PMP_Simulator_PREVIA_2X.mp4">Abrir a prévia</a>
+</video>
+</dialog>
+<dialog class="p6-modal pmp-offer" data-pmp-dialog id="pmp-offer" aria-labelledby="pmp-offer-title" aria-describedby="pmp-offer-description">
+<div class="p6-modal-heading">
+<h2 id="pmp-offer-title">Prepare-se com o Pavel PMP Simulator</h2>
+<button class="pmp-offer-close" type="button" data-pmp-continue aria-label="Fechar e continuar assistindo">×</button>
+</div>
+<p id="pmp-offer-description">Pratique para o exame PMP com questões, estudos de caso e acompanhamento do seu desempenho.</p>
+<div class="pmp-plan">
+<strong>R$ 199 <span>/ 90 dias</span>
+</strong>
+<p>Acesso ao Pavel PMP Simulator por 90 dias.</p>
+<p>Continue sua preparação por <b>R$ 100 / mês adicional</b>.</p>
+</div>
+<div class="pmp-offer-actions">
+<a class="button" href="https://wa.me/5521995716270?text=Quero%20contratar%20o%20Pavel%20PMP%20Simulator%20por%20R%24%20199%20%2F%2090%20dias%2C%20com%20R%24%20100%20por%20m%C3%AAs%20adicional." target="_blank" rel="noopener noreferrer">Quero contratar ↗</a>
+<button type="button" data-pmp-continue>Fechar e continuar assistindo</button>
+</div>
 </dialog>
 </main>
 <footer class="container footer">
