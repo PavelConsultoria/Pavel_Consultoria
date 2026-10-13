@@ -50,7 +50,7 @@ async function run(){
     const metrics=await send('Page.getLayoutMetrics');const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:true,clip:{x:0,y:0,width,height:metrics.cssContentSize.height,scale:1}});fs.writeFileSync(path.join(output,`${file.replace('.html','')}-${width}.png`),Buffer.from(shot.data,'base64'));
    }
   }
-  if(file==='ms-project.html')assert(await evaluate('document.querySelector("#investimento").textContent.includes("novembro de 2026")'));
+  if(file==='ms-project.html')assert(await evaluate('document.querySelector("#investimento").textContent.includes("R$ 400,00") && document.querySelector("#investimento").textContent.includes("R$ 380,00") && document.querySelector("#investimento").textContent.includes("R$ 360,00") && !document.querySelector("#investimento").textContent.includes("novembro de 2026")'));
   if(file==='primavera.html')assert(await evaluate('[...document.querySelectorAll("#apostila a")].some(a=>a.href.endsWith("apostila-p6-reduzida.pdf"))'));
   if(file==='certificacao-pmp.html')assert(await evaluate('document.body.textContent.includes("R$ 199,00") && document.body.textContent.includes("90 dias")'));
   if(file==='sobre.html')assert(await evaluate('getComputedStyle(document.querySelector("#sobre")).backgroundColor === "rgb(32, 49, 45)" && getComputedStyle(document.querySelector("#sobre h1")).color === "rgb(244, 247, 245)"'),'Sobre: contraste do fundo e título');

@@ -25,7 +25,7 @@ for(const file of pages){
  assert.equal(html.includes('class="whatsapp-floating"'),file!=='index.html');
 }
 const pmp=fs.readFileSync(path.join(root,'certificacao-pmp.html'),'utf8');assert(pmp.includes('R$ 199,00'));assert(!pmp.includes('260'));assert(pmp.includes('90 dias'));
-const msp=fs.readFileSync(path.join(root,'ms-project.html'),'utf8');assert(msp.includes('novembro de 2026'));assert(msp.includes('R$ 460,00'));
+const msp=fs.readFileSync(path.join(root,'ms-project.html'),'utf8');assert(!msp.includes('novembro de 2026'));assert(msp.includes('R$ 400,00'));assert(msp.includes('5% de desconto: <strong>R$ 380,00'));assert(msp.includes('R$ 360,00 por pessoa'));assert(!/R\$ (460|437|414),00/.test(msp));
 const context={window:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'assets/config.js'),'utf8'),context);const config=context.window.PAVEL_CONFIG;
 assert.equal(new URL(config.agendaCsvUrl).hostname,'docs.google.com');assert(!config.classes);assert.equal(config.whatsappNumber,'5521995716270');
 for(const url of [config.simulatorUrl,...Object.values(config.forms),...Object.values(config.samples)])if(url)assert.equal(new URL(url).protocol,'https:');
