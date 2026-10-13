@@ -1,49 +1,57 @@
-(() => {
+﻿(() => {
   'use strict';
-  const player = document.querySelector('#pmp-video');
+  const dialog = document.querySelector('#pmp-video');
   const offer = document.querySelector('#pmp-offer');
+  const player = dialog?.querySelector('[data-pmp-player]');
   const video = player?.querySelector('video');
   const trigger = document.querySelector('[data-pmp-preview]');
   if (!video || !offer || !trigger) return;
   let leaving = false;
-  const syncScroll = () => document.body.classList.toggle('p6-modal-open', player.open || offer.open);
-  async function showOffer() {
-    if (!player.open || leaving || offer.open) return;
+  function showOffer() {
+    if (!dialog.open || leaving || !offer.hidden) return;
+    // Troca o conteúdo antes de pausar para evitar reentrada pelo evento pause.
+    offer.hidden = false;
+    player.hidden = true;
     video.pause();
-    if (document.fullscreenElement) {
-      try { await document.exitFullscreen(); } catch {}
-    }
-    if (player.open && !leaving && !offer.open) offer.showModal();
-    syncScroll();
+    if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+    dialog.querySelector('#pmp-offer-title').focus();
   }
   function continueVideo() {
-    offer.close();
+    offer.hidden = true;
+    player.hidden = false;
     if (video.ended) video.currentTime = 0;
+    video.focus();
     video.play().catch(() => {});
   }
-  function closePlayer() {
+  function closeDialog() {
     leaving = true;
-    offer.close();
     video.pause();
-    player.close();
-    syncScroll();
-    trigger.focus();
-    leaving = false;
+    dialog.close();
   }
+  dialog.addEventListener('close', () => {
+    document.body.classList.remove('p6-modal-open');
+    trigger.focus();
+  });
   trigger.addEventListener('click', () => {
-    player.showModal();
-    syncScroll();
+    leaving = false;
+    offer.hidden = true;
+    player.hidden = false;
+    dialog.showModal();
+    document.body.classList.add('p6-modal-open');
+    if (video.ended) video.currentTime = 0;
     video.play().catch(() => {});
   });
   video.addEventListener('pause', showOffer);
   video.addEventListener('ended', showOffer);
-  player.addEventListener('cancel', event => { event.preventDefault(); showOffer(); });
-  offer.addEventListener('cancel', event => { event.preventDefault(); continueVideo(); });
+  dialog.addEventListener('cancel', event => {
+    event.preventDefault();
+    if (offer.hidden) showOffer(); else closeDialog();
+  });
   document.addEventListener('keydown', event => {
-    if (event.key !== 'Escape' || !player.open) return;
+    if (event.key !== 'Escape' || !dialog.open) return;
     event.preventDefault();
     event.stopImmediatePropagation();
-    if (offer.open) continueVideo(); else showOffer();
+    if (offer.hidden) showOffer(); else closeDialog();
   }, true);
   video.addEventListener('webkitendfullscreen', showOffer);
   let wasFullscreen = false;
@@ -52,7 +60,6 @@
     wasFullscreen = !!document.fullscreenElement;
     if (exited) showOffer();
   });
-  player.querySelector('[data-pmp-exit]').addEventListener('click', closePlayer);
-  offer.querySelectorAll('[data-pmp-continue]').forEach(button => button.addEventListener('click', continueVideo));
-  offer.addEventListener('close', syncScroll);
+  dialog.querySelector('[data-pmp-exit]').addEventListener('click', closeDialog);
+  offer.querySelector('[data-pmp-continue]').addEventListener('click', continueVideo);
 })();
