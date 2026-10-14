@@ -67,10 +67,12 @@
       if (!cohorts.length) return;
       const article = element('article', '', 'class-list-item'); article.dataset.course = course;
       article.append(element('h3', config.courses[course].name));
-      cohorts.forEach(item => {
+      cohorts.forEach((item, index) => {
         const group = element('div', '', 'agenda-cohort'); group.dataset.cohort = item.sourceId;
-        group.append(element('p', `${item.variant}: ${dateSummary(item)} · ${item.time}.`, 'agenda-date-time'),
-          contactLink(item, item.statusKey === 'esgotada' ? 'Consultar outras opções ↗' : 'Inscrição ou consulta ↗'));
+        group.append(element('p', `${item.variant}: ${dateSummary(item)} · ${item.time}.`, 'agenda-date-time'));
+        if (!(course === 'p6' && index === 0 && cohorts.length > 1)) {
+          group.append(contactLink(item, item.statusKey === 'esgotada' ? 'Consultar outras opções ↗' : 'Inscrição ou consulta ↗'));
+        }
         if (item.statusKey === 'esgotada') group.append(element('p', 'Esgotada.'));
         article.append(group);
       });
