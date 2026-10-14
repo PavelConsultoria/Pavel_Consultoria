@@ -1,11 +1,12 @@
 ﻿.p6-modal.pmp-video-modal {position:fixed;inset:0;margin:auto;box-sizing:border-box;width:1100px;max-width:95vw;height:auto;max-height:90vh;max-height:90svh;padding:16px;overflow:auto}
+.p6-modal.pmp-video-modal:has(.pmp-offer:not([hidden])) {width:650px;max-width:95vw;height:auto;margin:auto}
 .pmp-video-modal .p6-modal-heading {gap:12px;margin-bottom:12px}
 .pmp-video-modal .p6-modal-heading h2 {font-size:22px;line-height:1.25}
 .pmp-video-modal [data-pmp-player] {width:100%;aspect-ratio:16/9}
 .pmp-video-modal video {display:block;width:100%;height:100%;aspect-ratio:16/9;object-fit:contain;border-radius:8px;background:transparent}
 .pmp-video-modal [hidden] {display:none!important}
 .pmp-video-modal [data-pmp-exit] {flex-shrink:0;font-size:26px;width:44px;padding:0;cursor:pointer}
-.pmp-video-modal .pmp-offer {padding:clamp(12px,3vw,36px);max-width:760px;margin:auto}
+.pmp-video-modal .pmp-offer {padding:clamp(12px,3vw,36px);max-width:650px;margin:auto}
 .pmp-video-modal .pmp-offer h3 {font-size:clamp(22px,3vw,30px);line-height:1.3;margin:0 0 20px;color:#236A47}
 .pmp-video-modal .pmp-plan {padding:18px;border:1px solid #719d83;border-radius:12px;background:#f7fbf8;margin:18px 0}
 .pmp-video-modal .pmp-plan strong {color:#236A47;font-size:clamp(22px,3vw,30px)}
