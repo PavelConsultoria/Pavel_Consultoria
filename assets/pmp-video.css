@@ -1,5 +1,6 @@
 ﻿.p6-modal.pmp-video-modal {position:fixed;inset:0;margin:auto;box-sizing:border-box;width:1100px;max-width:95vw;height:auto;max-height:90vh;max-height:90svh;padding:16px;overflow:auto}
-.p6-modal.pmp-video-modal:has(.pmp-offer:not([hidden])) {width:650px;max-width:95vw;height:auto;margin:auto}
+.p6-modal.pmp-video-modal:has(.pmp-offer:not([hidden])) {width:650px;max-width:95vw;height:fit-content;margin:auto;padding-bottom:25px}
+.pmp-video-modal .pmp-offer:not([hidden]) {padding-bottom:0}
 .pmp-video-modal .p6-modal-heading {gap:12px;margin-bottom:12px}
 .pmp-video-modal .p6-modal-heading h2 {font-size:22px;line-height:1.25}
 .pmp-video-modal [data-pmp-player] {width:100%;aspect-ratio:16/9}
