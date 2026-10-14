@@ -60,6 +60,8 @@
     wasFullscreen = !!document.fullscreenElement;
     if (exited) showOffer();
   });
-  dialog.querySelector('[data-pmp-exit]').addEventListener('click', closeDialog);
+  dialog.querySelector('[data-pmp-exit]').addEventListener('click', () => {
+    if (offer.hidden) showOffer(); else closeDialog();
+  });
   offer.querySelector('[data-pmp-continue]').addEventListener('click', continueVideo);
 })();
