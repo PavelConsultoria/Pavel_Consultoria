@@ -70,12 +70,12 @@
       cohorts.forEach((item, index) => {
         const group = element('div', '', 'agenda-cohort'); group.dataset.cohort = item.sourceId;
         group.append(element('p', `${item.variant}: ${dateSummary(item)} · ${item.time}.`, 'agenda-date-time'));
-        if (!(course === 'p6' && index === 0 && cohorts.length > 1)) {
-          group.append(contactLink(item, item.statusKey === 'esgotada' ? 'Consultar outras opções ↗' : 'Inscrição ou consulta ↗'));
-        }
         if (item.statusKey === 'esgotada') group.append(element('p', 'Esgotada.'));
         article.append(group);
       });
+
+      const registrationCohort = cohorts.find(item => item.statusKey === 'inscricoes abertas' && item.registrationUrl) || cohorts[cohorts.length - 1];
+      article.append(contactLink(registrationCohort, 'Inscrição ou consulta ↗'));
 
       list.append(article);
     });
