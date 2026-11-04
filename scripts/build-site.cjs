@@ -7,7 +7,7 @@ const write = (file, value) => fs.writeFileSync(path.join(root, file), (file.end
 const source = read('templates/home.html');
 const extract = (start, end) => source.slice(source.indexOf(start), source.indexOf(end, source.indexOf(start)));
 const whatsapp = source.match(/<a class="header-whatsapp"[\s\S]*?<\/a>/)[0];
-const nav = [['index.html','Início'],['ms-project.html','MS Project'],['primavera.html','Primavera'],['certificacao-pmp.html','Certificação PMP'],['agenda.html','Agenda de Treinamentos'],['sobre.html','Sobre a Pavel']];
+const nav = [['index.html','Início'],['ms-project.html','MS Project'],['primavera.html','Primavera'],['certificacao-pmp.html','Certificação PMP'],['agenda.html','Agenda de Treinamentos'],['galeria-msp.html','Galeria MSP'],['galeria-p6.html','Galeria P6'],['sobre.html','Sobre a Pavel']];
 function header(current) { return `<header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="Pavel Consultoria — início"><img class="brand-image" src="assets/logo-pavel-dark.png" alt="Pavel Consultoria" width="2172" height="724" decoding="async"></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">Menu <span aria-hidden="true">☰</span></button><nav id="menu" aria-label="Navegação principal">${nav.map(([url,label])=>`<a href="${url}"${url===current?' aria-current="page"':''}>${label}</a>`).join('')}</nav>${whatsapp}</div></header>`; }
 const originalFooter = source.match(/<footer class="container footer">[\s\S]*?<\/footer>/)[0];
 const channels = originalFooter.match(/<div class="footer-channels">[\s\S]*?<\/div><\/div>/)[0];
@@ -74,4 +74,5 @@ page('agenda.html','Agenda de Treinamentos',agenda.replace('<h2 id="agenda-title
 page('sobre.html','Sobre a Pavel',about.replace('<h2 id="about-title">','<h1 id="about-title">').replace('Sobre a Pavel</h2>','Sobre a Pavel</h1>')+contact,{styles:['assets/about.css']});
 write('sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${nav.map(([file])=>`<url><loc>https://pavelconsultoria.com.br/${file==='index.html'?'':file}</loc></url>`).join('')}</urlset>\n`);
 write('robots.txt','User-agent: *\nAllow: /\nSitemap: https://pavelconsultoria.com.br/sitemap.xml\n');
-console.log('HTML estático gerado: seis páginas, cabeçalho e rodapé compartilhados.');
+require('./build-galleries.cjs');
+console.log('HTML estático gerado: oito páginas, cabeçalho e rodapé compartilhados.');

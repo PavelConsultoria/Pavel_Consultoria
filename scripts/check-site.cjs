@@ -13,7 +13,7 @@ for(const file of pages){
  assert.equal((html.match(/data-goatcounter=/g)||[]).length,1);
  assert.equal((html.match(/id="site-visits"/g)||[]).length,1);
  const menu=html.match(/<nav id="menu"[\s\S]*?<\/nav>/)[0];
- assert.deepEqual([...menu.matchAll(/<a [^>]+>([^<]+)<\/a>/g)].map(m=>m[1]),['Início','MS Project','Primavera','Certificação PMP','Agenda de Treinamentos','Sobre a Pavel']);
+ assert.deepEqual([...menu.matchAll(/<a [^>]+>([^<]+)<\/a>/g)].map(m=>m[1]),['Início','MS Project','Primavera','Certificação PMP','Agenda de Treinamentos','Galeria MSP','Galeria P6','Sobre a Pavel']);
  assert.equal((menu.match(/aria-current=/g)||[]).length,1);
  for(const match of html.matchAll(/(?:href|src)="([^"]+)"/g)){
   const value=match[1];if(value.startsWith('#'))assert(ids.includes(value.slice(1)),`${file}: âncora ${value}`);

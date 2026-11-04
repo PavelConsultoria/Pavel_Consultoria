@@ -21,6 +21,8 @@ assert.equal(classes[1].startTime, '09:00');
 assert.deepEqual(data.upcoming(classes,calendar,new Date('2026-10-08T15:00:00Z')).map(c=>c.sourceId),['p1','p2']);
 assert.equal(data.upcoming(classes,calendar,new Date('2026-11-01T15:00:00Z')).length,0);
 assert.equal(classes[5].dates.length,0);
+const datesWithEmptySegments = data.parse(header+'\n'+rows[1].replace('2026-10-17',';2026-11-19; 2026-11-24;2026-11-26; 2026-12-01;'),calendar);
+assert.deepEqual(datesWithEmptySegments[0].dates,['2026-11-19','2026-11-24','2026-11-26','2026-12-01']);
 assert.equal(data.parse(header,calendar).length,0);
 assert.equal(data.https('javascript:alert(1)'), '');
 assert.equal(data.https('https://user:pass@example.com'), '');

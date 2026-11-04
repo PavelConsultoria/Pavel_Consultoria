@@ -1,0 +1,7 @@
+/* Only the added navigation needs an earlier switch to the existing compact menu.
+   Link typography, spacing, colors, active state, header and footer stay in site.css. */
+@media (min-width:1201px) and (max-width:1439px) {
+  #menu,.home #menu {display:none;position:absolute;top:100%;left:0;right:0;background:#1b252a;padding:16px 24px;flex-direction:column;border-bottom:1px solid #ffffff30}
+  #menu.is-open,.home #menu.is-open {display:flex}
+  .menu-toggle,.home .menu-toggle {display:block;margin-left:auto}
+}

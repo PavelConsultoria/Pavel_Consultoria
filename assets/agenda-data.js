@@ -56,7 +56,7 @@
       if (row.length !== headers.length) throw new Error(`Colunas incompletas na linha ${index + 2}.`);
       const [sourceId, training, variant, rawDates, time, duration, modality, status, link, notes] = row.map(value => value.trim());
       const course = /ms\s*project/.test(normalize(training)) ? 'msp' : /primavera\s*p6/.test(normalize(training)) ? 'p6' : '';
-      const dates = rawDates ? [...new Set(rawDates.split(';').map(value => value.trim()))].sort() : [];
+      const dates = rawDates ? [...new Set(rawDates.split(';').map(value => value.trim()).filter(Boolean))].sort() : [];
       const statuses = ['inscricoes abertas','esgotada','cancelada','encerrada','em definicao'];
       if (!sourceId || !course || !variant || !statuses.includes(normalize(status)) || dates.some(key => !calendar.parseDate(key))) throw new Error(`Dados inválidos na linha ${index + 2}.`);
       if (dates.length && (!time || !duration || !modality)) throw new Error(`Informações incompletas na linha ${index + 2}.`);
