@@ -12,22 +12,55 @@
   ['.site-header','.footer','.gallery-heading'].forEach(selector => resize.observe(document.querySelector(selector)));
   measure();
 
-  let activeVideo = null;
+  const items = new Map(videos.map(video => [video, video.closest('.gallery-item')]));
+  const modal = document.createElement('dialog');
+  modal.className = 'gallery-zoom';
+  modal.setAttribute('aria-label', 'Vídeo ampliado');
+  modal.innerHTML = '<div class="gallery-zoom-stage"></div><button class="gallery-zoom-close" type="button" aria-label="Fechar vídeo ampliado">×</button>';
+  document.body.append(modal);
+  const stage = modal.querySelector('.gallery-zoom-stage');
+  const closeButton = modal.querySelector('.gallery-zoom-close');
+  let activeVideo = null, closingTimer, returnFocus;
+  const restore = () => {
+    clearTimeout(closingTimer);
+    const video = stage.querySelector('video');
+    if (video) items.get(video).prepend(video);
+    if (modal.open) modal.close();
+    modal.classList.remove('is-visible');
+    document.body.classList.remove('gallery-zoom-open');
+    if (returnFocus?.isConnected) returnFocus.focus({preventScroll:true});
+  };
+  const closeZoom = () => {
+    if (activeVideo) reset(activeVideo);
+    modal.classList.remove('is-visible');
+    clearTimeout(closingTimer);
+    closingTimer = setTimeout(restore, 180);
+  };
+  closeButton.addEventListener('click', closeZoom);
+  modal.addEventListener('cancel', event => { event.preventDefault(); closeZoom(); });
+  modal.addEventListener('click', event => { if (event.target === modal) closeZoom(); });
   const reset = video => {
     video.pause();
     if (video.readyState > 0 && video.currentTime !== 0) video.currentTime = 0;
-    video.closest('.gallery-item').querySelector('.gallery-start').hidden = false;
+    items.get(video).querySelector('.gallery-start').hidden = false;
     if (activeVideo === video) activeVideo = null;
   };
   const select = video => {
     if (document.hidden || (activeVideo === video && !video.paused)) return;
     videos.forEach(other => { if (other !== video) reset(other); });
+    if (modal.open) restore();
+    returnFocus = items.get(video).querySelector('.gallery-start');
     activeVideo = video;
-    video.closest('.gallery-item').querySelector('.gallery-start').hidden = true;
+    stage.append(video);
+    modal.showModal();
+    document.body.classList.add('gallery-zoom-open');
+    modal.classList.add('is-visible');
+    closeButton.focus({preventScroll:true});
+    items.get(video).querySelector('.gallery-start').hidden = true;
     video.play().then(() => {
       if (activeVideo !== video) reset(video);
     }).catch(() => {
-      if (activeVideo === video) reset(video);
+      if (activeVideo === video) closeZoom();
     });
   };
   videos.forEach(video => {
@@ -41,12 +74,12 @@
     mute();
     video.addEventListener('volumechange', mute);
     video.addEventListener('contextmenu', event => event.preventDefault());
-    const error = () => { video.closest('.gallery-item').querySelector('.gallery-error').hidden = false; };
+    const error = () => { items.get(video).querySelector('.gallery-error').hidden = false; };
     video.addEventListener('error', error);
     video.querySelector('source').addEventListener('error', error);
-    video.closest('.gallery-item').addEventListener('click', () => select(video));
+    items.get(video).addEventListener('click', () => select(video));
     video.addEventListener('play', () => { if (activeVideo !== video) reset(video); });
-    video.addEventListener('ended', () => reset(video));
+    video.addEventListener('ended', closeZoom);
   });
 
   // Original instrumental, synthesized locally on request: soft mallet melody,
@@ -104,9 +137,9 @@
     }
   });
   document.addEventListener('visibilitychange',() => {
-    if(document.hidden){videos.forEach(reset);if(context)context.suspend().catch(()=>{});}
+    if(document.hidden){videos.forEach(reset);restore();if(context)context.suspend().catch(()=>{});}
     else if(context&&musicEnabled)context.resume().catch(()=>{});
   });
-  window.addEventListener('pagehide',()=>{videos.forEach(reset);if(context)context.suspend().catch(()=>{});});
+  window.addEventListener('pagehide',()=>{videos.forEach(reset);restore();if(context)context.suspend().catch(()=>{});});
   window.addEventListener('pageshow',()=>{if(context&&musicEnabled)context.resume().catch(()=>{});});
 })();
