@@ -13,6 +13,12 @@
 .gallery-item {margin:0;min-width:0;aspect-ratio:16/9;position:relative}
 .gallery-video {display:block;width:100%;height:100%;aspect-ratio:16/9;object-fit:contain;background:transparent;pointer-events:none}
 .gallery-video::-webkit-media-controls {display:none!important}
+.gallery-start {position:absolute;inset:0;display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:12px;border:0;background:transparent;color:#fff;cursor:pointer}
+.gallery-start[hidden] {display:none}
+.gallery-title-band {display:flex;align-items:center;justify-content:center;gap:9px;max-width:100%;padding:10px 12px;border-radius:7px;background:rgba(8,53,68,.83);color:#fff;font-size:clamp(12px,1.05vw,16px);font-weight:650;line-height:1.35;text-align:center;text-wrap:balance}
+.gallery-play-icon {flex-shrink:0;font-size:21px;line-height:1}
+.gallery-start:hover .gallery-title-band {background:rgba(8,53,68,.94)}
+.gallery-start:focus-visible {outline-offset:-5px}
 .gallery-caption {position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .gallery-error:not([hidden]) {position:absolute;inset:0;display:grid;place-items:center;padding:16px;text-align:center;background:#172126;color:#f4f8f8;font-size:13px}
 @media(max-width:1023px) {

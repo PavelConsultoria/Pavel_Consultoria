@@ -34,13 +34,15 @@ for (const gallery of galleries) {
   const header = sharedHeader.replace(/ aria-current="page"/g,'').replace(`href="${gallery.file}"`, `href="${gallery.file}" aria-current="page"`);
   const cards = gallery.labels.map((label,i) => {
     const number=String(i+1).padStart(2,'0');
+    const displayLabel=label.replace(/^\d+[-_\s]*/, '');
     const src=`videos/galeria/${gallery.folder}/${gallery.prefix}_${number}_FINAL.mp4`;
     return `<figure class="gallery-item" aria-labelledby="video-${number}-title">
-<video class="gallery-video" autoplay muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback noplaybackrate" tabindex="-1" aria-label="${escape(label)} — demonstração sem áudio">
+<video class="gallery-video" muted playsinline preload="metadata" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback noplaybackrate" tabindex="-1" aria-label="${escape(displayLabel)} — demonstração sem áudio">
 <source src="${src}" type="video/mp4">
 Seu navegador não oferece reprodução de vídeo.
 </video>
-<figcaption class="gallery-caption" id="video-${number}-title">${escape(label)}</figcaption>
+<button class="gallery-start" type="button" aria-label="Reproduzir ${escape(displayLabel)}"><span class="gallery-title-band"><span class="gallery-play-icon" aria-hidden="true">▶</span><span data-gallery-title>${escape(displayLabel)}</span></span></button>
+<figcaption class="gallery-caption" id="video-${number}-title">${escape(displayLabel)}</figcaption>
 <p class="gallery-error" role="status" hidden>Não foi possível carregar este vídeo.</p>
 </figure>`;
   }).join('\n');

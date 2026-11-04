@@ -11,13 +11,17 @@ for(const [file,folder,prefix] of [['galeria-msp.html','MSP','MSP'],['galeria-p6
  assert.equal(html.match(/<footer\b[\s\S]*?<\/footer>/)[0],footer);
  assert.equal(html.match(/<header\b[\s\S]*?<\/header>/)[0].replace(/ aria-current="page"/g,''),header);
  videos.forEach((video,i)=>{
-  for(const flag of ['autoplay','muted','loop','playsinline'])assert(new RegExp(`(?:^|\\s)${flag}(?:\\s|$)`).test(video[1]),`${file}: ${flag}`);
+  for(const flag of ['muted','playsinline'])assert(new RegExp(`(?:^|\\s)${flag}(?:\\s|$)`).test(video[1]),`${file}: ${flag}`);
+  for(const flag of ['autoplay','loop'])assert(!new RegExp(`(?:^|\\s)${flag}(?:\\s|$)`).test(video[1]),`${file}: ${flag} proibido`);
   assert(!/(?:^|\s)controls(?:\s|=|$)/.test(video[1]));
   const src=video[2].match(/src="([^"]+)"/)[1];
   assert.equal(src,`videos/galeria/${folder}/${prefix}_${String(i+1).padStart(2,'0')}_FINAL.mp4`);
   bytes+=fs.statSync(path.join(root,src)).size;
  });
  assert(!/<audio\b/.test(html));assert(html.includes('data-music-label'));
+ assert.equal((html.match(/class="gallery-start"/g)||[]).length,12);
+ const titles=[...html.matchAll(/data-gallery-title>([^<]+)</g)].map(m=>m[1]);
+ assert.equal(titles.length,12);assert(titles.every(title=>!/^\d/.test(title)),'Títulos sem numeração');
  console.log(`OK: ${file}: 12 caminhos reais, vídeos sem controles, cabeçalho/rodapé compartilhados.`);
 }
 for(const file of links){

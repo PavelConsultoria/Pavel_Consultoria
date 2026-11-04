@@ -12,10 +12,23 @@
   ['.site-header','.footer','.gallery-heading'].forEach(selector => resize.observe(document.querySelector(selector)));
   measure();
 
-  const visible = new Set();
-  const play = video => {
-    if (document.hidden || !visible.has(video)) return;
-    video.play().catch(() => { /* A subsequent visibility event can retry autoplay. */ });
+  let activeVideo = null;
+  const reset = video => {
+    video.pause();
+    if (video.readyState > 0 && video.currentTime !== 0) video.currentTime = 0;
+    video.closest('.gallery-item').querySelector('.gallery-start').hidden = false;
+    if (activeVideo === video) activeVideo = null;
+  };
+  const select = video => {
+    if (document.hidden || (activeVideo === video && !video.paused)) return;
+    videos.forEach(other => { if (other !== video) reset(other); });
+    activeVideo = video;
+    video.closest('.gallery-item').querySelector('.gallery-start').hidden = true;
+    video.play().then(() => {
+      if (activeVideo !== video) reset(video);
+    }).catch(() => {
+      if (activeVideo === video) reset(video);
+    });
   };
   videos.forEach(video => {
     const mute = () => {
@@ -23,20 +36,18 @@
       if (video.volume !== 0) video.volume = 0;
     };
     video.defaultMuted = true;
+    video.autoplay = false;
+    video.loop = false;
     mute();
     video.addEventListener('volumechange', mute);
     video.addEventListener('contextmenu', event => event.preventDefault());
     const error = () => { video.closest('.gallery-item').querySelector('.gallery-error').hidden = false; };
     video.addEventListener('error', error);
     video.querySelector('source').addEventListener('error', error);
+    video.closest('.gallery-item').addEventListener('click', () => select(video));
+    video.addEventListener('play', () => { if (activeVideo !== video) reset(video); });
+    video.addEventListener('ended', () => reset(video));
   });
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(({target, isIntersecting}) => {
-      if (isIntersecting) { visible.add(target); play(target); }
-      else { visible.delete(target); target.pause(); }
-    });
-  }, {threshold:0.1});
-  videos.forEach(video => observer.observe(video));
 
   // Original instrumental, synthesized locally on request: soft mallet melody,
   // major-seventh chords and gentle bass. No third-party audio or video changes.
@@ -93,9 +104,9 @@
     }
   });
   document.addEventListener('visibilitychange',() => {
-    if(document.hidden){videos.forEach(video=>video.pause());if(context)context.suspend().catch(()=>{});}
-    else {visible.forEach(play);if(context&&musicEnabled)context.resume().catch(()=>{});}
+    if(document.hidden){videos.forEach(reset);if(context)context.suspend().catch(()=>{});}
+    else if(context&&musicEnabled)context.resume().catch(()=>{});
   });
-  window.addEventListener('pagehide',()=>{videos.forEach(video=>video.pause());if(context)context.suspend().catch(()=>{});});
-  window.addEventListener('pageshow',()=>{visible.forEach(play);if(context&&musicEnabled)context.resume().catch(()=>{});});
+  window.addEventListener('pagehide',()=>{videos.forEach(reset);if(context)context.suspend().catch(()=>{});});
+  window.addEventListener('pageshow',()=>{if(context&&musicEnabled)context.resume().catch(()=>{});});
 })();
