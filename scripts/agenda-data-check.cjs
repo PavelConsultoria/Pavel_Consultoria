@@ -37,6 +37,17 @@ assert.deepEqual(invalid.dates, []);
 assert.equal(invalid.dateText, '2026-02-30;2026-10-08');
 const pending = data.parse(header+'\n'+rows[5].replace(',,,8h',',DATA A DEFINIR,,8h'),calendar)[0];
 assert.equal(data.upcoming([pending],calendar).length, 1);
+for (const message of ['RECESSO EM DEZEMBRO', 'NOVAS TURMAS EM 2027', 'DATA A DEFINIR', 'INSCRIÇÕES EM BREVE']) {
+  const onlyDate = data.parse(header+'\n,,,'+message,calendar)[0];
+  assert.equal(onlyDate.dateText, message);
+  assert.equal(onlyDate.informationalOnly, true);
+  assert.deepEqual(onlyDate.dates, []);
+  assert.deepEqual(data.upcoming([onlyDate],calendar), [onlyDate]);
+}
+const partial = data.parse(header+'\n,MS Project,,DATA A DEFINIR',calendar)[0];
+assert.equal(partial.course, 'msp');
+assert.equal(partial.informationalOnly, true);
+assert.throws(()=>data.parse(header+'\n,,,2027-01-01',calendar));
 const duplicates = data.parse(header+'\n'+rows[1]+'\n'+rows[1].replace('2026-10-17','2026-10-24').replace('Encerrada','Inscrições abertas'),calendar);
 assert.equal(duplicates.length,2);
 assert.notEqual(duplicates[0].id,duplicates[1].id);

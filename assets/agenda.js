@@ -64,7 +64,7 @@
     if (loading || loadError) { list.append(element('p', loading ? 'Carregando a programação…' : 'Não foi possível carregar a programação. Tente atualizar a página ou consulte pelo WhatsApp.', 'agenda-empty')); return; }
     if (!upcoming.length) { list.append(element('p', 'Novas datas em definição.', 'agenda-empty')); return; }
     Object.keys(config.courses).forEach(course => {
-      const cohorts = upcoming.filter(item => item.course === course);
+      const cohorts = upcoming.filter(item => item.course === course && !item.informationalOnly);
       if (!cohorts.length) return;
       const article = element('article', '', 'class-list-item'); article.dataset.course = course;
       article.append(element('h3', config.courses[course].name));
@@ -79,6 +79,18 @@
       article.append(contactLink(registrationCohort, 'Inscrição ou consulta ↗'));
 
       list.append(article);
+    });
+    upcoming.filter(item => item.informationalOnly).forEach(item => {
+      const article = element('article', '', 'class-list-item');
+      if (item.course) {
+        article.dataset.course = item.course;
+        article.append(element('h3', config.courses[item.course].name));
+      }
+      const group = element('div', '', 'agenda-cohort');
+      group.dataset.cohort = item.sourceId;
+      group.append(element('p', `${item.variant ? item.variant + ': ' : ''}${dateSummary(item)}${item.time ? ' · ' + item.time : ''}`, 'agenda-date-time'));
+      if (item.statusKey === 'esgotada') group.append(element('p', 'Esgotada.'));
+      article.append(group); list.append(article);
     });
   }
   function renderCalendar() {
