@@ -18,7 +18,7 @@
     return node;
   }
   function dateSummary(item) {
-    return item.dates.map(key => shortFormat.format(dates.parseDate(key))).join(', ');
+    return item.dateText || item.dates.map(key => shortFormat.format(dates.parseDate(key))).join(', ');
   }
   function contactLink(item, label) {
     const link = element('a', label, 'text-link');
@@ -26,7 +26,8 @@
     form = item.registrationUrl || '';
     // Não anunciar inscrição em uma turma iniciada. O histórico permite consulta.
     const future = futureClasses([item]).length > 0;
-    const message = `${config.messages[item.course] || config.messages.geral} Gostaria de consultar a ${item.variant.toLowerCase()}, com início em ${shortFormat.format(dates.parseDate(item.dates[0]))}.`;
+    const dateDescription = item.dates.length ? `com início em ${shortFormat.format(dates.parseDate(item.dates[0]))}` : `com data ${dateSummary(item)}`;
+    const message = `${config.messages[item.course] || config.messages.geral} Gostaria de consultar a ${item.variant.toLowerCase()}, ${dateDescription}.`;
     link.href = future && item.statusKey === 'inscricoes abertas' && form ? form : `https://wa.me/${config.whatsappNumber}?text=${encodeURIComponent(message)}`;
     link.target = '_blank'; link.rel = 'noopener noreferrer';
     return link;

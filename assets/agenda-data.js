@@ -56,21 +56,24 @@
       if (row.length !== headers.length) throw new Error(`Colunas incompletas na linha ${index + 2}.`);
       const [sourceId, training, variant, rawDates, time, duration, modality, status, link, notes] = row.map(value => value.trim());
       const course = /ms\s*project/.test(normalize(training)) ? 'msp' : /primavera\s*p6/.test(normalize(training)) ? 'p6' : '';
-      const dates = rawDates ? [...new Set(rawDates.split(';').map(value => value.trim()).filter(Boolean))].sort() : [];
+      const candidates = rawDates ? rawDates.split(';').map(value => value.trim()).filter(Boolean) : [];
+      const dates = candidates.length && candidates.every(key => calendar.parseDate(key)) ? [...new Set(candidates)].sort() : [];
+      const dateText = rawDates && !dates.length ? rawDates : '';
       const statuses = ['inscricoes abertas','esgotada','cancelada','encerrada','em definicao'];
-      if (!sourceId || !course || !variant || !statuses.includes(normalize(status)) || dates.some(key => !calendar.parseDate(key))) throw new Error(`Dados inválidos na linha ${index + 2}.`);
+      if (!sourceId || !course || !variant || !statuses.includes(normalize(status))) throw new Error(`Dados inválidos na linha ${index + 2}.`);
       if (dates.length && (!time || !duration || !modality)) throw new Error(`Informações incompletas na linha ${index + 2}.`);
-      const identity = JSON.stringify([sourceId, course, variant, dates, time, duration, modality, status, link, notes]);
+      const identity = JSON.stringify([sourceId, course, variant, dates, dateText, time, duration, modality, status, link, notes]);
       const occurrence = (occurrences.get(identity) || 0) + 1; occurrences.set(identity, occurrence);
       // Namespace separado garante que nenhum ID fornecido colida com chaves geradas.
       const id = totals.get(sourceId) > 1 ? JSON.stringify(['row', identity, occurrence]) : JSON.stringify(['id', sourceId]);
       const match = time.match(/^(\d{1,2})(?:h|:)?(\d{2})?/i);
       const startTime = match && +match[1] < 24 && +(match[2] || 0) < 60 ? `${match[1].padStart(2,'0')}:${match[2] || '00'}` : '';
-      return { id, sourceId, course, training, variant, dates, time, duration, modality, status, statusKey: normalize(status), registrationUrl: https(link), notes, startTime };
+      return { id, sourceId, course, training, variant, dates, dateText, time, duration, modality, status, statusKey: normalize(status), registrationUrl: https(link), notes, startTime };
     });
   }
   function upcoming(classes, calendar, now = new Date()) {
-    return calendar.upcoming(classes.filter(item => item.dates.length && ['inscricoes abertas','esgotada'].includes(item.statusKey)), now);
+    const dated = calendar.upcoming(classes.filter(item => item.dates.length && ['inscricoes abertas','esgotada'].includes(item.statusKey)), now);
+    return dated.concat(classes.filter(item => item.dateText && ['inscricoes abertas','esgotada','em definicao'].includes(item.statusKey)));
   }
   return { csv, parse, https, upcoming, updatedDate };
 });
